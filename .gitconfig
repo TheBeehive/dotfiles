@@ -1,0 +1,10 @@
+### ~/.gitconfig: User configuration for `git`
+
+[user]
+  email = kaitocracy@gmail.com
+  name = Kaiting Chen
+
+[color]
+  ui = auto
+
+### ~/.gitconfig: User configuration for `git`

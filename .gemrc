@@ -1,0 +1,6 @@
+## ~/.gemrc: Rubygems configuration file
+
+gem: --gen-rdoc --install-stub --user-install
+rdoc: --all --line-numbers --inline-source
+
+## ~/.gemrc: Rubygems configuration file
