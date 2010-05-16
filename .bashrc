@@ -8,6 +8,8 @@ PS1='\[\e[32;01m\]\u\[\e[m\] \[\e[36m\]\w\[\e[m\]: '
   PS1='\[\ek\u \w\e\\\]\[\e]0;\u \w\a\]'"${PS1}"
 export PS1
 
+export LC_COLLATE='POSIX'
+
 # Turn on colors for ls and grep
 alias less='less --RAW-CONTROL-CHARS'
 alias ls='ls --color=auto'
