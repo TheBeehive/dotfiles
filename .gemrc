@@ -1,6 +1,0 @@
-### ~/.gemrc: User configuration for 'rubygems'
-
-gem: --gen-rdoc --install-stub --user-install
-rdoc: --all --line-numbers --inline-source
-
-### ~/.gemrc: User configuration for 'rubygems'
