@@ -1,42 +1,22 @@
 """ ~/.vimrc: Personal configuration for vim
 
-" Some default options that make sense
-set backspace=indent,eol,start
-set nobackup
-set nowritebackup
-set ruler
-set showcmd
-set visualbell t_vb=
-
-" Split right and below
-set splitright
-set splitbelow
-
-" Highlight current line
-set cursorline
-
-" Show line numbers
-set number
-set numberwidth=4
+" Use better searching
+set hlsearch incsearch
 
 " Disable folding
 set nofoldenable
 set foldcolumn=0
 
-" Set tab size to two spaces
-set shiftwidth=2
-set expandtab
-set softtabstop=2
+" Split right and below
+set splitright
+set splitbelow
 
-" Use better searching
-set hlsearch incsearch
-
-" Turn on automatic indenting
+" Turn on autoindenting
 set nosmartindent
 set nocindent
 set autoindent
 
-" Turn off mouse integration
+" Disable mouse integration
 set mouse=
 
 " Turn on line breaks
@@ -45,9 +25,6 @@ set linebreak
 " Some helpful mappings
 nmap U :redo<CR>
 nmap <F2> :nohlsearch<CR>
-
-" Turn on syntax highlighting
-syntax on
 
 " Use our custom colorscheme
 colorscheme kiwilight
