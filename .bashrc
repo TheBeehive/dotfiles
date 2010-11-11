@@ -2,8 +2,6 @@
 
 [ -r /etc/bashrc ] && source /etc/bashrc
 
-export LC_COLLATE='POSIX'
-
 # Tell applications to be silent
 alias octave='octave -q'
 alias maxima='maxima -q'
