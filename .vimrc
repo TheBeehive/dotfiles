@@ -27,7 +27,7 @@ nmap U :redo<CR>
 nmap <F2> :nohlsearch<CR>
 
 " Use our custom colorscheme
-colorscheme kiwilight
+"colorscheme kiwilight
 
 " Turn off indenting scripts
 filetype plugin indent off
