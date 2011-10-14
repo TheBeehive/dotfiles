@@ -19,9 +19,6 @@ set autoindent
 " Disable mouse integration
 set mouse=
 
-" Turn on line breaks
-set linebreak
-
 " Some helpful mappings
 nmap U :redo<CR>
 nmap <F2> :nohlsearch<CR>
