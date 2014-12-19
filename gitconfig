@@ -1,7 +1,7 @@
 ### ~/.gitconfig: User configuration for `git`
 
 [user]
-  email = kaitocracy@gmail.com
+  email = ktchen14@gmail.com
   name = Kaiting Chen
 
 [color]
