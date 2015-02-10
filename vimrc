@@ -47,7 +47,7 @@ set mouse=
 
 " allow bright without bold
 if &t_Co == 0 && $TERM !~# '^linux'
-  set t_Co=16
+  set t_Co=256
 endif
 set background=dark
 colorscheme base16-tomorrow
