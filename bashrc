@@ -43,6 +43,3 @@ alias octave='octave -q'
 alias psql='psql -q'
 alias r='R -q --no-save'
 alias R='R -q --no-save'
-
-# Do not auto compile and cache
-alias python='python2 -B'
