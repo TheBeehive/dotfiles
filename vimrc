@@ -18,36 +18,40 @@ Plugin 'kshenoy/vim-signature'
 Plugin 'majutsushi/tagbar'
 
 call vundle#end()
-filetype plugin indent on
 
-" enable syntax highlighting
+filetype plugin indent on
 syntax on
 
 set autoindent
 set backspace=indent,eol,start
 set expandtab
-set shiftwidth=2
 set softtabstop=2
+set shiftround
+set shiftwidth=2
 
-set laststatus=2
-set number
-set showcmd
-set noshowmode
-set wildmenu
-set wildmode=longest:full
+set listchars=eol:¶,tab:→·,trail:·
 
 set display+=lastline
+set scrolloff=1
+set sidescrolloff=4
 set hlsearch
 set incsearch
-set scrolloff=1
-set sidescrolloff=5
-
+set number
+set numberwidth=4
+set ruler
+set showcmd
+set visualbell t_vb=
+set wildmenu
+set wildmode=longest:full
 set splitright
-set splitbelow
 
-set autoread
+set complete-=i
+set nrformats-=octal
+
 set history=2000
-set mouse=
+set undolevels=2000
+set autoread
+set modelines=1
 
 " allow bright without bold
 if &t_Co == 0 && $TERM !~# '^linux'
