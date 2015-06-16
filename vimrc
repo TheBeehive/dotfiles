@@ -62,7 +62,9 @@ colorscheme base16-tomorrow
 
 let mapleader = "\<Space>"
 nnoremap <silent><BS> :nohlsearch<CR>
-nnoremap U :redo<CR>
+nnoremap Y y$
+nnoremap U <C-r>
+
 nnoremap gp :bp<CR>
 nnoremap gn :bn<CR>
 cabbrev help vert bo help
