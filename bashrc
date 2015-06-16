@@ -1,5 +1,3 @@
-### ~/.bashrc: Runtime configuration for interactive `bash`
-
 # color the prompt depending on if we're root or not
 if [ `id -u` -eq 0 ]; then
   PS1='\[\e[31;01m\]\u\[\e[m\]'
@@ -43,5 +41,3 @@ alias R='R -q --no-save'
 
 # Do not auto compile and cache
 alias python='python2 -B'
-
-### ~/.bashrc: Runtime configuration for interactive `bash`

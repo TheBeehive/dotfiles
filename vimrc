@@ -1,5 +1,3 @@
-""" ~/.vimrc: Runtime configuration for `vim`
-
 " initialize Vundle
 set nocompatible
 filetype off
@@ -66,5 +64,3 @@ endif
 
 " configuration for vim-easy-align
 vmap <Enter> <Plug>(EasyAlign)
-
-""" ~/.vimrc: Runtime configuration for `vim`
