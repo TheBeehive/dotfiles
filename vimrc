@@ -9,9 +9,13 @@ call vundle#begin()
 " let Vundle manage Vundle
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'chriskempson/base16-vim'
 Plugin 'bling/vim-airline'
+Plugin 'chriskempson/base16-vim'
+Plugin 'tpope/vim-commentary'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'tpope/vim-repeat'
+Plugin 'kshenoy/vim-signature'
+Plugin 'majutsushi/tagbar'
 
 call vundle#end()
 filetype plugin on
