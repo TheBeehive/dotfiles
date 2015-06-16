@@ -1,17 +1,21 @@
-# color the prompt depending on if we're root or not
+# Color username red if root or green otherwise
 if [ `id -u` -eq 0 ]; then
   PS1='\[\e[31;01m\]\u\[\e[m\]'
 else
   PS1='\[\e[32;01m\]\u\[\e[m\]'
 fi
+
+# Color current working directory cyan
 PS1="$PS1"' \[\e[36m\]\w\[\e[m\]: '
-# change the title if we're in xterm or screen
+
+# Set the window title in xterm and screen
 if [[ $TERM == xterm* ]]; then
   PS1='\[\e]0;\u \w\a\]'"$PS1"
 elif [[ $TERM == screen* ]]; then
   PS1='\[\e]0;\u \w\a\]'"$PS1"
   PS1='\[\ek\u \w\e\\\]'"$PS1"
 fi
+
 export PS1 PS2='> '
 
 # enable color in `ls`
