@@ -89,4 +89,6 @@ nmap <F8> :TagbarToggle<CR>
 " configuration subsection for vim-easy-align
 vmap <Enter> <Plug>(EasyAlign)
 
+au FileType python setlocal sw=4 sts=4
+
 """ ~/.vimrc: Runtime configuration for `vim`
