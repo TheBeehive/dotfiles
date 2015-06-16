@@ -35,11 +35,13 @@ fi
 # Enable alias expansion for `sudo`
 alias sudo='sudo '
 
-export EDITOR=/usr/bin/vim
-
 # Silence some verbose tools on startup
 alias maxima='maxima -q'
 alias octave='octave -q'
 alias psql='psql -q'
 alias r='R -q --no-save'
 alias R='R -q --no-save'
+
+export HOMEBREW_GITHUB_API_TOKEN='78da75d9a0517cccd7fda25fbc1dd1624cfaf9a7'
+export EDITOR="/usr/bin/vim"
+export PYTHONPATH="$HOME/Code"
