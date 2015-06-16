@@ -1,12 +1,12 @@
 """ ~/.vimrc: Runtime configuration for `vim`
 
-" initialize Vundle
+" Initialize Vundle
 set nocompatible
 filetype off
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let Vundle manage Vundle
+" Let Vundle manage Vundle
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'bling/vim-airline'
@@ -70,7 +70,7 @@ nnoremap gp :bp<CR>
 nnoremap gn :bn<CR>
 cabbrev help tab help
 
-" configuration subsection for vim-airline
+" Configuration subsection for vim-airline
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
@@ -85,11 +85,11 @@ let g:airline_right_sep        = '◀'
 set noshowmode
 set laststatus=2
 
-" configuration subsection for tagbar
+" Configuration subsection for tagbar
 let g:tagbar_indent = 0
 nmap <F8> :TagbarToggle<CR>
 
-" configuration subsection for vim-easy-align
+" Configuration subsection for vim-easy-align
 vmap <Enter> <Plug>(EasyAlign)
 
 au FileType python setlocal sw=4 sts=4
