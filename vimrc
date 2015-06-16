@@ -61,7 +61,7 @@ set background=dark
 colorscheme base16-tomorrow
 
 let mapleader = "\<Space>"
-nnoremap <silent> <Leader>c :nohlsearch<CR>
+nnoremap <silent><BS> :nohlsearch<CR>
 nnoremap U :redo<CR>
 nnoremap gp :bp<CR>
 nnoremap gn :bn<CR>
