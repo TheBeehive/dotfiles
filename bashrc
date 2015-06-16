@@ -4,13 +4,13 @@ if [ `id -u` -eq 0 ]; then
 else
   PS1='\[\e[32;01m\]\u\[\e[m\]'
 fi
-PS1=$PS1' \[\e[36m\]\w\[\e[m\]: '
+PS1="$PS1"' \[\e[36m\]\w\[\e[m\]: '
 # change the title if we're in xterm or screen
 if [[ $TERM == xterm* ]]; then
-  PS1='\[\e]0;\u \w\a\]'$PS1
+  PS1='\[\e]0;\u \w\a\]'"$PS1"
 elif [[ $TERM == screen* ]]; then
-  PS1='\[\e]0;\u \w\a\]'$PS1
-  PS1='\[\ek\u \w\e\\\]'$PS1
+  PS1='\[\e]0;\u \w\a\]'"$PS1"
+  PS1='\[\ek\u \w\e\\\]'"$PS1"
 fi
 export PS1 PS2='> '
 
