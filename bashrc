@@ -1,3 +1,5 @@
+### ~/.bashrc: Runtime configuration for interactive `bash`
+
 # Color username red if root or green otherwise
 if [ `id -u` -eq 0 ]; then
   PS1='\[\e[31;01m\]\u\[\e[m\]'
@@ -45,3 +47,5 @@ alias R='R -q --no-save'
 export HOMEBREW_GITHUB_API_TOKEN='78da75d9a0517cccd7fda25fbc1dd1624cfaf9a7'
 export EDITOR="/usr/bin/vim"
 export PYTHONPATH="$HOME/Code"
+
+### ~/.bashrc: Runtime configuration for interactive `bash`
