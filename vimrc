@@ -53,10 +53,11 @@ set undolevels=2000
 set autoread
 set modelines=1
 
-" allow bright without bold
-if &t_Co == 0 && $TERM !~# '^linux'
-  set t_Co=256
+" Allow bright without bold
+if &t_Co == 8 && $TERM !~# '^linux'
+  set t_Co=16
 endif
+
 set background=dark
 colorscheme base16-tomorrow
 
