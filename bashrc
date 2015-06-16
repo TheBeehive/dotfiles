@@ -18,21 +18,21 @@ fi
 
 export PS1 PS2='> '
 
-# enable color in `ls`
+# Enable color in `ls`
 if ls --color -d . &> /dev/null; then
-  # this is GNU ls
+  # This is GNU ls
   alias ls='ls --color'
 elif ls -G -d . &> /dev/null; then
-  # this is BSD ls
+  # This is BSD ls
   alias ls='ls -G'
 fi
 
-# enable color in `grep`
+# Enable color in `grep`
 if echo x | grep --color x &> /dev/null; then
   alias grep='grep --color'
 fi
 
-# enable alias expansion for `sudo`
+# Enable alias expansion for `sudo`
 alias sudo='sudo '
 
 export EDITOR=/usr/bin/vim
