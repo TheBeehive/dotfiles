@@ -67,7 +67,7 @@ nnoremap U <C-r>
 
 nnoremap gp :bp<CR>
 nnoremap gn :bn<CR>
-cabbrev help vert bo help
+cabbrev help tab help
 
 " configuration subsection for vim-airline
 if !exists('g:airline_symbols')
