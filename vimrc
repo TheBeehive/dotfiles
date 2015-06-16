@@ -18,7 +18,7 @@ Plugin 'kshenoy/vim-signature'
 Plugin 'majutsushi/tagbar'
 
 call vundle#end()
-filetype plugin on
+filetype plugin indent on
 
 " enable syntax highlighting
 syntax on
