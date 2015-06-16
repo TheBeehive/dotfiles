@@ -37,10 +37,11 @@ alias sudo='sudo '
 
 export EDITOR=/usr/bin/vim
 
-# Tell octave, maxima, and R to be silent
-alias octave='octave -q'
+# Silence some verbose tools on startup
 alias maxima='maxima -q'
-alias r='R'
+alias octave='octave -q'
+alias psql='psql -q'
+alias r='R -q --no-save'
 alias R='R -q --no-save'
 
 # Do not auto compile and cache
