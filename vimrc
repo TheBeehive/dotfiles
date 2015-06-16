@@ -67,12 +67,26 @@ nnoremap gp :bp<CR>
 nnoremap gn :bn<CR>
 cabbrev help vert bo help
 
-" configuration for vim-airline
+" configuration subsection for vim-airline
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
+let g:airline_symbols.branch   = '⎇'
+let g:airline_symbols.linenr   = '␤'
+let g:airline_symbols.modified = '+'
+let g:airline_symbols.readonly = 'RO'
 
-" configuration for vim-easy-align
+let g:airline_left_sep         = '▶'
+let g:airline_right_sep        = '◀'
+
+set noshowmode
+set laststatus=2
+
+" configuration subsection for tagbar
+let g:tagbar_indent = 0
+nmap <F8> :TagbarToggle<CR>
+
+" configuration subsection for vim-easy-align
 vmap <Enter> <Plug>(EasyAlign)
 
 """ ~/.vimrc: Runtime configuration for `vim`
