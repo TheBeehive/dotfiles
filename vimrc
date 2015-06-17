@@ -11,6 +11,7 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'bling/vim-airline'
 Plugin 'chriskempson/base16-vim'
+Plugin 'bling/vim-bufferline'
 Plugin 'tpope/vim-commentary'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'tpope/vim-repeat'
