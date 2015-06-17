@@ -52,6 +52,7 @@ set nrformats-=octal
 set history=2000
 set undolevels=2000
 set autoread
+set hidden
 set modelines=1
 
 " Allow bright without bold
