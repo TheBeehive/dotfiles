@@ -48,4 +48,13 @@ export HOMEBREW_GITHUB_API_TOKEN='78da75d9a0517cccd7fda25fbc1dd1624cfaf9a7'
 export EDITOR="/usr/bin/vim"
 export PYTHONPATH="$HOME/Code"
 
+hr() {
+  local column="$(tput cols)"
+  if ((column <= 0)); then
+    column="${COLUMNS:-80}"
+  fi
+
+  printf "%.0s${1:-#}" $(seq 1 $column)
+}
+
 ### ~/.bashrc: Runtime configuration for interactive `bash`
