@@ -44,7 +44,9 @@ alias psql='psql -q'
 alias r='R -q --no-save'
 alias R='R -q --no-save'
 
-export HOMEBREW_GITHUB_API_TOKEN='78da75d9a0517cccd7fda25fbc1dd1624cfaf9a7'
+# Keep our github access token out of github
+[ -r ~/.github_api ] && source ~/.github_api
+
 export EDITOR="/usr/bin/vim"
 export PYTHONPATH="$HOME/Code"
 
