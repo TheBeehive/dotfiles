@@ -67,6 +67,7 @@ let mapleader = "\<Space>"
 nnoremap <silent><BS> :nohlsearch<CR>
 nnoremap Y y$
 nnoremap U <C-r>
+nnoremap <CR> :
 
 nnoremap gp :bp<CR>
 nnoremap gn :bn<CR>
