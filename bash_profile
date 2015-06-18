@@ -7,6 +7,11 @@ export PATH
 
 export C_INCLUDE_PATH='/usr/local/include'
 
+# Create true NTFS symlinks in Cygwin
+if [ "`uname -o`" = "Cygwin" ]; then
+  export CYGWIN='winsymlinks:native'
+fi
+
 [ -r ~/.bashrc ] && source ~/.bashrc
 
 ### ~/.bash_profile: Runtime configuration for login `bash`
