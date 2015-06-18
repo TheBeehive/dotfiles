@@ -7,6 +7,9 @@ export PATH
 
 export C_INCLUDE_PATH='/usr/local/include'
 
+export EDITOR="/usr/bin/vim"
+export PYTHONPATH="$HOME/Code"
+
 # Create true NTFS symlinks in Cygwin
 if [ "`uname -o`" = "Cygwin" ]; then
   export CYGWIN='winsymlinks:native'

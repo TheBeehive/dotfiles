@@ -47,9 +47,6 @@ alias R='R -q --no-save'
 # Keep our github access token out of github
 [ -r ~/.github_api ] && source ~/.github_api
 
-export EDITOR="/usr/bin/vim"
-export PYTHONPATH="$HOME/Code"
-
 hr() {
   local column="$(tput cols)"
   if ((column <= 0)); then
