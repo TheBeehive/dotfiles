@@ -1,6 +1,6 @@
 """ ~/.gvimrc: Runtime configuration for `gvim`
 
-" Use this for GUI vim which updates faster than the terminal 
+" Use this for GUI vim which updates faster than the terminal
 set relativenumber
 
 set guioptions-=l
