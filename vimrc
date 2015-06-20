@@ -73,6 +73,20 @@ nnoremap S :bp<CR>
 nnoremap s :bn<CR>
 cabbrev help tab help
 
+nnoremap gs :call FileHeaderSource()<CR>
+function! FileHeaderSource()
+  let extension = expand('%:e')
+  let name = expand('%:r')
+  if extension == 'h' && filereadable(name . '.c')
+    exec ':e ' . name . '.c'
+    return
+  endif
+  if extension == 'c' && filereadable(name . '.h')
+    exec ':e ' . name . '.h'
+    return
+  endif
+endfunction
+
 " Configuration subsection for vim-airline
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
