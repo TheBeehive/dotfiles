@@ -56,9 +56,12 @@ hr() {
   printf "%.0s${1:-#}" $(seq 1 $column)
 }
 
-# Strip .exe from bash completion in Cygwin
 if [ "`uname -o`" = "Cygwin" ]; then
+  # Strip .exe from bash completion
   shopt -s completion_strip_exe
+
+  # Provide a `clear` command
+  alias clear='echo -ne "\e[H\e[2J"'
 fi
 
 ### ~/.bashrc: Runtime configuration for interactive `bash`
