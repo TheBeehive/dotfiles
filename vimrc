@@ -69,8 +69,8 @@ nnoremap Y y$
 nnoremap U <C-r>
 nnoremap <CR> :
 
-nnoremap gp :bp<CR>
-nnoremap gn :bn<CR>
+nnoremap S :bp<CR>
+nnoremap s :bn<CR>
 cabbrev help tab help
 
 " Configuration subsection for vim-airline
