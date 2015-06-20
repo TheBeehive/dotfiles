@@ -11,7 +11,7 @@ export EDITOR="/usr/bin/vim"
 export PYTHONPATH="$HOME/Code"
 
 # Create true NTFS symlinks in Cygwin
-if [ "`uname -o`" = "Cygwin" ]; then
+if [[ "`uname -a`" = *'Cygwin'* ]]; then
   export CYGWIN='winsymlinks:native'
 fi
 
