@@ -87,6 +87,18 @@ function! FileHeaderSource()
   endif
 endfunction
 
+" Map Q to close inactive unmodified buffers
+nnoremap Q :call CloseUnmodifiedBuffers()<CR>
+function! CloseUnmodifiedBuffers()
+  let i = 0
+  while i < bufnr('$')
+    let i = i + 1
+    if bufloaded(i) && bufwinnr(i) < 0 && getbufvar(i, '&modified') == 0
+      exec 'bd ' . i
+    endif
+  endwhile
+endfunction
+
 " Configuration subsection for vim-airline
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
