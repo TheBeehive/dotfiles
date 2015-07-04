@@ -18,6 +18,7 @@ elif [[ $TERM == screen* ]]; then
   PS1='\[\ek\u \w\e\\\]'"$PS1"
 fi
 
+# Export PS1 and set continuation prompt to >
 export PS1 PS2='> '
 
 # Enable color in `ls`
@@ -37,7 +38,7 @@ fi
 # Enable alias expansion for `sudo`
 alias sudo='sudo '
 
-# Silence some verbose tools on startup
+# Silence some loud tools on startup
 alias maxima='maxima -q'
 alias octave='octave -q'
 alias psql='psql -q'
