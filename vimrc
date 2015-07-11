@@ -76,7 +76,7 @@ nnoremap S :bp<CR>
 nnoremap s :bn<CR>
 cabbrev help tab help
 
-nnoremap gs :call FileHeaderSource()<CR>
+" Map gs to switch between source and header file
 function! FileHeaderSource()
   let extension = expand('%:e')
   let name = expand('%:r')
@@ -89,9 +89,9 @@ function! FileHeaderSource()
     return
   endif
 endfunction
+nnoremap gs :call FileHeaderSource()<CR>
 
 " Map Q to close inactive unmodified buffers
-nnoremap Q :call CloseUnmodifiedBuffers()<CR>
 function! CloseUnmodifiedBuffers()
   let i = 0
   while i < bufnr('$')
@@ -101,6 +101,7 @@ function! CloseUnmodifiedBuffers()
     endif
   endwhile
 endfunction
+nnoremap Q :call CloseUnmodifiedBuffers()<CR>
 
 " Configuration subsection for vim-airline
 if !exists('g:airline_symbols')
