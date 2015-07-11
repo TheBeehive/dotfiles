@@ -64,10 +64,13 @@ set background=dark
 colorscheme base16-tomorrow
 
 let mapleader = "\<Space>"
+
+nnoremap <CR> :
+au BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+
 nnoremap <silent><BS> :nohlsearch<CR>
 nnoremap Y y$
 nnoremap U <C-r>
-nnoremap <CR> :
 
 nnoremap S :bp<CR>
 nnoremap s :bn<CR>
