@@ -15,7 +15,6 @@ Plugin 'bling/vim-bufferline'
 Plugin 'tpope/vim-commentary'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'tpope/vim-repeat'
-Plugin 'kshenoy/vim-signature'
 Plugin 'majutsushi/tagbar'
 
 call vundle#end()
