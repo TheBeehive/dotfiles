@@ -119,6 +119,7 @@ set laststatus=2
 
 " Configuration subsection for tagbar
 let g:tagbar_indent = 0
+let g:tagbar_sort = 0
 nmap <F8> :TagbarToggle<CR>
 
 " Configuration subsection for vim-easy-align
