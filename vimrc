@@ -27,6 +27,8 @@ if &encoding ==? "utf-8"
   set listchars=eol:¶,tab:→·,trail:·
 endif
 
+set clipboard=unnamed
+
 set display+=lastline
 set scrolloff=1
 set sidescrolloff=4
