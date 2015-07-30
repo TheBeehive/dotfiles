@@ -7,6 +7,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'bling/vim-bufferline'
 Plug 'tpope/vim-commentary'
 Plug 'junegunn/vim-easy-align'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'majutsushi/tagbar'
 
