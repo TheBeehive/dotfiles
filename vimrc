@@ -67,8 +67,30 @@ nnoremap <silent><BS> :nohlsearch<CR>
 nnoremap Y y$
 nnoremap U <C-r>
 
-nnoremap S :bp<CR>
-nnoremap s :bn<CR>
+" Map window motions to g prefixed lowercased ones
+noremap gh H
+noremap gl L
+noremap gm M
+
+" H and L are easier than ^ and $
+noremap H ^
+noremap L $
+
+" Map M to ' (' is the opposite of m)
+noremap M '
+
+" Sentences are not useful most of the time
+nnoremap g( (
+nnoremap g) )
+
+" Map ( and ) to buffer navigation instead
+
+nnoremap ( :bp<CR>
+nnoremap ) :bn<CR>
+
+" Map s to window navigation prefix
+noremap s <C-w>
+noremap S <NOP>
 
 " Map gs to switch between source and header file
 function! FileHeaderSource()
