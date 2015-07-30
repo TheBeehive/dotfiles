@@ -29,7 +29,9 @@ set softtabstop=2
 set shiftround
 set shiftwidth=2
 
-set listchars=eol:¶,tab:→·,trail:·
+if &encoding ==? "utf-8"
+  set listchars=eol:¶,tab:→·,trail:·
+endif
 
 set display+=lastline
 set scrolloff=1
@@ -106,13 +108,15 @@ nnoremap Q :call CloseUnmodifiedBuffers()<CR>
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
-let g:airline_symbols.branch   = '⎇'
-let g:airline_symbols.linenr   = '␤'
-let g:airline_symbols.modified = '+'
-let g:airline_symbols.readonly = 'RO'
 
-let g:airline_left_sep         = '▶'
-let g:airline_right_sep        = '◀'
+if &encoding ==? "utf-8"
+  let g:airline_symbols.branch   = '⎇'
+  let g:airline_symbols.linenr   = '␤'
+  let g:airline_symbols.modified = '+'
+  let g:airline_symbols.readonly = 'RO'
+  let g:airline_left_sep         = '▶'
+  let g:airline_right_sep        = '◀'
+endif
 
 set noshowmode
 set laststatus=2
