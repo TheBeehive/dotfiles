@@ -122,6 +122,10 @@ endif
 set noshowmode
 set laststatus=2
 
+" Configuration subsection for vim-bufferline
+
+let g:bufferline_echo = 0
+
 " Configuration subsection for tagbar
 
 let g:tagbar_indent = 0
