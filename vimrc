@@ -76,7 +76,6 @@ nnoremap U <C-r>
 
 nnoremap S :bp<CR>
 nnoremap s :bn<CR>
-cabbrev help tab help
 
 " Map gs to switch between source and header file
 function! FileHeaderSource()
