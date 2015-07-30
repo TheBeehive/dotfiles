@@ -35,7 +35,6 @@ set incsearch
 set number
 set numberwidth=4
 set ruler
-set showcmd
 set visualbell t_vb=
 set wildmenu
 set wildmode=longest:full
