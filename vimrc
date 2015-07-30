@@ -1,24 +1,18 @@
 """ ~/.vimrc: Runtime configuration for `vim`
 
-" Initialize Vundle
+call plug#begin('~/.vim/plugged')
+
+Plug 'bling/vim-airline'
+Plug 'chriskempson/base16-vim'
+Plug 'bling/vim-bufferline'
+Plug 'tpope/vim-commentary'
+Plug 'junegunn/vim-easy-align'
+Plug 'tpope/vim-repeat'
+Plug 'majutsushi/tagbar'
+
+call plug#end()
+
 set nocompatible
-filetype off
-set runtimepath+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" Let Vundle manage Vundle
-Plugin 'gmarik/Vundle.vim'
-
-Plugin 'bling/vim-airline'
-Plugin 'chriskempson/base16-vim'
-Plugin 'bling/vim-bufferline'
-Plugin 'tpope/vim-commentary'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'tpope/vim-repeat'
-Plugin 'majutsushi/tagbar'
-
-call vundle#end()
-
 filetype plugin indent on
 syntax on
 
