@@ -70,16 +70,6 @@ nnoremap U <C-r>
 nnoremap S :bp<CR>
 nnoremap s :bn<CR>
 
-" Map arrow keys to switch between windows
-nnoremap <Left> <C-w>h
-inoremap <Left> <C-w>h
-nnoremap <Right> <C-w>l
-inoremap <Right> <C-w>l
-nnoremap <Up> <C-w>k
-inoremap <Up> <C-w>k
-nnoremap <Down> <C-w>j
-inoremap <Down> <C-w>j
-
 " Map gs to switch between source and header file
 function! FileHeaderSource()
   let extension = expand('%:e')
