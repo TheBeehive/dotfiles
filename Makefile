@@ -5,4 +5,7 @@ install:
 	ln -sf "${MAKEROOT}"/bashrc ~/.bashrc
 	ln -sf "${MAKEROOT}"/gitconfig ~/.gitconfig
 	ln -sf "${MAKEROOT}"/gvimrc ~/.gvimrc
+	ln -sfn "${MAKEROOT}"/vim ~/.vim
 	ln -sf "${MAKEROOT}"/vimrc ~/.vimrc
+
+	vim -c "let g:plug_window = ''" +PlugInstall -c 'qa!'

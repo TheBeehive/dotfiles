@@ -55,7 +55,7 @@ if &t_Co == 8 && $TERM !~# '^linux'
 endif
 
 set background=dark
-colorscheme base16-tomorrow
+silent! colorscheme base16-tomorrow
 hi Search ctermfg=10 guifg=#282a2e
 
 let mapleader = "\<Space>"
