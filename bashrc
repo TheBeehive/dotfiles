@@ -1,5 +1,7 @@
 ### ~/.bashrc: Runtime configuration for interactive `bash`
 
+export HISTCONTROL=ignoredups
+
 # Color username red if root or green otherwise
 if [ `id -u` -eq 0 ]; then
   PS1='\[\e[31;01m\]\u\[\e[m\]'
