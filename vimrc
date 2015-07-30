@@ -98,6 +98,11 @@ function! CloseUnmodifiedBuffers()
 endfunction
 nnoremap Q :call CloseUnmodifiedBuffers()<CR>
 
+" Configuration subsection for vim-plug
+
+" Set the plug window height based on the number of plugs
+let g:plug_window = 'botright ' . (len(g:plugs) + 4) . 'new'
+
 " Configuration subsection for vim-airline
 
 if !exists('g:airline_symbols')
