@@ -7,6 +7,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'bling/vim-bufferline'
 Plug 'tpope/vim-commentary'
 Plug 'junegunn/vim-easy-align'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'majutsushi/tagbar'
 
@@ -26,6 +27,8 @@ set shiftwidth=2
 if &encoding ==? "utf-8"
   set listchars=eol:¶,tab:→·,trail:·
 endif
+
+set clipboard=unnamed
 
 set display+=lastline
 set scrolloff=1
@@ -141,6 +144,10 @@ endif
 
 set noshowmode
 set laststatus=2
+
+" Configuration subsection for vim-bufferline
+
+let g:bufferline_echo = 0
 
 " Configuration subsection for tagbar
 
