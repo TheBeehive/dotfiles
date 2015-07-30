@@ -105,6 +105,7 @@ endfunction
 nnoremap Q :call CloseUnmodifiedBuffers()<CR>
 
 " Configuration subsection for vim-airline
+
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
@@ -122,11 +123,13 @@ set noshowmode
 set laststatus=2
 
 " Configuration subsection for tagbar
+
 let g:tagbar_indent = 0
 let g:tagbar_sort = 0
 nmap <F8> :TagbarToggle<CR>
 
 " Configuration subsection for vim-easy-align
+
 vmap <Enter> <Plug>(EasyAlign)
 
 au FileType python setlocal sw=4 sts=4
