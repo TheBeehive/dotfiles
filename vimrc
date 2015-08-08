@@ -115,7 +115,7 @@ function! FileHeaderSource()
     return
   endif
 endfunction
-nnoremap gs :call FileHeaderSource()<CR>
+nnoremap <silent> gs :call FileHeaderSource()<CR>
 
 " Map Q to close inactive unmodified buffers
 function! CloseUnmodifiedBuffers()
@@ -127,8 +127,9 @@ function! CloseUnmodifiedBuffers()
     endif
   endwhile
 endfunction
-nnoremap Q :call CloseUnmodifiedBuffers()<CR>
+nnoremap <silent> Q :call CloseUnmodifiedBuffers()<CR>
 
+" Add visual mode diffget/put and do diffupdate after do/dp
 nnoremap do do:diffupdate<CR>
 nnoremap dp dp:diffupdate<CR>
 xnoremap do :diffget<CR>|:diffupdate<CR>
