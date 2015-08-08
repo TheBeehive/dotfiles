@@ -59,6 +59,10 @@ endif
 
 set background=dark
 silent! colorscheme base16-tomorrow
+" Only supported in MacVim
+if has("gui_macvim")
+  set transparency=10
+endif
 hi Search ctermfg=10 guifg=#282a2e
 
 let mapleader = "\<Space>"
