@@ -129,6 +129,11 @@ function! CloseUnmodifiedBuffers()
 endfunction
 nnoremap Q :call CloseUnmodifiedBuffers()<CR>
 
+nnoremap do do:diffupdate<CR>
+nnoremap dp dp:diffupdate<CR>
+xnoremap do :diffget<CR>|:diffupdate<CR>
+xnoremap dp :diffput<CR>|:diffupdate<CR>
+
 " Configuration subsection for vim-plug
 
 " Set the plug window height based on the number of plugs
