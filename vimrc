@@ -45,6 +45,7 @@ set splitright
 
 set complete-=i
 set nrformats-=octal
+set tildeop
 
 set history=2000
 set undolevels=2000
