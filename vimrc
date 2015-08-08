@@ -90,14 +90,10 @@ noremap gL g$
 " Map M to ' (' is the opposite of m)
 noremap M '
 
-" Sentences are not useful most of the time
-nnoremap g( (
-nnoremap g) )
-
-" Map ( and ) to buffer navigation instead
-
-nnoremap ( :bp<CR>
-nnoremap ) :bn<CR>
+nnoremap <C-h> :bp<CR>
+nnoremap <C-l> :bn<CR>
+nnoremap <C-j> <C-d>
+nnoremap <C-k> <C-u>
 
 " Map s to window navigation prefix
 noremap s <C-w>
