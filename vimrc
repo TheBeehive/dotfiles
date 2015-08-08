@@ -82,8 +82,10 @@ noremap gl L
 noremap gm M
 
 " H and L are easier than ^ and $
-noremap H ^
+noremap <expr> H (v:count == 0 ? '^' : '|')
+noremap gH g^
 noremap L $
+noremap gL g$
 
 " Map M to ' (' is the opposite of m)
 noremap M '
