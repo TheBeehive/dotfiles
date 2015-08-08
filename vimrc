@@ -74,6 +74,7 @@ au BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 nnoremap <silent><BS> :nohlsearch<CR>
 nnoremap Y y$
 nnoremap U <C-r>
+noremap Q @
 
 " Map window motions to g prefixed lowercased ones
 noremap gh H
