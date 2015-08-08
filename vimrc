@@ -76,6 +76,9 @@ nnoremap Y y$
 nnoremap U <C-r>
 noremap Q @
 
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+
 " Map window motions to g prefixed lowercased ones
 noremap gh H
 noremap gl L
