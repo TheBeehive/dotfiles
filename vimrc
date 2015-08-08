@@ -68,7 +68,7 @@ hi Search ctermfg=10 guifg=#282a2e
 
 let mapleader = "\<Space>"
 
-nnoremap <CR> :
+noremap <CR> :
 au BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 
 nnoremap <silent><BS> :nohlsearch<CR>
@@ -162,7 +162,7 @@ nmap <F8> :TagbarToggle<CR>
 
 " Configuration subsection for vim-easy-align
 
-vmap <Enter> <Plug>(EasyAlign)
+"vmap <Enter> <Plug>(EasyAlign)
 
 au FileType python setlocal sw=4 sts=4
 
