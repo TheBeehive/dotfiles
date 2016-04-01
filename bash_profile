@@ -7,7 +7,7 @@ export PATH
 
 export C_INCLUDE_PATH='/usr/local/include'
 
-export EDITOR="$(which nvim vim vi nano | head -1)"
+export EDITOR="$(which nvim vim vi nano 2> /dev/null | head -1)"
 
 # Create true NTFS symlinks in Cygwin
 if [[ "`uname -a`" = *'Cygwin'* ]]; then
