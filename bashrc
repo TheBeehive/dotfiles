@@ -58,7 +58,7 @@ hr() {
   printf "%.0s${1:-#}" $(seq 1 $column)
 }
 
-if [[ "`uname -a`" = *'Cygwin'* ]]; then
+if [ "$OSTYPE" = cygwin ]; then
   # Strip .exe from bash completion
   shopt -s completion_strip_exe
 
