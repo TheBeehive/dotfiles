@@ -51,7 +51,7 @@ set history=2000
 set undolevels=2000
 set autoread
 set hidden
-set modelines=1
+set modelines=2
 
 " Allow bright without bold
 if &t_Co == 8 && $TERM !~# '^linux'
