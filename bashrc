@@ -44,7 +44,6 @@ alias sudo='sudo '
 alias maxima='maxima -q'
 alias octave='octave -q'
 alias psql='psql -q'
-alias r='R -q --no-save'
 alias R='R -q --no-save'
 
 # Keep our github access token out of github
