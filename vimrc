@@ -1,5 +1,9 @@
 """ ~/.vimrc: Runtime configuration for `vim`
 
+if has('win32')
+  set runtimepath+=~/.vim
+endif
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'bling/vim-airline'
