@@ -1,7 +1,5 @@
 ### ~/.bashrc: Runtime configuration for interactive `bash`
 
-export HISTCONTROL=ignoredups
-
 # Color username red if root or green otherwise
 if [ `id -u` -eq 0 ]; then
   PS1='\[\e[31;01m\]\u\[\e[m\]'
@@ -54,7 +52,6 @@ hr() {
   if ((column <= 0)); then
     column="${COLUMNS:-80}"
   fi
-
   printf "%.0s${1:-#}" $(seq 1 $column)
 }
 
@@ -62,5 +59,6 @@ if [ "$OSTYPE" = cygwin ]; then
   # Strip .exe from bash completion
   shopt -s completion_strip_exe
 fi
+export HISTCONTROL=ignoredups
 
 ### ~/.bashrc: Runtime configuration for interactive `bash`
