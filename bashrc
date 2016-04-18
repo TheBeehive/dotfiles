@@ -61,9 +61,6 @@ hr() {
 if [ "$OSTYPE" = cygwin ]; then
   # Strip .exe from bash completion
   shopt -s completion_strip_exe
-
-  # Provide a `clear` command
-  alias clear='echo -ne "\e[H\e[2J"'
 fi
 
 ### ~/.bashrc: Runtime configuration for interactive `bash`
