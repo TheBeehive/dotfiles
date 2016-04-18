@@ -1,0 +1,28 @@
+### ~/.inputrc: Runtime configuration for 'readline'
+
+# Enable 8-bit input/output
+set convert-meta off
+set input-meta on
+set output-meta on
+
+# Disable the terminal bell
+set bell-style none
+
+# Better completion
+set colored-stats
+set mark-symlinked-directories on
+set match-hidden-files off
+set show-all-if-unmodified on
+set skip-completed-text on
+
+# Bind Insert, PgUp, and PgDn
+"\e[2~": quoted-insert
+"\e[5~": beginning-of-history
+"\e[6~": end-of-history
+
+# Space expands ! and !! in Bash
+$if Bash
+  SPACE: magic-space
+$endif
+
+### ~/.inputrc: Runtime configuration for 'readline'
