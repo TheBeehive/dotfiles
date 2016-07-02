@@ -60,6 +60,8 @@ hr() {
 if [ "$OSTYPE" = cygwin ]; then
   # Strip .exe from bash completion
   shopt -s completion_strip_exe
+  # Use the same command as in OS X
+  alias open='cygstart'
 fi
 
 ### ~/.bashrc: Runtime configuration for interactive `bash`
