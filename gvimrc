@@ -9,5 +9,7 @@ set guioptions-=l
 set guioptions-=L
 set guioptions-=r
 set guioptions-=R
+set guioptions-=t
+set guioptions-=T
 
 """ ~/.gvimrc: Runtime configuration for `gvim`
