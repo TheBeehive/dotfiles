@@ -21,6 +21,8 @@ fi
 # Export PS1 and set continuation prompt to >
 export PS1 PS2='> '
 
+export HISTCONTROL=ignoredups
+
 # Enable color in `ls`
 if ls --color -d . &> /dev/null; then
   # This is GNU ls
@@ -59,6 +61,5 @@ if [ "$OSTYPE" = cygwin ]; then
   # Strip .exe from bash completion
   shopt -s completion_strip_exe
 fi
-export HISTCONTROL=ignoredups
 
 ### ~/.bashrc: Runtime configuration for interactive `bash`
