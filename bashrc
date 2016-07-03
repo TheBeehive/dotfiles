@@ -58,6 +58,10 @@ hr() {
 if [ "$OSTYPE" = cygwin ]; then
   # Strip .exe from bash completion
   shopt -s completion_strip_exe
+
+  if hash rlwrap 2> /dev/null; then
+    alias ghci='rlwrap ghcii.sh'
+  else alias ghci='ghcii.sh'; fi
 fi
 export HISTCONTROL=ignoredups
 
