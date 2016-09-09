@@ -63,7 +63,7 @@ if &t_Co == 8 && $TERM !~# '^linux'
 endif
 
 set background=dark
-silent! colorscheme base16-tomorrow
+silent! colorscheme base16-ocean
 " Only supported in MacVim
 if has("gui_macvim")
   set transparency=10
