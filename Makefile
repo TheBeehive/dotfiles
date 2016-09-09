@@ -7,7 +7,7 @@ install:
 	ln -sf "${MAKEROOT}"/bashrc ~/.bashrc
 	ln -sf "${MAKEROOT}"/gemrc ~/.gemrc
 	ln -sf "${MAKEROOT}"/gitconfig ~/.gitconfig
-	cp "${MAKEROOT}"/gitconfig_user ~/.gitconfig_user
+	cp -f "${MAKEROOT}"/gitconfig_user ~/.gitconfig_user
 	ln -sf "${MAKEROOT}"/gvimrc ~/.gvimrc
 	ln -sf "${MAKEROOT}"/inputrc ~/.inputrc
 ifeq ($(OSTYPE),cygwin)
