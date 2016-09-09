@@ -1,13 +1,13 @@
 ### ~/.bash_profile: Runtime configuration for login `bash`
 
 if [[ -d /Applications/Postgres.app/Contents/Versions/9.6/bin &&
-    ":$PATH:" != *':/Applications/Postgres.app/Contents/Versions/9.6/bin:'* ]]; then
+    ":$PATH:" != *:/Applications/Postgres.app/Contents/Versions/9.6/bin:* ]]; then
   PATH="/Applications/Postgres.app/Contents/Versions/9.6/bin:$PATH"
 fi
-if [[ -d /usr/local/bin && ":$PATH:" != *':/usr/local/bin:'* ]]; then
+if [[ -d /usr/local/bin && ":$PATH:" != *:/usr/local/bin:* ]]; then
   PATH="/usr/local/bin:$PATH"
 fi
-if [[ -d /usr/local/sbin && ":$PATH:" != *':/usr/local/sbin:'* ]]; then
+if [[ -d /usr/local/sbin && ":$PATH:" != *:/usr/local/sbin:* ]]; then
   PATH="/usr/local/sbin:$PATH"
 fi
 export PATH
