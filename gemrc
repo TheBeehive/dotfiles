@@ -1,1 +1,5 @@
+### ~/.bashrc: Runtime configuration for `gem`
+
 gem: --user-install --no-document
+
+### ~/.bashrc: Runtime configuration for `gem`

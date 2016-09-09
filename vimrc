@@ -10,7 +10,6 @@ Plug 'bling/vim-airline'
 Plug 'chriskempson/base16-vim'
 Plug 'bling/vim-bufferline'
 Plug 'tpope/vim-commentary'
-Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'majutsushi/tagbar'
@@ -173,10 +172,6 @@ let g:bufferline_echo = 0
 let g:tagbar_indent = 0
 let g:tagbar_sort = 0
 nmap <F8> :TagbarToggle<CR>
-
-" Configuration subsection for vim-easy-align
-
-"vmap <Enter> <Plug>(EasyAlign)
 
 au FileType python setlocal sw=4 sts=4
 
