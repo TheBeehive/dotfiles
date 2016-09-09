@@ -12,6 +12,7 @@ install:
 ifeq ($(OSTYPE),cygwin)
 	ln -sf "${MAKEROOT}"/minttyrc ~/.minttyrc
 endif
+	ln -sf "${MAKEROOT}"/sqliterc ~/.sqliterc
 	ln -sfn "${MAKEROOT}"/vim ~/.vim
 	ln -sf "${MAKEROOT}"/vimrc ~/.vimrc
 

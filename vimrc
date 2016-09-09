@@ -13,6 +13,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'majutsushi/tagbar'
+Plug 'raimondi/delimitmate'
 
 call plug#end()
 
