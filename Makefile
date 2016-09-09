@@ -2,6 +2,7 @@ MAKEROOT:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 OSTYPE:=$(shell echo $$OSTYPE)
 
 install:
+	ln -sf "${MAKEROOT}"/bash_logout ~/.bash_logout
 	ln -sf "${MAKEROOT}"/bash_profile ~/.bash_profile
 	ln -sf "${MAKEROOT}"/bashrc ~/.bashrc
 	ln -sf "${MAKEROOT}"/gemrc ~/.gemrc
