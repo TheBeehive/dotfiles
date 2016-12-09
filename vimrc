@@ -26,6 +26,9 @@ Plug 'tpope/vim-surround'
 if !has('nvim-0.9.0') && executable('editorconfig')
   Plug 'editorconfig/editorconfig-vim'
 endif
+
+Plug 'llvm/llvm.vim'
+Plug 'vim-scripts/syntaxm4.vim'
 call plug#end()
 
 "" General Configuration
