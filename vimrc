@@ -6,7 +6,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'bling/vim-airline'
+Plug 'itchyny/lightline.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'bling/vim-bufferline'
 Plug 'tpope/vim-commentary'
@@ -139,20 +139,9 @@ nnoremap <silent> 0 :call CloseUnmodifiedBuffers()<CR>
 " Set the plug window height based on the number of plugs
 let g:plug_window = 'botright ' . (len(g:plugs) + 4) . 'new'
 
-" Configuration subsection for vim-airline
+" Configuration subsection for lightline
 
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-if &encoding ==? "utf-8"
-  let g:airline_symbols.branch   = '⎇'
-  let g:airline_symbols.linenr   = '␤'
-  let g:airline_symbols.modified = '+'
-  let g:airline_symbols.readonly = 'RO'
-  let g:airline_left_sep         = '▶'
-  let g:airline_right_sep        = '◀'
-endif
+let g:lightline = { 'colorscheme': 'Tomorrow_Night' }
 
 set noshowmode
 set laststatus=2
