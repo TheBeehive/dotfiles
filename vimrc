@@ -134,13 +134,6 @@ function! CloseUnmodifiedBuffers()
 endfunction
 nnoremap <silent> 0 :call CloseUnmodifiedBuffers()<CR>
 
-" Add visual mode diffget/put and do diffupdate after do/dp
-nnoremap do do:diffupdate<CR>
-nnoremap dp dp:diffupdate<CR>
-xnoremap do :diffget<CR>|:diffupdate<CR>
-xnoremap dp :diffput<CR>|:diffupdate<CR>
-nnoremap du :diffupdate<CR>
-
 " Configuration subsection for vim-plug
 
 " Set the plug window height based on the number of plugs
