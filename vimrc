@@ -72,7 +72,7 @@ if has("gui_macvim")
 endif
 
 " Open help window splitright with width 78
-autocmd FileType help wincmd L | vertical resize 78
+autocmd FileType help set bufhidden=unload | wincmd L | vertical resize 78
 
 let mapleader = "\<Space>"
 
