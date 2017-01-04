@@ -71,6 +71,9 @@ if has("gui_macvim")
   set transparency=10
 endif
 
+" Open help window splitright with width 78
+autocmd FileType help wincmd L | vertical resize 78
+
 let mapleader = "\<Space>"
 
 noremap <CR> :
