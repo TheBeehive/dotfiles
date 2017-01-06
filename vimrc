@@ -193,6 +193,6 @@ let g:tagbar_indent = 0
 let g:tagbar_sort = 0
 nmap <F8> :TagbarToggle<CR>
 
-au FileType python setlocal sw=4 sts=4
+autocmd FileType python setlocal sw=4 sts=4
 
 """ ~/.vimrc: Runtime configuration for `vim`
