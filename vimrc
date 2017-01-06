@@ -110,6 +110,41 @@ nnoremap <C-k> <C-u>
 noremap s <C-w>
 noremap S <NOP>
 
+nnoremap <silent> [b :<C-u>exec '' . (v:count ? v:count : '') . 'bprev'<CR>
+nnoremap <silent> [B :<C-u>exec '' . (v:count ? v:count : '') . 'bfirst'<CR>
+nnoremap <silent> ]b :<C-u>exec '' . (v:count ? v:count : '') . 'bnext'<CR>
+nnoremap <silent> ]B :<C-u>exec '' . (v:count ? v:count : '') . 'blast'<CR>
+
+function! ToggleQuickfixList()
+  redir => output
+  " Find all active [Quickfix List] buffers
+  silent! filter /^\[Quickfix List\]$/ ls a
+  redir END
+  let bufnr = matchstr(output, '\d\+')
+
+  if !empty(bufnr) && bufwinnr(str2nr(bufnr)) != -1
+    cclose
+    return
+  endif
+
+  let winnr = winnr()
+  copen
+  if winnr() != winnr
+    wincmd p
+  endif
+endfunction
+nnoremap <silent> <Leader>q :call ToggleQuickfixList()<CR>
+
+nnoremap <silent> [q :<C-u>exec '' . (v:count ? v:count : '') . 'cprev'<CR>zv
+nnoremap <silent> [Q :<C-u>exec '' . (v:count ? v:count : '') . 'cfirst'<CR>zv
+nnoremap <silent> ]q :<C-u>exec '' . (v:count ? v:count : '') . 'cnext'<CR>zv
+nnoremap <silent> ]Q :<C-u>exec '' . (v:count ? v:count : '') . 'clast'<CR>zv
+
+nnoremap <silent> [l :<C-u>exec '' . (v:count ? v:count : '') . 'lprev'<CR>zv
+nnoremap <silent> [L :<C-u>exec '' . (v:count ? v:count : '') . 'lfirst'<CR>zv
+nnoremap <silent> ]l :<C-u>exec '' . (v:count ? v:count : '') . 'lnext'<CR>zv
+nnoremap <silent> ]L :<C-u>exec '' . (v:count ? v:count : '') . 'llast'<CR>zv
+
 " Map gs to switch between source and header file
 function! FileHeaderSource()
   let extension = expand('%:e')
