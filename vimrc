@@ -77,7 +77,6 @@ autocmd FileType help set bufhidden=unload | wincmd L | vertical resize 78
 let mapleader = "\<Space>"
 
 noremap <CR> :
-au BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 
 nnoremap <silent><BS> :nohlsearch<CR>
 nnoremap Y y$
