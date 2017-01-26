@@ -1,8 +1,8 @@
 ### ~/.bash_profile: Runtime configuration for login `bash`
 
-if [[ -d /Applications/Postgres.app/Contents/Versions/9.6/bin &&
-    ":$PATH:" != *:/Applications/Postgres.app/Contents/Versions/9.6/bin:* ]]; then
-  PATH="/Applications/Postgres.app/Contents/Versions/9.6/bin:$PATH"
+if [[ -d /Applications/Postgres.app/Contents/Versions/latest/bin &&
+    ":$PATH:" != *:/Applications/Postgres.app/Contents/Versions/latest/bin:* ]]; then
+  PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 fi
 if [[ -d /usr/local/bin && ":$PATH:" != *:/usr/local/bin:* ]]; then
   PATH="/usr/local/bin:$PATH"
