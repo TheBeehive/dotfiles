@@ -6,7 +6,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'bling/vim-airline'
+Plug 'itchyny/lightline.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'bling/vim-bufferline'
 Plug 'tpope/vim-commentary'
@@ -64,16 +64,19 @@ endif
 
 set background=dark
 silent! colorscheme base16-ocean
+hi IncSearch ctermbg=02 guifg=#a3be8c
+hi Search ctermfg=10 guifg=#282a2e
 " Only supported in MacVim
 if has("gui_macvim")
   set transparency=10
 endif
-hi Search ctermfg=10 guifg=#282a2e
+
+" Open help window splitright with width 78
+autocmd FileType help set bufhidden=unload | wincmd L | vertical resize 78
 
 let mapleader = "\<Space>"
 
 noremap <CR> :
-au BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 
 nnoremap <silent><BS> :nohlsearch<CR>
 nnoremap Y y$
@@ -106,6 +109,41 @@ nnoremap <C-k> <C-u>
 noremap s <C-w>
 noremap S <NOP>
 
+nnoremap <silent> [b :<C-u>exec '' . (v:count ? v:count : '') . 'bprev'<CR>
+nnoremap <silent> [B :<C-u>exec '' . (v:count ? v:count : '') . 'bfirst'<CR>
+nnoremap <silent> ]b :<C-u>exec '' . (v:count ? v:count : '') . 'bnext'<CR>
+nnoremap <silent> ]B :<C-u>exec '' . (v:count ? v:count : '') . 'blast'<CR>
+
+function! ToggleQuickfixList()
+  redir => output
+  " Find all active [Quickfix List] buffers
+  silent! filter /^\[Quickfix List\]$/ ls a
+  redir END
+  let bufnr = matchstr(output, '\d\+')
+
+  if !empty(bufnr) && bufwinnr(str2nr(bufnr)) != -1
+    cclose
+    return
+  endif
+
+  let winnr = winnr()
+  copen
+  if winnr() != winnr
+    wincmd p
+  endif
+endfunction
+nnoremap <silent> <Leader>q :call ToggleQuickfixList()<CR>
+
+nnoremap <silent> [q :<C-u>exec '' . (v:count ? v:count : '') . 'cprev'<CR>zv
+nnoremap <silent> [Q :<C-u>exec '' . (v:count ? v:count : '') . 'cfirst'<CR>zv
+nnoremap <silent> ]q :<C-u>exec '' . (v:count ? v:count : '') . 'cnext'<CR>zv
+nnoremap <silent> ]Q :<C-u>exec '' . (v:count ? v:count : '') . 'clast'<CR>zv
+
+nnoremap <silent> [l :<C-u>exec '' . (v:count ? v:count : '') . 'lprev'<CR>zv
+nnoremap <silent> [L :<C-u>exec '' . (v:count ? v:count : '') . 'lfirst'<CR>zv
+nnoremap <silent> ]l :<C-u>exec '' . (v:count ? v:count : '') . 'lnext'<CR>zv
+nnoremap <silent> ]L :<C-u>exec '' . (v:count ? v:count : '') . 'llast'<CR>zv
+
 " Map gs to switch between source and header file
 function! FileHeaderSource()
   let extension = expand('%:e')
@@ -133,32 +171,14 @@ function! CloseUnmodifiedBuffers()
 endfunction
 nnoremap <silent> 0 :call CloseUnmodifiedBuffers()<CR>
 
-" Add visual mode diffget/put and do diffupdate after do/dp
-nnoremap do do:diffupdate<CR>
-nnoremap dp dp:diffupdate<CR>
-xnoremap do :diffget<CR>|:diffupdate<CR>
-xnoremap dp :diffput<CR>|:diffupdate<CR>
-nnoremap du :diffupdate<CR>
-
 " Configuration subsection for vim-plug
 
 " Set the plug window height based on the number of plugs
 let g:plug_window = 'botright ' . (len(g:plugs) + 4) . 'new'
 
-" Configuration subsection for vim-airline
+" Configuration subsection for lightline
 
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-if &encoding ==? "utf-8"
-  let g:airline_symbols.branch   = '⎇'
-  let g:airline_symbols.linenr   = '␤'
-  let g:airline_symbols.modified = '+'
-  let g:airline_symbols.readonly = 'RO'
-  let g:airline_left_sep         = '▶'
-  let g:airline_right_sep        = '◀'
-endif
+let g:lightline = { 'colorscheme': 'Tomorrow_Night' }
 
 set noshowmode
 set laststatus=2
@@ -173,6 +193,6 @@ let g:tagbar_indent = 0
 let g:tagbar_sort = 0
 nmap <F8> :TagbarToggle<CR>
 
-au FileType python setlocal sw=4 sts=4
+autocmd FileType python setlocal sw=4 sts=4
 
 """ ~/.vimrc: Runtime configuration for `vim`
