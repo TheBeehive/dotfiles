@@ -28,6 +28,7 @@ CopyAsRTF=no
 Columns=120
 Rows=42
 ScrollbackLines=20000
+Scrollbar=none
 Term=xterm-256color
 BellType=0
 FontRender=uniscribe
