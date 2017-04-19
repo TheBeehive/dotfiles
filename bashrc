@@ -21,6 +21,7 @@ fi
 # Export PS1 and set continuation prompt to >
 export PS1 PS2='> '
 
+# Don't save duplicate commands to the history
 export HISTCONTROL=ignoredups
 
 # Enable color in `ls`
