@@ -1,5 +1,8 @@
 """ ~/.vimrc: Runtime configuration for `vim`
 
+" Always use UTF-8 encoding
+set encoding=utf-8
+
 if has('win32')
   set runtimepath+=~/.vim
 endif
@@ -28,10 +31,6 @@ set softtabstop=2
 set shiftround
 set shiftwidth=2
 
-if &encoding ==? "utf-8"
-  set listchars=eol:¶,tab:→·,trail:·
-endif
-
 set clipboard=unnamed
 
 set display+=lastline
@@ -39,6 +38,7 @@ set scrolloff=1
 set sidescrolloff=4
 set hlsearch
 set incsearch
+set listchars=eol:¶,tab:→·,trail:·
 set number
 set numberwidth=4
 set ruler
