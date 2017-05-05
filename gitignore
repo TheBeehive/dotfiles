@@ -12,6 +12,11 @@ Session.vim
 # Auto-generated tag files
 tags
 
+# Cscope reference database
+.cscope
+.cscope.in
+.cscope.po
+
 # Vagrant
 .vagrant/
 
