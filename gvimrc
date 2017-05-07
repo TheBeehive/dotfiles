@@ -13,9 +13,10 @@ set guioptions-=t
 set guioptions-=T
 
 if has('win32')
-  set guifont=Consolas:h11:cDEFAULT
+  set guifont=Consolas:h11
+  set renderoptions=type:directx
   set lines=42
   set columns=120
 endif
 
-" """ ~/.gvimrc: Runtime configuration for `gvim`
+""" ~/.gvimrc: Runtime configuration for `gvim`
