@@ -1,5 +1,5 @@
 ### ~/.bashrc: Runtime configuration for `gem`
 
-gem: --user-install --no-document
+gem: --user-install --no-document --bindir=~/.local/bin
 
 ### ~/.bashrc: Runtime configuration for `gem`

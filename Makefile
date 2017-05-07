@@ -2,6 +2,11 @@ MAKEROOT:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 OSTYPE:=$(shell echo $$OSTYPE)
 
 install:
+	# Make the ~/.local directory so that gem's bindir can be set to ~/.local/bin
+	# without gem install failing during a mkdir on ~/.local/bin (due to a ENOENT
+	# on ~/.local)
+	mkdir -p ~/.local
+
 	ln -sf "${MAKEROOT}"/bash_logout ~/.bash_logout
 	ln -sf "${MAKEROOT}"/bash_profile ~/.bash_profile
 	ln -sf "${MAKEROOT}"/bashrc ~/.bashrc
