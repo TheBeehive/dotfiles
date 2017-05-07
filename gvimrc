@@ -15,6 +15,7 @@ set guioptions-=T
 if has('win32')
   set guifont=Consolas:h11
   set renderoptions=type:directx
+  set winaltkeys=no
   set lines=42
   set columns=120
 endif
