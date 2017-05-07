@@ -10,6 +10,9 @@ fi
 if [[ -d /usr/local/sbin && ":$PATH:" != *:/usr/local/sbin:* ]]; then
   PATH="/usr/local/sbin:$PATH"
 fi
+if [[ -d /usr/sbin && ":$PATH:" != *:/usr/sbin:* ]]; then
+  PATH="/usr/sbin:$PATH"
+fi
 export PATH
 
 export EDITOR="$(which nvim vim vi nano 2> /dev/null | head -1)"
@@ -18,6 +21,8 @@ export EDITOR="$(which nvim vim vi nano 2> /dev/null | head -1)"
 if [ "$OSTYPE" = cygwin ]; then
   export CYGWIN='winsymlinks:native'
 fi
+
+export PGDATA='/var/lib/postgresql'
 
 [ -r ~/.bashrc ] && source ~/.bashrc
 
