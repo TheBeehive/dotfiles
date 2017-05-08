@@ -10,8 +10,13 @@ fi
 if [[ -d /usr/local/sbin && ":$PATH:" != *:/usr/local/sbin:* ]]; then
   PATH="/usr/local/sbin:$PATH"
 fi
+
 if [[ -d /usr/sbin && ":$PATH:" != *:/usr/sbin:* ]]; then
   PATH="/usr/sbin:$PATH"
+
+if [[ -d ~/.local/bin && ":$PATH:" != *:~/.local/bin:* ]]; then
+  PATH="~/.local/bin:$PATH"
+
 fi
 export PATH
 

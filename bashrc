@@ -8,7 +8,14 @@ else
 fi
 
 # Color current working directory cyan
-PS1="$PS1"' \[\e[36m\]\w\[\e[m\]: '
+PS1="$PS1"' \[\e[36m\]\w\[\e[m\]'
+
+# Color git branch (if available) purple
+git_branch() {
+  git branch 2> /dev/null | sed -ne '/^\*/s/^\* \(.*\)$/\1/p'
+}
+export PROMPT_COMMAND='GIT_BRANCH=$(git_branch)'
+PS1="$PS1"'${GIT_BRANCH:+ [\[\e[38;5;9m\]${GIT_BRANCH}\[\e[m\]]}: '
 
 # Set the window title in xterm and screen
 if [[ $TERM == xterm* ]]; then
@@ -21,6 +28,7 @@ fi
 # Export PS1 and set continuation prompt to >
 export PS1 PS2='> '
 
+# Don't save duplicate commands to the history
 export HISTCONTROL=ignoredups
 
 # Enable color in `ls`
@@ -46,8 +54,9 @@ alias octave='octave -q'
 alias psql='psql -q'
 alias R='R -q --no-save'
 
-alias mkcscope='"cscope" -bqkRf .cscope'
-alias cscope='cscope -df .cscope'
+# Create and use a cscope database at .cscope
+alias mkcscope="`which cscope` -bkqRf .cscope"
+alias cscope="`which cscope` -df .cscope"
 
 # Keep our github access token out of github
 [ -r ~/.github_api ] && source ~/.github_api
