@@ -10,6 +10,9 @@ fi
 if [[ -d /usr/local/sbin && ":$PATH:" != *:/usr/local/sbin:* ]]; then
   PATH="/usr/local/sbin:$PATH"
 fi
+if [[ -d ~/.local/bin && ":$PATH:" != *:~/.local/bin:* ]]; then
+  PATH="~/.local/bin:$PATH"
+fi
 export PATH
 
 export EDITOR="$(which nvim vim vi nano 2> /dev/null | head -1)"
