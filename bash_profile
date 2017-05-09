@@ -31,4 +31,5 @@ export PGDATA='/var/lib/postgresql'
 
 [ -r ~/.bashrc ] && source ~/.bashrc
 
+# vim: set ft=sh:
 ### ~/.bash_profile: Runtime configuration for login `bash`
