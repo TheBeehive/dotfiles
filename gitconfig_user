@@ -1,7 +1,3 @@
 ### ~/.gitconfig_user: User-specific configuration for `git`
 
-[user]
-  email = melanieplageman@gmail.com
-  name = Melanie Plageman
-
 ### ~/.gitconfig_user: User-specific configuration for `git`
