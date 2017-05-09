@@ -1,25 +1,16 @@
 ### ~/.bash_profile: Runtime configuration for login `bash`
 
-if [[ -d /Applications/Postgres.app/Contents/Versions/latest/bin &&
-    ":$PATH:" != *:/Applications/Postgres.app/Contents/Versions/latest/bin:* ]]; then
-  PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
-fi
-if [[ -d /usr/local/bin && ":$PATH:" != *:/usr/local/bin:* ]]; then
-  PATH="/usr/local/bin:$PATH"
-fi
-if [[ -d /usr/local/sbin && ":$PATH:" != *:/usr/local/sbin:* ]]; then
-  PATH="/usr/local/sbin:$PATH"
-fi
+insert_path() {
+  [[ -d "$1" && :"$PATH": != *:"$1":* ]] && export PATH="$1:$PATH"
+}
 
-if [[ -d /usr/sbin && ":$PATH:" != *:/usr/sbin:* ]]; then
-  PATH="/usr/sbin:$PATH"
-fi
+insert_path /Applications/Postgres.app/Contents/Versions/latest/bin
+insert_path /usr/local/bin
+insert_path /usr/local/sbin
+insert_path /usr/sbin
+insert_path ~/.local/bin
 
-if [[ -d ~/.local/bin && ":$PATH:" != *:~/.local/bin:* ]]; then
-  PATH="~/.local/bin:$PATH"
-
-fi
-export PATH
+unset -f insert_path
 
 export EDITOR="$(which nvim vim vi nano 2> /dev/null | head -1)"
 
