@@ -13,6 +13,7 @@ fi
 
 if [[ -d /usr/sbin && ":$PATH:" != *:/usr/sbin:* ]]; then
   PATH="/usr/sbin:$PATH"
+fi
 
 if [[ -d ~/.local/bin && ":$PATH:" != *:~/.local/bin:* ]]; then
   PATH="~/.local/bin:$PATH"
