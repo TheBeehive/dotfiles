@@ -6,10 +6,4 @@
 [core]
   excludesfile = ~/.gitignore
 
-[color]
-  ui = auto
-
-[push]
-  default = simple
-
 ### ~/.gitconfig: User configuration for `git`
