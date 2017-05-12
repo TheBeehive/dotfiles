@@ -17,9 +17,8 @@ export EDITOR="$(which nvim vim vi nano 2> /dev/null | head -1)"
 # Create true NTFS symlinks in Cygwin
 if [ "$OSTYPE" = cygwin ]; then
   export CYGWIN='winsymlinks:native'
+  export PGDATA='/var/lib/postgresql'
 fi
-
-export PGDATA='/var/lib/postgresql'
 
 [ -r ~/.bashrc ] && source ~/.bashrc
 
