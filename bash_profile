@@ -20,7 +20,7 @@ if [ "$OSTYPE" = cygwin ]; then
   export PGDATA='/var/lib/postgresql'
 fi
 
-[ -r ~/.bashrc ] && source ~/.bashrc
+[ -f ~/.bashrc ] && source ~/.bashrc
 
 # vim: set ft=sh:
 ### ~/.bash_profile: Runtime configuration for login `bash`
