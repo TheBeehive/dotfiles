@@ -11,7 +11,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'itchyny/lightline.vim'
 Plug 'chriskempson/base16-vim'
-Plug 'bling/vim-bufferline'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
@@ -180,10 +179,6 @@ let g:lightline = { 'colorscheme': 'Tomorrow_Night' }
 
 set noshowmode
 set laststatus=2
-
-" Configuration subsection for vim-bufferline
-
-let g:bufferline_echo = 0
 
 " Configuration subsection for tagbar
 
