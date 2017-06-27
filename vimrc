@@ -158,18 +158,6 @@ function! FileHeaderSource()
 endfunction
 nnoremap <silent> gs :call FileHeaderSource()<CR>
 
-" Map 0 to close inactive unmodified buffers
-function! CloseUnmodifiedBuffers()
-  let i = 0
-  while i < bufnr('$')
-    let i = i + 1
-    if bufloaded(i) && bufwinnr(i) < 0 && getbufvar(i, '&modified') == 0
-      exec 'bd ' . i
-    endif
-  endwhile
-endfunction
-nnoremap <silent> 0 :call CloseUnmodifiedBuffers()<CR>
-
 " Configuration subsection for vim-plug
 
 " Set the plug window height based on the number of plugs
