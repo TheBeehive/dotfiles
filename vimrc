@@ -106,6 +106,8 @@ nnoremap <C-k> <C-u>
 noremap s <C-w>
 noremap S <NOP>
 
+nnoremap <Leader>r :source $MYVIMRC<CR>
+
 nnoremap <silent> [b :<C-u>exec '' . (v:count ? v:count : '') . 'bprev'<CR>
 nnoremap <silent> [B :<C-u>exec '' . (v:count ? v:count : '') . 'bfirst'<CR>
 nnoremap <silent> ]b :<C-u>exec '' . (v:count ? v:count : '') . 'bnext'<CR>
