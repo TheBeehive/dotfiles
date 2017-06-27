@@ -174,7 +174,7 @@ set laststatus=2
 
 let g:tagbar_indent = 0
 let g:tagbar_sort = 0
-nmap <F8> :TagbarToggle<CR>
+nmap <Leader>tt :TagbarToggle<CR>
 
 autocmd FileType python setlocal sw=4 sts=4
 
