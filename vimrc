@@ -60,13 +60,8 @@ set modelines=2
 if &t_Co == 8 && $TERM !~# '^linux'
   set t_Co=16
 endif
-
 set background=dark
 silent! colorscheme base16-ocean
-" Only supported in MacVim
-if has("gui_macvim")
-  set transparency=10
-endif
 
 " Open help window splitright with width 78
 autocmd FileType help set bufhidden=unload | wincmd L | vertical resize 78
