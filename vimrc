@@ -4,7 +4,7 @@
 set encoding=utf-8
 
 if has('win32')
-  set runtimepath+=~/.vim
+  set runtimepath^=~/.vim
 endif
 
 call plug#begin('~/.vim/plugged')
