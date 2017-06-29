@@ -16,6 +16,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tommcdo/vim-lion'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-repeat'
+Plug 'deris/vim-shot-f'
 Plug 'majutsushi/tagbar'
 Plug 'raimondi/delimitmate'
 
