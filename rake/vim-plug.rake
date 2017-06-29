@@ -19,3 +19,6 @@ namespace 'vim-plug' do
     sh %(vim -c "let g:plug_window = ''" +PlugUpgrade -c 'qa!')
   end
 end
+
+desc 'Install or update plugins (PlugUpdate)'
+task 'vim-plug' => 'vim-plug:update'
