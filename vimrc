@@ -33,7 +33,7 @@ set softtabstop=2
 set shiftround
 set shiftwidth=2
 
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 set display+=lastline
 set scrolloff=1
