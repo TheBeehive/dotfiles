@@ -13,6 +13,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'tommcdo/vim-lion'
 Plug 'tpope/vim-repeat'
 Plug 'majutsushi/tagbar'
 Plug 'raimondi/delimitmate'
@@ -163,6 +164,12 @@ let g:lightline = { 'colorscheme': 'Tomorrow_Night' }
 
 set noshowmode
 set laststatus=2
+
+" Configuration subsection for vim-lion
+
+let g:lion_squeeze_spaces = 1
+let g:lion_map_left = 'c<'
+let g:lion_map_right = 'c>'
 
 " Configuration subsection for tagbar
 
