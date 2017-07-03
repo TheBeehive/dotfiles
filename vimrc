@@ -30,9 +30,10 @@ syntax enable
 set autoindent
 set backspace=indent,eol,start
 set expandtab
-set softtabstop=2
 set shiftround
 set shiftwidth=2
+set smarttab
+set softtabstop=2
 
 set clipboard=unnamedplus
 
