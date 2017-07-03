@@ -28,6 +28,9 @@ fi
 # Export PS1 and set continuation prompt to >
 export PS1 PS2='> '
 
+# Load key bindings for `fzf`
+source /usr/local/opt/fzf/shell/key-bindings.bash
+# Set options for `fzf` and reset on resize
 fzf_resize() {
   export FZF_DEFAULT_OPTS="--inline-info \
     --reverse --height=$(($LINES - 1)) \
