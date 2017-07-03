@@ -23,10 +23,12 @@ Plug 'raimondi/delimitmate'
 
 call plug#end()
 
+" Global options
 set nocompatible
 filetype plugin indent on
 syntax enable
 
+" Indentation options
 set autoindent
 set backspace=indent,eol,start
 set expandtab
@@ -35,8 +37,7 @@ set shiftwidth=2
 set smarttab
 set softtabstop=2
 
-set clipboard=unnamedplus
-
+" Display options
 set display=lastline
 set listchars=eol:¶,tab:→·,nbsp:·,trail:·,extends:›,precedes:‹
 set breakindent
@@ -51,17 +52,18 @@ set numberwidth=4
 set visualbell t_vb=
 set splitbelow
 set splitright
-set wildmenu
-set wildmode=longest:full
 
+" Behavior options
+set autoread
+set clipboard=unnamedplus
 set complete-=i
 set nrformats-=octal
-
+set hidden
 set history=2000
 set undolevels=2000
-set autoread
-set hidden
 set modelines=2
+set wildmenu
+set wildmode=longest:full
 
 " Allow bright without bold
 if &t_Co == 8 && $TERM !~# '^linux'
