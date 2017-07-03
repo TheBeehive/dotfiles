@@ -25,7 +25,7 @@ call plug#end()
 
 set nocompatible
 filetype plugin indent on
-syntax on
+syntax enable
 
 set autoindent
 set backspace=indent,eol,start
