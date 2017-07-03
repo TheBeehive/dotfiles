@@ -13,6 +13,7 @@ insert_path ~/.local/bin
 unset -f insert_path
 
 export EDITOR="$(which nvim vim vi nano 2> /dev/null | head -1)"
+export MAKEFLAGS='-j8'
 
 # Create true NTFS symlinks in Cygwin
 if [ "$OSTYPE" = cygwin ]; then
