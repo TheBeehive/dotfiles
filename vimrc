@@ -37,19 +37,22 @@ set softtabstop=2
 
 set clipboard=unnamedplus
 
-set display+=lastline
+set display=lastline
+set listchars=eol:¶,tab:→·,nbsp:·,trail:·,extends:›,precedes:‹
+set breakindent
+set breakindentopt=shift:-2
+set showbreak=↪\ 
 set scrolloff=1
 set sidescrolloff=4
 set hlsearch
 set incsearch
-set listchars=eol:¶,tab:→·,trail:·
 set number
 set numberwidth=4
-set ruler
 set visualbell t_vb=
+set splitbelow
+set splitright
 set wildmenu
 set wildmode=longest:full
-set splitright
 
 set complete-=i
 set nrformats-=octal
