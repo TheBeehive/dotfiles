@@ -67,9 +67,8 @@ alias octave='octave -q'
 alias psql='psql -q'
 alias R='R -q --no-save'
 
-# Create and use a cscope database at .cscope
-alias mkcscope="`which cscope` -bkqRf .cscope"
-alias cscope="`which cscope` -df .cscope"
+# Use the cscope database at .cscope
+alias cscope='cscope -df .cscope'
 
 # Keep our github access token out of github
 [ -r ~/.github_api ] && source ~/.github_api
