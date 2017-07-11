@@ -7,6 +7,9 @@ install:
 	# on ~/.local)
 	mkdir -p ~/.local
 
+	# Ensure that $XDG_CONFIG_HOME exists for neovim
+	mkdir -p ~/.config
+
 	ln -sf "${MAKEROOT}"/bash_logout ~/.bash_logout
 	ln -sf "${MAKEROOT}"/bash_profile ~/.bash_profile
 	ln -sf "${MAKEROOT}"/bashrc ~/.bashrc
@@ -21,6 +24,7 @@ ifeq ($(OSTYPE),cygwin)
 endif
 	ln -sfn "${MAKEROOT}"/rake ~/.rake
 	ln -sf "${MAKEROOT}"/sqliterc ~/.sqliterc
+	ln -sfn "${MAKEROOT}"/vim ~/.config/nvim
 	ln -sfn "${MAKEROOT}"/vim ~/.vim
 	ln -sf "${MAKEROOT}"/vimrc ~/.vimrc
 
