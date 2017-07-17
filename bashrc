@@ -53,6 +53,8 @@ elif ls -G -d . &> /dev/null; then
   alias ls='ls -G'
 fi
 
+alias ll='ls -la'
+
 # Enable color in `grep`
 if echo x | grep --color x &> /dev/null; then
   alias grep='grep --color'
