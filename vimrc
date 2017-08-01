@@ -141,7 +141,7 @@ function! ToggleQuickfixList()
   endif
 
   let winnr = winnr()
-  copen
+  botright copen
   if winnr() != winnr
     wincmd p
   endif
