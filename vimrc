@@ -116,7 +116,9 @@ noremap S <NOP>
 
 nnoremap <Tab> za
 
-nnoremap <Leader>r :source $MYVIMRC<CR>
+" Search highlighting is reactivated whenever hlsearch is set (in $MYVIMRC)
+nnoremap <silent> <Leader>rr :source $MYVIMRC | nohlsearch<CR>
+nnoremap <silent> <Leader>re :e $MYVIMRC<CR>
 
 nnoremap <silent> [b :<C-u>exec '' . (v:count ? v:count : '') . 'bprev'<CR>
 nnoremap <silent> [B :<C-u>exec '' . (v:count ? v:count : '') . 'bfirst'<CR>
