@@ -183,6 +183,10 @@ autocmd FileType help set bufhidden=unload | wincmd L | vertical resize 78
 " Set the plug window height based on the number of plugs
 let g:plug_window = 'botright ' . (len(g:plugs) + 4) . 'new'
 
+" cscope-auto
+
+let g:cscope_auto_database_name = '.cscope'
+
 " lightline
 
 let g:lightline = { 'colorscheme': 'Tomorrow_Night' }
