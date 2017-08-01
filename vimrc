@@ -1,7 +1,7 @@
 """ ~/.vimrc: Runtime configuration for `vim`
 
-" Always use UTF-8 encoding
-set encoding=utf-8
+"" Encoding and runtimepath
+set encoding=utf-8 " Always use UTF-8 encoding
 
 if has('win32')
   set runtimepath^=~/.vim
@@ -23,6 +23,8 @@ Plug 'majutsushi/tagbar'
 Plug 'raimondi/delimitmate'
 
 call plug#end()
+
+"" General Configuration
 
 " Global options
 set nocompatible
@@ -76,9 +78,7 @@ endif
 set background=dark
 silent! colorscheme base16-ocean
 
-" Open help window splitright with width 78
-autocmd FileType help set bufhidden=unload | wincmd L | vertical resize 78
-
+"" Mappings and Abbreviations
 let mapleader = "\<Space>"
 
 noremap <CR> :
@@ -122,6 +122,8 @@ nnoremap <silent> [b :<C-u>exec '' . (v:count ? v:count : '') . 'bprev'<CR>
 nnoremap <silent> [B :<C-u>exec '' . (v:count ? v:count : '') . 'bfirst'<CR>
 nnoremap <silent> ]b :<C-u>exec '' . (v:count ? v:count : '') . 'bnext'<CR>
 nnoremap <silent> ]B :<C-u>exec '' . (v:count ? v:count : '') . 'blast'<CR>
+
+"" Quickfix List
 
 function! ToggleQuickfixList()
   redir => output
@@ -168,31 +170,38 @@ function! FileHeaderSource()
 endfunction
 nnoremap <silent> gs :call FileHeaderSource()<CR>
 
-" Configuration subsection for vim-plug
+"" Filetype Configuration
+autocmd FileType python setlocal sw=4 sts=4
+
+" Open help window splitright with width 78
+autocmd FileType help set bufhidden=unload | wincmd L | vertical resize 78
+
+"" Plugin Configuration
+
+" vim-plug
 
 " Set the plug window height based on the number of plugs
 let g:plug_window = 'botright ' . (len(g:plugs) + 4) . 'new'
 
-" Configuration subsection for lightline
+" lightline
 
 let g:lightline = { 'colorscheme': 'Tomorrow_Night' }
 
 set noshowmode
 set laststatus=2
 
-" Configuration subsection for vim-lion
+" vim-lion
 
 let g:lion_squeeze_spaces = 1
 let g:lion_map_left = 'c<'
 let g:lion_map_right = 'c>'
 
-" Configuration subsection for tagbar
+" tagbar
 
 let g:tagbar_indent = 0
 let g:tagbar_sort = 0
 nmap <Leader>tt :TagbarToggle<CR>
 
-autocmd FileType python setlocal sw=4 sts=4
 "" Folding Expression and Text
 
 function! VimrcFoldExpr()
