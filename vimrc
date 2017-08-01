@@ -7,7 +7,7 @@ if has('win32')
   set runtimepath^=~/.vim
 endif
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/plug')
 
 Plug 'itchyny/lightline.vim'
 Plug 'chriskempson/base16-vim'
