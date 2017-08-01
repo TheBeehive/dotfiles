@@ -189,4 +189,3 @@ nmap <Leader>tt :TagbarToggle<CR>
 
 autocmd FileType python setlocal sw=4 sts=4
 
-""" ~/.vimrc: Runtime configuration for `vim`
