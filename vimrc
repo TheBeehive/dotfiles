@@ -14,6 +14,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-commentary'
 Plug 'ktchen14/cscope-auto'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf.vim'
 Plug 'tommcdo/vim-lion'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-repeat'
@@ -189,6 +190,12 @@ let g:plug_window = 'botright ' . (len(g:plugs) + 4) . 'new'
 
 let g:cscope_auto_database_name = '.cscope'
 set cscopequickfix=s-,c-,d-,i-,t-,e-,a-
+
+" fzf
+
+if isdirectory('/usr/local/opt/fzf')
+  set runtimepath^=/usr/local/opt/fzf
+endif
 
 " lightline
 
