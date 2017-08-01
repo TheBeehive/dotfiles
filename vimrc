@@ -66,6 +66,9 @@ set modelines=2
 set wildmenu
 set wildmode=longest:full
 
+" Folding options
+set foldopen-=block
+
 " Allow bright without bold
 if &t_Co == 8 && $TERM !~# '^linux'
   set t_Co=16
@@ -110,6 +113,8 @@ nnoremap <C-k> <C-u>
 " Map s to window navigation prefix
 noremap s <C-w>
 noremap S <NOP>
+
+nnoremap <Tab> za
 
 nnoremap <Leader>r :source $MYVIMRC<CR>
 
@@ -188,4 +193,32 @@ let g:tagbar_sort = 0
 nmap <Leader>tt :TagbarToggle<CR>
 
 autocmd FileType python setlocal sw=4 sts=4
+"" Folding Expression and Text
 
+function! VimrcFoldExpr()
+  " Don't fold the header even though it starts with """
+  if v:lnum == 1 | return 0 | end
+
+  " Get the line without leading and trailing whitespace
+  let line = matchstr(getline(v:lnum), '^\s*\zs.\{-}\ze\s*$')
+
+  if empty(line)
+    return -1
+  elseif line =~ '^call plug#begin'
+    return '>1'
+  elseif line =~ '^call plug#end'
+    return '<1'
+  endif
+
+  " Get the number of leading " characters
+  let length = len(matchstr(line, '^"\{2,}'))
+  return length > 1 ? '>' . (3 - length) : '='
+endfunction
+
+function! VimrcFoldText()
+  let name = matchstr(getline(v:foldstart),
+        \ '^\s*"*\s*\zs.\{-}\ze\s*$')
+  return '+' . v:folddashes . ' ' . name . ' '
+endfunction
+
+" vim: set fdm=expr fde=VimrcFoldExpr() fdt=VimrcFoldText():
