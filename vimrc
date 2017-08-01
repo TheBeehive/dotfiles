@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plug')
 Plug 'itchyny/lightline.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-commentary'
+Plug 'ktchen14/cscope-auto'
 Plug 'tpope/vim-fugitive'
 Plug 'tommcdo/vim-lion'
 Plug 'sheerun/vim-polyglot'
