@@ -186,6 +186,7 @@ let g:plug_window = 'botright ' . (len(g:plugs) + 4) . 'new'
 " cscope-auto
 
 let g:cscope_auto_database_name = '.cscope'
+set cscopequickfix=s-,c-,d-,i-,t-,e-,a-
 
 " lightline
 
