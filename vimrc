@@ -19,6 +19,7 @@ Plug 'tommcdo/vim-lion'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-repeat'
 Plug 'deris/vim-shot-f'
+Plug 'ktchen14/status-symbol'
 Plug 'tpope/vim-surround'
 Plug 'majutsushi/tagbar'
 Plug 'raimondi/delimitmate'
@@ -199,7 +200,7 @@ endif
 
 " lightline
 
-let g:lightline = { 'colorscheme': 'Tomorrow_Night' }
+let g:lightline = { 'colorscheme': 'Tomorrow_Night', 'enable': { 'tabline': 0 } }
 
 set noshowmode
 set laststatus=2
