@@ -50,7 +50,10 @@ set breakindentopt=shift:-2
 set showbreak=↪\ 
 set scrolloff=1
 set sidescrolloff=4
+" Keep hlsearch status
+let hlsearch=v:hlsearch
 set hlsearch
+let v:hlsearch=hlsearch
 set incsearch
 set number
 set numberwidth=4
@@ -118,9 +121,8 @@ noremap S <NOP>
 
 nnoremap <Tab> za
 
-" Search highlighting is reactivated whenever hlsearch is set (in $MYVIMRC)
-nnoremap <silent> <Leader>rr :source $MYVIMRC | nohlsearch<CR>
-nnoremap <silent> <Leader>re :e $MYVIMRC<CR>
+nnoremap <silent> <Leader>rr :source $MYVIMRC<CR>
+nnoremap <silent> <Leader>re :edit $MYVIMRC<CR>
 
 nnoremap <silent> [b :<C-u>exec '' . (v:count ? v:count : '') . 'bprev'<CR>
 nnoremap <silent> [B :<C-u>exec '' . (v:count ? v:count : '') . 'bfirst'<CR>
