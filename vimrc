@@ -1,11 +1,15 @@
 """ ~/.vimrc: Runtime configuration for `vim`
 
+" Windows-specific
+
 " Always use UTF-8 encoding
 set encoding=utf-8
 
 if has('win32')
   set runtimepath^=~/.vim
 endif
+
+" Plugins
 
 call plug#begin('~/.vim/plugged')
 
@@ -20,6 +24,14 @@ Plug 'deris/vim-shot-f'
 Plug 'tpope/vim-surround'
 Plug 'majutsushi/tagbar'
 Plug 'raimondi/delimitmate'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'vim-syntastic/syntastic'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'vimwiki/vimwiki'
+Plug 'tpope/vim-surround'
+Plug 'ktchen14/status-symbol'
+Plug 'rking/ag.vim'
 
 call plug#end()
 
@@ -63,15 +75,25 @@ set autoread
 set hidden
 set modelines=2
 
+" Relative numbering
+set relativenumber
+set cursorline
+
+" Persistent Undo
+set undofile
+
 " Allow bright without bold
 if &t_Co == 8 && $TERM !~# '^linux'
   set t_Co=16
 endif
 set background=dark
-silent! colorscheme base16-ocean
+silent! colorscheme base16-tomorrow
 
 " Open help window splitright with width 78
 autocmd FileType help set bufhidden=unload | wincmd L | vertical resize 78
+
+" See :help last-position-jump
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 let mapleader = "\<Space>"
 
@@ -81,6 +103,8 @@ nnoremap <silent><BS> :nohlsearch<CR>
 nnoremap Y y$
 nnoremap U <C-r>
 noremap Q @
+
+tnoremap <Esc> <C-\><C-n>
 
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
@@ -101,6 +125,8 @@ noremap M '
 
 nnoremap <C-h> :bp<CR>
 nnoremap <C-l> :bn<CR>
+
+" Page Up and Page Down
 nnoremap <C-j> <C-d>
 nnoremap <C-k> <C-u>
 
@@ -109,6 +135,11 @@ noremap s <C-w>
 noremap S <NOP>
 
 nnoremap <Leader>r :source $MYVIMRC<CR>
+
+nnoremap <Leader>* *:AgFromSearch<CR>:copen<CR>
+
+nnoremap ]] ][
+nnoremap ][ ]]
 
 nnoremap <silent> [b :<C-u>exec '' . (v:count ? v:count : '') . 'bprev'<CR>
 nnoremap <silent> [B :<C-u>exec '' . (v:count ? v:count : '') . 'bfirst'<CR>
@@ -167,7 +198,7 @@ let g:plug_window = 'botright ' . (len(g:plugs) + 4) . 'new'
 
 " Configuration subsection for lightline
 
-let g:lightline = { 'colorscheme': 'Tomorrow_Night' }
+let g:lightline = { 'colorscheme': 'Tomorrow_Night', 'enable': { 'tabline': 0 } }
 
 set noshowmode
 set laststatus=2
@@ -185,5 +216,41 @@ let g:tagbar_sort = 0
 nmap <Leader>tt :TagbarToggle<CR>
 
 autocmd FileType python setlocal sw=4 sts=4
+
+
+" Cscope
+
+if filereadable('.cscope')
+    cs add .cscope
+endif
+set cscopequickfix=s-,c-,d-,i-,t-,e-,a-
+
+" Find this C symbol
+nnoremap <Leader>cs :cs find s
+nnoremap <Leader>cS :cs find s <C-R>=expand("<cword>")<CR><CR>
+" Find this definition
+nnoremap <Leader>cg :cs find g
+nnoremap <Leader>cG :cs find g <C-R>=expand("<cword>")<CR><CR>
+" Find functions called by this function
+nnoremap <Leader>cd :cs find d
+nnoremap <Leader>cD :cs find d <C-R>=expand("<cword>")<CR><CR>
+" Find functions calling this function
+nnoremap <Leader>cc :cs find c
+nnoremap <Leader>cC :cs find c <C-R>=expand("<cword>")<CR><CR>
+" Find this text string
+nnoremap <Leader>ct :cs find t
+nnoremap <Leader>cT :cs find t <C-R>=expand("<cword>")<CR><CR>
+" Find this egrep pattern
+nnoremap <Leader>ce :cs find e
+nnoremap <Leader>cE :cs find e <C-R>=expand("<cword>")<CR><CR>
+" Find this file
+nnoremap <Leader>cf :cs find f
+nnoremap <Leader>cF :cs find f <C-R>=expand("<cword>")<CR><CR>
+" Find files #including this file
+nnoremap <Leader>ci :cs find i
+nnoremap <Leader>cI :cs find i <C-R>=expand("<cword>")<CR><CR>
+" Find places where this symbol is assigned a value
+nnoremap <Leader>ca :cs find a
+nnoremap <Leader>cA :cs find a <C-R>=expand("<cword>")<CR><CR>
 
 """ ~/.vimrc: Runtime configuration for `vim`

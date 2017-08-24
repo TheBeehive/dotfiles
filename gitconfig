@@ -4,6 +4,6 @@
   path = .gitconfig_user
 
 [core]
-  excludesfile = ~/.gitignore
+	excludesfile = ~/.gitignore
 
 ### ~/.gitconfig: User configuration for `git`
