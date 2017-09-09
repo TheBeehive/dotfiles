@@ -8,22 +8,20 @@ if has('win32')
 endif
 
 call plug#begin('~/.vim/plug')
-
-Plug 'itchyny/lightline.vim'
 Plug 'chriskempson/base16-vim'
-Plug 'tpope/vim-commentary'
-Plug 'ktchen14/cscope-auto'
-Plug 'tpope/vim-fugitive'
-Plug 'junegunn/fzf.vim'
-Plug 'tommcdo/vim-lion'
-Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-repeat'
 Plug 'deris/vim-shot-f'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf.vim'
+Plug 'ktchen14/cscope-auto'
 Plug 'ktchen14/status-symbol'
-Plug 'tpope/vim-surround'
 Plug 'majutsushi/tagbar'
 Plug 'raimondi/delimitmate'
-
+Plug 'sheerun/vim-polyglot'
+Plug 'tommcdo/vim-lion'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 "" General Configuration
