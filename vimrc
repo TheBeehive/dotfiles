@@ -236,7 +236,7 @@ function! VimrcFoldExpr()
 
   " Get the number of leading " characters
   let length = len(matchstr(line, '^"\{2,}'))
-  return length > 1 ? '>' . (3 - length) : '='
+  return length > 1 ? '>1' : '='
 endfunction
 
 function! VimrcFoldText()
