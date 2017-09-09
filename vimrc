@@ -43,21 +43,13 @@ set softtabstop=2
 " Display options
 set display=lastline
 set listchars=eol:¶,tab:→·,nbsp:·,trail:·,extends:›,precedes:‹
-set breakindent
-set breakindentopt=shift:-2
-set showbreak=↪\ 
-set scrolloff=1
-set sidescrolloff=4
-" Keep hlsearch status
-let hlsearch=v:hlsearch
-set hlsearch
-let v:hlsearch=hlsearch
-set incsearch
 set number
 set numberwidth=4
-set visualbell t_vb=
+set scrolloff=1
+set sidescrolloff=4
 set splitbelow
 set splitright
+set visualbell t_vb=
 
 " Behavior options
 set autoread
@@ -70,6 +62,19 @@ set undolevels=2000
 set modelines=2
 set wildmenu
 set wildmode=longest:full
+
+" Search options
+" Keep hlsearch status on reload
+let hlsearch=v:hlsearch
+set hlsearch
+let v:hlsearch=hlsearch
+set incsearch
+
+" Text wrap options
+" Prefix broken lines with ↪
+set breakindent
+set breakindentopt=shift:-2
+set showbreak=↪\ 
 
 " Folding options
 set foldopen-=block
