@@ -78,6 +78,17 @@ alias R='R -q --no-save'
 # Use the cscope database at .cscope
 alias cscope='cscope -df .cscope'
 
+alias dci='git duet-commit'
+alias drb="git rebase -i --exec 'git duet-commit --amend --reset-author'"
+
+alias 5x='cd ~/workspace/gpdb'
+
+alias src5x='src5x(){
+  source /usr/local/gpdb/greenplum_path.sh
+  source ~/workspace/gpdb/gpAux/gpdemo/gpdemo-env.sh
+}
+src5x'
+
 # Keep our github access token out of github
 [ -r ~/.github_api ] && source ~/.github_api
 
