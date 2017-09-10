@@ -97,6 +97,8 @@ nnoremap Y y$
 nnoremap U <C-r>
 noremap Q @
 
+tnoremap <Esc> <C-\><C-n>
+
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
