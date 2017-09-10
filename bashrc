@@ -94,4 +94,6 @@ if [ "$OSTYPE" = cygwin ]; then
   else alias ghci='ghcii.sh'; fi
 fi
 
+command -v direnv > /dev/null 2>&1 && eval "$(direnv hook bash)"
+
 ### ~/.bashrc: Runtime configuration for interactive `bash`
