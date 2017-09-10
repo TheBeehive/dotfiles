@@ -151,3 +151,5 @@ cmakelists.txt
 CMakeLists.txt
 .idea
 cmake-build-debug/
+
+.git-authors
