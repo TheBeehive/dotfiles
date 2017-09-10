@@ -132,6 +132,9 @@ nnoremap <Tab> za
 nnoremap <silent> <Leader>rr :source $MYVIMRC<CR>
 nnoremap <silent> <Leader>re :edit $MYVIMRC<CR>
 
+nnoremap ]] ][
+nnoremap ][ ]]
+
 nnoremap <silent> [b :<C-u>exec '' . (v:count ? v:count : '') . 'bprev'<CR>
 nnoremap <silent> [B :<C-u>exec '' . (v:count ? v:count : '') . 'bfirst'<CR>
 nnoremap <silent> ]b :<C-u>exec '' . (v:count ? v:count : '') . 'bnext'<CR>
