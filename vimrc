@@ -170,6 +170,8 @@ nnoremap <Tab> za
 nnoremap <silent> <Leader>rr :source $MYVIMRC<CR>
 nnoremap <silent> <Leader>re :edit $MYVIMRC<CR>
 
+nnoremap <Leader>* *:AgFromSearch<CR>:copen<CR>
+
 nnoremap ]] ][
 nnoremap ][ ]]
 
