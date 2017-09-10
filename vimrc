@@ -27,10 +27,12 @@ if executable('editorconfig')
 endif
 
 " Personal plug-ins
+Plug 'editorconfig/editorconfig-vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'rking/ag.vim'
 
 " Trial plug-ins
+Plug 'mattn/calendar-vim'
 Plug 'vimwiki/vimwiki'
 call plug#end()
 
@@ -287,6 +289,10 @@ autocmd QuickFixCmdPost cscope botright copen
 
 " Set the plug window height based on the number of plugs
 let g:plug_window = 'botright ' . (len(g:plugs) + 4) . 'new'
+
+" calendar-vim
+
+let g:vimwiki_use_calendar = 1
 
 " cscope-auto
 
