@@ -153,6 +153,13 @@ CMakeLists.txt
 
 ### Miscellaneous {{{1
 
+# unsure if I need these
+.ropeproject
+*.iml
+.DS_Store
+.python-version
+greenplum-db-devel
+greenplum-dev
 .git-authors
 
 # vim: set foldmethod=marker:
