@@ -92,8 +92,6 @@ silent! colorscheme base16-ocean
 "" Mappings and Abbreviations
 let mapleader = "\<Space>"
 
-noremap <CR> :
-
 nnoremap <silent><BS> :nohlsearch<CR>
 nnoremap Y y$
 nnoremap U <C-r>
