@@ -333,6 +333,10 @@ let g:tagbar_indent = 0
 let g:tagbar_sort = 0
 nmap <Leader>tt :TagbarToggle<CR>
 
+" EditorConfig
+"
+let g:EditorConfig_exec_path = '~/.vim/plug/editorconfig-vim/plugin/editorconfig.py'
+
 "" Folding Expression and Text
 
 " Ensure that VimrcFoldExpr is callable from this modeline
