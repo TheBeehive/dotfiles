@@ -66,6 +66,42 @@ else
     start_agent;
 fi
 
+# GPDB
+export GPDB5="$HOME/workspace/gpdb"
+ulimit -n 65536 65536
+ulimit -c unlimited
+export PGHOST=localhost
+export TMPDIR=/tmp
+
+mkdir -p "$HOME/.ssh"
+
+# from http://stackoverflow.com/questions/18880024/start-ssh-agent-on-login/18915067#18915067
+SSH_ENV="$HOME/.ssh/environment"
+
+# Refresh the PATH per new session
+sed -i .bak '/^PATH/d' ${SSH_ENV}
+echo "PATH=$PATH" >> ${SSH_ENV}
+
+function start_agent {
+    echo "Initialising new SSH agent..."
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    echo succeeded
+    chmod 600 "${SSH_ENV}"
+    source "${SSH_ENV}" > /dev/null
+    /usr/bin/ssh-add;
+}
+
+# Source SSH settings, if applicable
+
+if [ -f "${SSH_ENV}" ]; then
+    . "${SSH_ENV}" > /dev/null
+    ps -ef | grep ${SSH_AGENT_PID} 2>/dev/null | grep ssh-agent$ > /dev/null || {
+        start_agent;
+    }
+else
+    start_agent;
+fi
+
 [ -f ~/.bashrc ] && source ~/.bashrc
 
 # vim: set ft=sh:
