@@ -142,6 +142,34 @@ nnoremap <silent> ]B :<C-u>exec '' . (v:count ? v:count : '') . 'blast'<CR>
 
 nnoremap <C-P> :FZF<CR>
 
+" Find this C symbol
+nnoremap <Leader>cs :cs find s
+nnoremap <Leader>cS :cs find s <C-R>=expand("<cword>")<CR><CR>
+" Find this definition
+nnoremap <Leader>cg :cs find g
+nnoremap <Leader>cG :cs find G <C-R>=expand("<cword>")<CR><CR>
+" Find functions called by this function
+nnoremap <Leader>cd :cs find d
+nnoremap <Leader>cD :cs find D <C-R>=expand("<cword>")<CR><CR>
+" Find functions calling this function
+nnoremap <Leader>cc :cs find c
+nnoremap <Leader>cC :cs find C <C-R>=expand("<cword>")<CR><CR>
+" Find this text string
+nnoremap <Leader>ct :cs find t
+nnoremap <Leader>cT :cs find T <C-R>=expand("<cword>")<CR><CR>
+" Find this egrep pattern
+nnoremap <Leader>ce :cs find e
+nnoremap <Leader>cE :cs find E <C-R>=expand("<cword>")<CR><CR>
+" Find this file
+nnoremap <Leader>cf :cs find f
+nnoremap <Leader>cF :cs find F <C-R>=expand("<cword>")<CR><CR>
+" Find files #including this file
+nnoremap <Leader>ci :cs find i
+nnoremap <Leader>cI :cs find I <C-R>=expand("<cword>")<CR><CR>
+" Find places where this symbol is assigned a value
+nnoremap <Leader>ca :cs find a
+nnoremap <Leader>cA :cs find A <C-R>=expand("<cword>")<CR><CR>
+
 "" Quickfix List
 
 function! ToggleQuickfixList()
