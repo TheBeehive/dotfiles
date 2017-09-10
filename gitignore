@@ -152,4 +152,11 @@ CMakeLists.txt
 .idea
 cmake-build-debug/
 
+# unsure if I need these
+.ropeproject
+*.iml
+.DS_Store
+.python-version
+greenplum-db-devel
+greenplum-dev
 .git-authors
