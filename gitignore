@@ -151,4 +151,8 @@ cmakelists.txt
 CMakeLists.txt
 .idea
 
+### Miscellaneous {{{1
+
+.git-authors
+
 # vim: set foldmethod=marker:
