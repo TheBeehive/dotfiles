@@ -140,6 +140,8 @@ nnoremap <silent> [B :<C-u>exec '' . (v:count ? v:count : '') . 'bfirst'<CR>
 nnoremap <silent> ]b :<C-u>exec '' . (v:count ? v:count : '') . 'bnext'<CR>
 nnoremap <silent> ]B :<C-u>exec '' . (v:count ? v:count : '') . 'blast'<CR>
 
+nnoremap <C-P> :FZF<CR>
+
 "" Quickfix List
 
 function! ToggleQuickfixList()
