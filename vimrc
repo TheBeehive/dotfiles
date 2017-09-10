@@ -116,6 +116,8 @@ noremap M '
 
 nnoremap <C-h> :bp<CR>
 nnoremap <C-l> :bn<CR>
+
+" Page Up and Page Down
 nnoremap <C-j> <C-d>
 nnoremap <C-k> <C-u>
 
