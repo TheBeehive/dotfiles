@@ -118,6 +118,7 @@ Session.vim
 
 # Auto-generated tag files
 tags
+tags.*
 
 ### Windows {{{1
 
@@ -143,5 +144,11 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+### Editor-generated files {{{1
+
+cmakelists.txt
+CMakeLists.txt
+.idea
 
 # vim: set foldmethod=marker:
