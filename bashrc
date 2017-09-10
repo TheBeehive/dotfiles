@@ -101,6 +101,9 @@ if [ "$OSTYPE" = cygwin ]; then
   else alias ghci='ghcii.sh'; fi
 fi
 
+[ -f /usr/local/etc/bash_completion ] && source /usr/local/etc/bash_completion
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 command -v direnv > /dev/null 2>&1 && eval "$(direnv hook bash)"
 
 # Use chruby and chruby-auto if available
