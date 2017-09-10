@@ -1,13 +1,9 @@
 MAKEROOT:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 OSTYPE:=$(shell echo $$OSTYPE)
 
-.PHONY: bash gem git rake vim
+.PHONY: bash gem git mintty rake sqlite vim
 
-install: bash gem git rake vim
-ifeq ($(OSTYPE),cygwin)
-	ln -sf "${MAKEROOT}"/minttyrc ~/.minttyrc
-endif
-	ln -sf "${MAKEROOT}"/sqliterc ~/.sqliterc
+install: bash gem git mintty rake sqlite vim
 
 bash:
 	ln -sf "${MAKEROOT}"/bash_logout ~/.bash_logout
@@ -27,8 +23,16 @@ git:
 	cp -f "${MAKEROOT}"/gitconfig_user ~/.gitconfig_user
 	ln -sf "${MAKEROOT}"/gitignore ~/.gitignore
 
+mintty:
+ifeq ($(OSTYPE),cygwin)
+	ln -sf "${MAKEROOT}"/minttyrc ~/.minttyrc
+endif
+
 rake:
 	ln -sfn "${MAKEROOT}"/rake ~/.rake
+
+sqlite:
+	ln -sf "${MAKEROOT}"/sqliterc ~/.sqliterc
 
 vim: rake
 	# Ensure that $XDG_CONFIG_HOME exists for neovim
