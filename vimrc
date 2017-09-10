@@ -25,6 +25,13 @@ Plug 'tpope/vim-surround'
 if executable('editorconfig')
   Plug 'editorconfig/editorconfig-vim'
 endif
+
+" Personal plug-ins
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'rking/ag.vim'
+
+" Trial plug-ins
+Plug 'vimwiki/vimwiki'
 call plug#end()
 
 "" General Configuration
