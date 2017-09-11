@@ -14,7 +14,7 @@ PS1="$PS1"' \[\e[36m\]\w\[\e[m\]'
 git_branch() {
   git branch 2> /dev/null | sed -ne '/^\*/s/^\* \(.*\)$/\1/p'
 }
-export PROMPT_COMMAND='GIT_BRANCH=$(git_branch)'
+PROMPT_COMMAND='GIT_BRANCH=$(git_branch)'
 PS1="$PS1"'${GIT_BRANCH:+ [\[\e[38;5;9m\]${GIT_BRANCH}\[\e[m\]]}: '
 
 # Set the window title in xterm and screen
