@@ -25,8 +25,8 @@ elif [[ $TERM == screen* ]]; then
   PS1='\[\ek\u \w\e\\\]'"$PS1"
 fi
 
-# Export PS1 and set continuation prompt to >
-export PS1 PS2='> '
+# Set continuation prompt to >
+PS2='> '
 
 # None of this works in the legacy version of `fzf`
 if [ "$OSTYPE" != cygwin ]; then
