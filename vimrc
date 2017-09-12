@@ -241,7 +241,7 @@ set cscopequickfix=s-,c-,d-,i-,t-,e-,a-
 if isdirectory('/usr/local/opt/fzf')
   set runtimepath^=/usr/local/opt/fzf
 endif
-autocmd FileType fzf tunmap <Esc>
+autocmd FileType fzf silent! tunmap <Esc>
 
 " lightline
 
