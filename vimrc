@@ -216,6 +216,8 @@ nnoremap ]B <Cmd>exec '' . (v:count ? v:count : '') . 'blast'<CR>
 
 nnoremap <C-P> <Cmd>FZF!<CR>
 
+nnoremap <Leader>ss <Cmd>call ktchen14#show_syntax()<CR>
+
 call CnoreabbrevHead('lgrep', 'silent lgrep')
 call CnoreabbrevHead('lgr', 'silent lgrep')
 call CnoreabbrevHead('grep', 'silent grep')
