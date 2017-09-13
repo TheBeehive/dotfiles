@@ -148,7 +148,7 @@ nnoremap <silent> [B :<C-u>exec '' . (v:count ? v:count : '') . 'bfirst'<CR>
 nnoremap <silent> ]b :<C-u>exec '' . (v:count ? v:count : '') . 'bnext'<CR>
 nnoremap <silent> ]B :<C-u>exec '' . (v:count ? v:count : '') . 'blast'<CR>
 
-nnoremap <C-P> :FZF<CR>
+nnoremap <silent> <C-P> :FZF!<CR>
 
 call CnoreabbrevHead('lgrep', 'silent lgrep')
 call CnoreabbrevHead('lgr', 'silent lgrep')
@@ -267,6 +267,7 @@ if isdirectory('/usr/local/opt/fzf')
   set runtimepath^=/usr/local/opt/fzf
 endif
 autocmd FileType fzf silent! tunmap <Esc>
+let $FZF_DEFAULT_OPTS = '--inline-info'
 
 " lightline
 
