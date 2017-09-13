@@ -96,4 +96,8 @@ fi
 
 command -v direnv > /dev/null 2>&1 && eval "$(direnv hook bash)"
 
+if [ -f /usr/local/opt/chruby/share/chruby/chruby.sh ]; then
+  source /usr/local/opt/chruby/share/chruby/chruby.sh
+fi
+
 ### ~/.bashrc: Runtime configuration for interactive `bash`
