@@ -142,32 +142,32 @@ nnoremap <silent> ]B :<C-u>exec '' . (v:count ? v:count : '') . 'blast'<CR>
 nnoremap <C-P> :FZF<CR>
 
 " Find this C symbol
-nnoremap <Leader>cs :cs find s
-nnoremap <Leader>cS :cs find s <C-R>=expand("<cword>")<CR><CR>
-" Find this definition
-nnoremap <Leader>cg :cs find g
-nnoremap <Leader>cG :cs find g <C-R>=expand("<cword>")<CR><CR>
+nnoremap <Leader>cs :cs find s 
+nnoremap <Leader>cS :cs find s <C-r>=expand("<cword>")<CR><CR>
+" Find this global definition
+nnoremap <Leader>cg :cs find g 
+nnoremap <Leader>cG :cs find g <C-r>=expand("<cword>")<CR><CR>
 " Find functions called by this function
-nnoremap <Leader>cd :cs find d
-nnoremap <Leader>cD :cs find d <C-R>=expand("<cword>")<CR><CR>
+nnoremap <Leader>cd :cs find d 
+nnoremap <Leader>cD :cs find d <C-r>=expand("<cword>")<CR><CR>
 " Find functions calling this function
-nnoremap <Leader>cc :cs find c
-nnoremap <Leader>cC :cs find c <C-R>=expand("<cword>")<CR><CR>
+nnoremap <Leader>cc :cs find c 
+nnoremap <Leader>cC :cs find c <C-r>=expand("<cword>")<CR><CR>
 " Find this text string
-nnoremap <Leader>ct :cs find t
-nnoremap <Leader>cT :cs find t <C-R>=expand("<cword>")<CR><CR>
+nnoremap <Leader>ct :cs find t 
+nnoremap <Leader>cT :cs find t <C-r>=expand("<cword>")<CR><CR>
 " Find this egrep pattern
-nnoremap <Leader>ce :cs find e
-nnoremap <Leader>cE :cs find e <C-R>=expand("<cword>")<CR><CR>
+nnoremap <Leader>ce :cs find e 
+nnoremap <Leader>cE :cs find e <C-r>=expand("<cword>")<CR><CR>
 " Find this file
-nnoremap <Leader>cf :cs find f
-nnoremap <Leader>cF :cs find f <C-R>=expand("<cword>")<CR><CR>
+nnoremap <Leader>cf :cs find f 
+nnoremap <Leader>cF :cs find f <C-r>=expand("<cword>")<CR><CR>
 " Find files #including this file
-nnoremap <Leader>ci :cs find i
-nnoremap <Leader>cI :cs find i <C-R>=expand("<cword>")<CR><CR>
-" Find places where this symbol is assigned a value
-nnoremap <Leader>ca :cs find a
-nnoremap <Leader>cA :cs find a <C-R>=expand("<cword>")<CR><CR>
+nnoremap <Leader>ci :cs find i 
+nnoremap <Leader>cI :cs find i <C-r>=expand("<cword>")<CR><CR>
+" Find assignments to this symbol
+nnoremap <Leader>ca :cs find a 
+nnoremap <Leader>cA :cs find a <C-r>=expand("<cword>")<CR><CR>
 
 "" Quickfix List
 
