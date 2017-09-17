@@ -52,7 +52,11 @@ set visualbell t_vb=
 
 " Behavior options
 set autoread
-set clipboard=unnamedplus
+if has('unnamedplus')
+  set clipboard=unnamedplus
+else
+  set clipboard=unnamed
+endif
 set complete-=i
 set nojoinspaces
 set nrformats-=octal
