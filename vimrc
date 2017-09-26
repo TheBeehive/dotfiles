@@ -105,7 +105,9 @@ nnoremap Y y$
 nnoremap U <C-r>
 noremap Q @
 
-tnoremap <Esc> <C-\><C-n>
+if exists(':tnoremap')
+  tnoremap <Esc> <C-\><C-n>
+endif
 
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
