@@ -28,17 +28,22 @@ fi
 # Set continuation prompt to >
 PS2='> '
 
-# None of this works in the legacy version of `fzf`
-if [ "$OSTYPE" != cygwin ]; then
-  # Load key bindings for `fzf`
-  source /usr/local/opt/fzf/shell/key-bindings.bash
-  # Set options for `fzf` and reset on resize
-  fzf_resize() {
-    export FZF_DEFAULT_OPTS="--inline-info \
-      --reverse --height=$(($LINES - 1)) \
-      --preview='head -n $(($LINES - 3)) {}'"
-  }
-  fzf_resize; trap fzf_resize WINCH
+if command -v fzf > /dev/null; then
+  # None of this works in the legacy version of `fzf`
+  if [ "$OSTYPE" != cygwin ]; then
+    # Set options for `fzf` and reset on resize
+    fzf_resize() {
+      export FZF_DEFAULT_OPTS="--inline-info \
+        --reverse --height=$(($LINES - 1)) \
+        --preview='head -n $(($LINES - 3)) {}'"
+    }
+    fzf_resize; trap fzf_resize WINCH
+  fi
+
+  if [ -d /usr/local/opt/fzf ]; then
+    # Load key bindings for `fzf`
+    source /usr/local/opt/fzf/shell/key-bindings.bash
+  fi
 fi
 
 # Don't save duplicate commands to the history
