@@ -65,15 +65,21 @@ set wildmode=longest:full
 
 " Search options
 " Keep hlsearch status on reload
-let hlsearch=v:hlsearch
+if exists('v:hlsearch')
+  let hlsearch=v:hlsearch
+endif
 set hlsearch
-let v:hlsearch=hlsearch
+if exists('v:hlsearch')
+  let v:hlsearch=hlsearch
+endif
 set incsearch
 
 " Text wrap options
 " Prefix broken lines with ↪
-set breakindent
-set breakindentopt=shift:-2
+if exists('&breakindent')
+  set breakindent
+  set breakindentopt=shift:-2
+endif
 set showbreak=↪\ 
 
 " Folding options
