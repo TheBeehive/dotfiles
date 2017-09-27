@@ -150,6 +150,15 @@ nnoremap <silent> ]B :<C-u>exec '' . (v:count ? v:count : '') . 'blast'<CR>
 
 nnoremap <C-P> :FZF<CR>
 
+call CnoreabbrevHead('lgrep', 'silent lgrep')
+call CnoreabbrevHead('lgr', 'silent lgrep')
+call CnoreabbrevHead('grep', 'silent grep')
+call CnoreabbrevHead('gr', 'silent grep')
+call CnoreabbrevHead('lgrepadd', 'silent lgrepadd')
+call CnoreabbrevHead('lgrepa', 'silent lgrepadd')
+call CnoreabbrevHead('grepadd', 'silent grepadd')
+call CnoreabbrevHead('grepa', 'silent grepadd')
+
 " Find this C symbol
 nnoremap <Leader>cs :cs find s 
 nnoremap <Leader>cS :cs find s <C-r>=expand("<cword>")<CR><CR>
@@ -179,6 +188,13 @@ nnoremap <Leader>ca :cs find a
 nnoremap <Leader>cA :cs find a <C-r>=expand("<cword>")<CR><CR>
 
 "" Quickfix List
+
+if executable('ag')
+  " When ag --vimgrep is used as the grepprg and :grep is issued without
+  " arguments, ag outputs 'ERR: What do you want to search for?', breaking the
+  " display until a :redraw! is issued. The --silent helps avoid this.
+  set grepprg=ag\ --vimgrep\ --silent\ $* grepformat=%f:%l:%c:%m
+endif
 
 function! ToggleQuickfixList()
   redir => output
