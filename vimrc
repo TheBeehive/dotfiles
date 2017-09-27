@@ -89,6 +89,14 @@ endif
 set background=dark
 silent! colorscheme base16-ocean
 
+"" Helper Functions
+
+function! CnoreabbrevHead(from, to) abort
+  exec 'cnoreabbrev <expr> ' . a:from . ' '
+        \ 'getcmdtype() . getcmdline() ==# ":' . a:from . '" ? '
+        \ '"' . a:to . '" : "' . a:from . '"'
+endfunction
+
 "" Mappings and Abbreviations
 let mapleader = "\<Space>"
 
