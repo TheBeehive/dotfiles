@@ -20,6 +20,7 @@ if [ "$OSTYPE" = cygwin ]; then
   export CYGWIN='winsymlinks:native'
   export BROWSER="$(command -v cygstart)"
   export PGDATA='/var/lib/postgresql'
+  export VAGRANT_HOME="$(cygpath -w ~/.vagrant.d)"
 fi
 
 [ -f ~/.bashrc ] && source ~/.bashrc
