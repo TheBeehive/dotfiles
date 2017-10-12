@@ -54,6 +54,7 @@ set visualbell t_vb=
 set autoread
 set clipboard=unnamedplus
 set complete-=i
+set nojoinspaces
 set nrformats-=octal
 set hidden
 set history=2000
