@@ -12,10 +12,6 @@ bash:
 	ln -sf "${MAKEROOT}"/inputrc ~/.inputrc
 
 gem:
-	# Make the ~/.local directory so that gem's bindir can be set to ~/.local/bin
-	# without gem install failing during a mkdir on ~/.local/bin (due to a ENOENT
-	# on ~/.local)
-	mkdir -p ~/.local
 	ln -sf "${MAKEROOT}"/gemrc ~/.gemrc
 
 git:
