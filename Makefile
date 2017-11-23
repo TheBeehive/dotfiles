@@ -31,7 +31,7 @@ sqlite:
 	ln -sf "${MAKEROOT}"/sqliterc ~/.sqliterc
 
 vim: rake
-	# Ensure that $XDG_CONFIG_HOME exists for neovim
+	# Ensure that $$XDG_CONFIG_HOME exists for neovim
 	mkdir -p ~/.config
 	ln -sf "${MAKEROOT}"/gvimrc ~/.gvimrc
 	ln -sfn "${MAKEROOT}"/vim ~/.config/nvim
