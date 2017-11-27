@@ -1,5 +1,5 @@
-MAKEROOT:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
-OSTYPE:=$(shell echo $$OSTYPE)
+MAKEROOT := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
+OSTYPE := $(shell echo $$OSTYPE)
 
 .PHONY: bash gem git mintty rake sqlite vim
 
