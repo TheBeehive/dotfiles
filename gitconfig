@@ -1,9 +1,7 @@
 ### ~/.gitconfig: User configuration for `git`
 
 [include]
-  path = .gitconfig_user
+	path = .gitconfig_user
 
 [core]
-  excludesfile = ~/.gitignore
-
-### ~/.gitconfig: User configuration for `git`
+	excludesfile = ~/.gitignore
