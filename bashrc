@@ -33,9 +33,11 @@ if command -v fzf > /dev/null; then
   if [ "$OSTYPE" != cygwin ]; then
     # Set options for `fzf` and reset on resize
     fzf_resize() {
+      local -i height
+      [ -n "$LINES" ] && height=$LINES || height=$(tput lines)
       export FZF_DEFAULT_OPTS="--inline-info \
-        --reverse --height=$(($LINES - 1)) \
-        --preview='head -n $(($LINES - 3)) {}'"
+        --reverse --height=$(($height - 1)) \
+        --preview='head -n $(($height - 3)) {}'"
     }
     fzf_resize; trap fzf_resize WINCH
   fi
