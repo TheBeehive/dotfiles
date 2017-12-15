@@ -1,9 +1,9 @@
 MAKEROOT := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 OSTYPE := $(shell echo $$OSTYPE)
 
-.PHONY: bash gem git mintty rake sqlite vim
+.PHONY: bash gem git mintty rake script sqlite vim
 
-install: bash gem git mintty rake sqlite vim
+install: bash gem git mintty rake script sqlite vim
 
 bash:
 	ln -sf "${MAKEROOT}"/bash_logout ~/.bash_logout
@@ -26,6 +26,10 @@ endif
 
 rake:
 	ln -sfn "${MAKEROOT}"/rake ~/.rake
+
+script: $(wildcard script/*)
+	mkdir -p ~/.local/bin
+	$(foreach s,$^,ln -sf $(MAKEROOT)/$(s) ~/.local/bin/$(notdir $(s)))
 
 sqlite:
 	ln -sf "${MAKEROOT}"/sqliterc ~/.sqliterc
