@@ -52,7 +52,8 @@ if command -v fzf > /dev/null; then
 fi
 
 # Don't save duplicate commands to the history
-export HISTCONTROL=ignoredups
+HISTCONTROL=ignoredups:erasedups
+shopt -s histappend
 
 # Enable color in `ls`
 if ls --color -d . &> /dev/null; then
