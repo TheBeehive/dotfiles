@@ -1,5 +1,3 @@
-### ~/.bashrc: Runtime configuration for `gem`
+### ~/.gemrc: Runtime configuration for `gem`
 
 gem: --no-document
-
-### ~/.bashrc: Runtime configuration for `gem`
