@@ -17,8 +17,9 @@ components defined are:
   3. **`git`** for `gitconfig`, `gitconfig_user`, and `gitignore`
   4. **`mintty`** for `minttyrc`
   5. **`rake`** for global `rake` tasks
-  6. **`sqlite`** for `sqliterc`
-  7. **`vim`** for `vimrc`, `gvimrc`, the `vim` directory, and all `vim`
+  6. **`script`** for scripts in the `script` directory
+  7. **`sqlite`** for `sqliterc`
+  8. **`vim`** for `vimrc`, `gvimrc`, the `vim` directory, and all `vim`
      plugins. In addition **`vim`** installs **`rake`** as well for the
      `vim-plug` family of global `rake` tasks.
 
