@@ -17,6 +17,9 @@ git_branch() {
 PROMPT_COMMAND='GIT_BRANCH=$(git_branch)'
 PS1="$PS1"'${GIT_BRANCH:+ [\[\e[38;5;9m\]${GIT_BRANCH}\[\e[m\]]}: '
 
+PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+#PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
+
 # Set the window title in xterm and screen
 if [[ $TERM == xterm* ]]; then
   PS1='\[\e]0;\u \w\a\]'"$PS1"
