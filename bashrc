@@ -86,12 +86,19 @@ alias dci='git duet-commit'
 alias drb="git rebase -i --exec 'git duet-commit --amend --reset-author'"
 
 alias 5x='cd ~/workspace/gpdb'
+alias 4x='cd ~/workspace/gpdb4'
 
 alias src5x='src5x(){
   source /usr/local/gpdb/greenplum_path.sh
   source ~/workspace/gpdb/gpAux/gpdemo/gpdemo-env.sh
 }
 src5x'
+
+alias src4x='src4x(){
+  source /usr/local/gpdb4/greenplum_path.sh
+  source ~/workspace/gpdb4/gpAux/gpdemo/gpdemo-env.sh
+}
+src4x'
 
 # Keep our github access token out of github
 [ -r ~/.github_api ] && source ~/.github_api
