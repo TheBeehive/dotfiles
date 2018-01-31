@@ -46,7 +46,7 @@ syntax enable
 " Indentation options
 set autoindent
 set backspace=indent,eol,start
-set expandtab
+set noexpandtab
 set shiftround
 set shiftwidth=2
 set smarttab
@@ -102,8 +102,6 @@ set showbreak=↪\
 " Folding options
 set foldopen-=block
 
-" Relative numbering
-set relativenumber
 set cursorline
 
 " Persistent Undo
