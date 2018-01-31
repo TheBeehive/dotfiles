@@ -335,6 +335,9 @@ nmap <Leader>tt :TagbarToggle<CR>
 "
 let g:EditorConfig_exec_path = '~/.vim/plug/editorconfig-vim/plugin/editorconfig.py'
 
+" Vimwiki
+let g:vimwiki_list=[{ 'path': $HOME . '/Dropbox/vimwiki' }]
+
 "" Folding Expression and Text
 
 " Ensure that VimrcFoldExpr is callable from this modeline
