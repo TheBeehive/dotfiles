@@ -11,13 +11,13 @@ int func1(int var1) {
   node1 = malloc(sizeof(node_t));
   int item = var1;
   node1->part1 = item;
-  printf("this new item %i\n", item);
+  /* printf("this new item %i\n", item); */
   return item;
 }
 
 int func2(int var2) {
   int item = var2;
-  printf("this item %i\n", item);
+  /* printf("this item %i\n", item); */
   return item;
 }
 
