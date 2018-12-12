@@ -10,6 +10,7 @@ endif
 call plug#begin('~/.vim/plug')
 Plug 'chriskempson/base16-vim'
 Plug 'deris/vim-shot-f'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'ktchen14/cscope-auto'
