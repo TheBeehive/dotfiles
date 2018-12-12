@@ -10,7 +10,6 @@ endif
 call plug#begin('~/.vim/plug')
 Plug 'chriskempson/base16-vim'
 Plug 'deris/vim-shot-f'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'ktchen14/cscope-auto'
@@ -22,6 +21,10 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+
+if executable('editorconfig')
+  Plug 'editorconfig/editorconfig-vim'
+endif
 call plug#end()
 
 "" General Configuration
@@ -301,6 +304,12 @@ let g:lion_map_right = 'c>'
 let g:tagbar_indent = 0
 let g:tagbar_sort = 0
 nmap <Leader>tt :TagbarToggle<CR>
+
+" editorconfig
+
+if executable('editorconfig')
+  let g:EditorConfig_core_mode = 'external_command'
+endif
 
 "" Folding Expression and Text
 
