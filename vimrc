@@ -19,6 +19,7 @@ Plug 'majutsushi/tagbar'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
@@ -337,6 +338,14 @@ let g:lightline = { 'colorscheme': 'Tomorrow_Night', 'enable': { 'tabline': 0 } 
 
 set noshowmode
 set laststatus=2
+
+" vim-markdown
+
+let g:markdown_fenced_languages = ['bash=sh', 'python']
+
+" vim-polyglot
+
+let g:polyglot_disabled = ['markdown']
 
 " tagbar
 
