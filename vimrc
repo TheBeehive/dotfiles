@@ -269,6 +269,11 @@ endfunction
 nnoremap <silent> gs :call FileHeaderSource()<CR>
 
 "" Filetype Configuration
+
+if executable('jq')
+  autocmd FileType json setlocal formatprg=jq\ .
+endif
+
 autocmd FileType python setlocal sw=4 sts=4
 
 " Open help window splitright with width 78
