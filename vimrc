@@ -238,6 +238,9 @@ augroup Quickfix
         \ | silent exec '%s/|\(\d\+\) col \(\d\+\)|/|\1:\2|/Ige'
         \ | setlocal nomodifiable
   autocmd FileType quickfix setlocal nobuflisted
+
+  " Automatically open the quickfix window bottom right after a cscope command
+  autocmd QuickFixCmdPost cscope botright copen
 augroup end
 
 nnoremap <silent> [q :<C-u>exec '' . (v:count ? v:count : '') . 'cprev'<CR>zv
@@ -270,8 +273,6 @@ autocmd FileType python setlocal sw=4 sts=4
 
 " Open help window splitright with width 78
 autocmd FileType help set bufhidden=unload | wincmd L | vertical resize 78
-
-autocmd QuickFixCmdPost cscope botright copen
 
 "" Plugin Configuration
 
