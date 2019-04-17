@@ -278,6 +278,12 @@ set cscopequickfix=s-,c-,d-,i-,t-,e-
 silent! set cscopequickfix+=a-
 let g:cscope_auto_database_name = '.cscope'
 
+" editorconfig
+
+if executable('editorconfig')
+  let g:EditorConfig_core_mode = 'external_command'
+endif
+
 " fzf
 
 if isdirectory('/usr/local/opt/fzf')
@@ -304,12 +310,6 @@ let g:lion_map_right = 'c>'
 let g:tagbar_indent = 0
 let g:tagbar_sort = 0
 nmap <Leader>tt :TagbarToggle<CR>
-
-" editorconfig
-
-if executable('editorconfig')
-  let g:EditorConfig_core_mode = 'external_command'
-endif
 
 "" Folding Expression and Text
 
