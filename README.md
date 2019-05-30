@@ -19,6 +19,7 @@ components defined are:
   5. **`rake`** for global `rake` tasks
   6. **`script`** for scripts in the `script` directory
   7. **`sqlite`** for `sqliterc`
+  7. **`tex`** for `texmf.cnf`
   8. **`vim`** for `vimrc`, `gvimrc`, the `vim` directory, and all `vim`
      plugins. In addition **`vim`** installs **`rake`** as well for the
      `vim-plug` family of global `rake` tasks.

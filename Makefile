@@ -6,9 +6,9 @@ define \n
 
 endef
 
-.PHONY: bash gem git mintty rake script sqlite vim
+.PHONY: bash gem git mintty rake script sqlite tex vim
 
-install: bash gem git mintty rake script sqlite vim
+install: bash gem git mintty rake script sqlite tex vim
 
 bash:
 	ln -sf "${MAKEROOT}"/bash_logout ~/.bash_logout
@@ -38,6 +38,9 @@ script: $(wildcard script/*)
 
 sqlite:
 	ln -sf "${MAKEROOT}"/sqliterc ~/.sqliterc
+
+tex:
+	ln -sfn "${MAKEROOT}"/tex ~/.tex
 
 vim: rake
 	# Ensure that $$XDG_CONFIG_HOME exists for neovim

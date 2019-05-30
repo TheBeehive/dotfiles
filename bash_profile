@@ -15,6 +15,13 @@ unset -f insert_path
 export EDITOR="$(type -p nvim vim vi nano 2> /dev/null | head -1)"
 export MAKEFLAGS='-j8'
 
+# Configure ~/.tex as the highest priority search path for TEXMF. Note that the
+# extraneous colon is important! From the `kpathsea` documentation: If the
+# highest-priority search path contains an extra colon (i.e., leading, trailing,
+# or doubled), Kpathsea inserts at that point the next-highest-priority search
+# path that is defined.
+export TEXMFCNF="~/.tex:"
+
 # Create true NTFS symlinks in Cygwin
 if [ "$OSTYPE" = cygwin ]; then
   export CYGWIN='winsymlinks:native'
