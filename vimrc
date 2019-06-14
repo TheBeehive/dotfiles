@@ -114,7 +114,7 @@ endfunction
 "" Mappings and Abbreviations
 let mapleader = "\<Space>"
 
-nnoremap <silent><BS> :nohlsearch<CR>
+nnoremap <silent> <BS> :nohlsearch<CR>
 nnoremap Y y$
 nnoremap U <C-r>
 noremap Q @
