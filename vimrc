@@ -313,6 +313,9 @@ nmap <Leader>tt :TagbarToggle<CR>
 
 "" Folding Expression and Text
 
+" Ensure that VimrcFoldExpr is callable from this modeline
+if exists('&modelineexpr') | set modelineexpr | endif
+
 function! VimrcFoldExpr()
   " Don't fold the header even though it starts with """
   if v:lnum == 1 | return 0 | end
