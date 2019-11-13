@@ -53,12 +53,14 @@ fi
 # Don't save duplicate commands to the history
 export HISTCONTROL=ignoredups
 
-# Enable color in `ls`
-if ls --color -d . &> /dev/null; then
-  # This is GNU ls
+# Alias `ls` to `exa` or enable color in `ls`
+if command -v exa > /dev/null; then
+  alias ls=exa tree='exa -T'
+elif ls --color -d . &> /dev/null; then
+  # This is GNU `ls`
   alias ls='ls --color'
 elif ls -G -d . &> /dev/null; then
-  # This is BSD ls
+  # This is BSD `ls`
   alias ls='ls -G'
 fi
 
