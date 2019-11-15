@@ -14,10 +14,8 @@ PS1="$PS1"' \[\e[36m\]\w\[\e[m\]'
 git_branch() {
   git branch 2> /dev/null | sed -ne '/^\*/s/^\* \(.*\)$/\1/p'
 }
-if ! [[ $PROMPT_COMMAND =~ GIT_BRANCH=\$\(git_branch\) ]]; then
-  PROMPT_COMMAND='GIT_BRANCH=$(git_branch);'"$PROMPT_COMMAND"
-fi
-PS1="$PS1"'${GIT_BRANCH:+ [\[\e[38;5;9m\]$GIT_BRANCH\[\e[m\]]}: '
+PROMPT_COMMAND='GIT_BRANCH=$(git_branch)'
+PS1="$PS1"'${GIT_BRANCH:+ [\[\e[38;5;9m\]${GIT_BRANCH}\[\e[m\]]}: '
 
 # Set the window title in xterm and screen
 if [[ $TERM == xterm* ]]; then
@@ -52,29 +50,6 @@ fi
 
 # Don't save duplicate commands to the history
 export HISTCONTROL=ignoredups
-
-# (Re)source all modified *.sh files in ~/.environment.d
-resource_environment_d() {
-  [ -d ~/.environment.d -a -x ~/.environment.d ] || return 0
-
-  local nullglob="$(shopt -p nullglob)"
-  shopt -s nullglob
-  local -a list=(~/.environment.d/*.sh)
-  $nullglob
-
-  local -i time source_time=$(date +%s)
-  local file
-
-  for file in "${list[@]}"; do
-    time=$(perl -e 'print +(stat $ARGV[0])[9]' "$file")
-    [ $time -ge ${ENVIRONMENT_TIME:-0} ] && source "$file"
-  done
-
-  declare -gi ENVIRONMENT_TIME=$source_time
-}
-if ! [[ $PROMPT_COMMAND =~ resource_environment_d ]]; then
-  PROMPT_COMMAND="resource_environment_d;$PROMPT_COMMAND"
-fi
 
 # Enable color in `ls`
 if ls --color -d . &> /dev/null; then
