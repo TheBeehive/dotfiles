@@ -132,7 +132,14 @@ noremap gl L
 noremap gm M
 
 " H and L are easier than ^ and $
-noremap <expr> H (v:count == 0 ? '^' : '|')
+function! Handle_h0()
+  let i = getcurpos()[2]
+  if i < 2
+    return "0"
+  end
+  return getline(".")[:i - 2] =~ "^\\s*$" ? "0" : "^"
+endfunction
+noremap <expr> H (v:count == 0 ? Handle_h0() : '|')
 noremap gH g^
 noremap L $
 noremap gL g$
