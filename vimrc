@@ -7,6 +7,12 @@ if has('win32')
   set runtimepath^=~/.vim
 endif
 
+"" Plugin Configuration
+
+" vim-polyglot
+
+let g:polyglot_disabled = ['autoindent', 'markdown', 'sensible']
+
 call plug#begin('~/.vim/plug')
 Plug 'chriskempson/base16-vim'
 Plug 'deris/vim-shot-f'
@@ -379,10 +385,6 @@ set laststatus=2
 " vim-markdown
 
 let g:markdown_fenced_languages = ['bash=sh', 'python']
-
-" vim-polyglot
-
-let g:polyglot_disabled = ['markdown']
 
 " tagbar
 
