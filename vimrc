@@ -166,8 +166,15 @@ if exists(':tnoremap')
   tnoremap <Esc> <C-\><C-n>
 endif
 
+" Command line editing
 cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
+" Remap <M-a> to <C-a> to insert all names that match the pattern in front of
+" the cursor
+cnoremap <M-a> <C-a>
+cnoremap <C-k> <C-\>egetcmdpos() < 2 ? "" : getcmdline()[:getcmdpos() - 2]<CR>
+cnoremap <M-b> <S-Left>
+cnoremap <M-f> <S-Right>
+cnoremap <expr> <C-d> getcmdpos() > len(getcmdline()) ? '' : '<Del>'
 
 " Map window motions to g prefixed lowercased ones
 Nxonoremap gh H
