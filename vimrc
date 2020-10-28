@@ -10,6 +10,7 @@ call plug#begin('~/.vim/plug')
 Plug 'chriskempson/base16-vim'
 Plug 'deris/vim-shot-f'
 Plug 'itchyny/lightline.vim'
+Plug 'farmergreg/vim-lastplace'
 Plug 'junegunn/fzf.vim'
 Plug 'ktchen14/cscope-auto'
 Plug 'ktchen14/status-symbol'
@@ -82,9 +83,6 @@ set showbreak=↪\
 
 " Folding options
 set foldopen-=block
-
-" See :help last-position-jump
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 " Color scheme options
 if has('termguicolors')
