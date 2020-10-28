@@ -16,6 +16,7 @@ let g:polyglot_disabled = ['autoindent', 'markdown', 'sensible']
 call plug#begin('~/.vim/plug')
 Plug 'chriskempson/base16-vim'
 Plug 'itchyny/lightline.vim'
+Plug 'farmergreg/vim-lastplace'
 Plug 'junegunn/fzf.vim'
 Plug 'ktchen14/cscope-auto'
 Plug 'ktchen14/status-symbol'
@@ -93,9 +94,6 @@ set textwidth=80
 
 " Folding options
 set foldopen-=block
-
-" See :help last-position-jump
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 " Allow bright without bold
 if &t_Co == 8 && $TERM !~# '^linux'
