@@ -57,30 +57,22 @@ set visualbell t_vb=
 
 " Behavior options
 set autoread
-if has('unnamedplus')
-  set clipboard=unnamedplus
-else
-  set clipboard=unnamed
-endif
+let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
 set complete-=i
-set nojoinspaces
-set nrformats-=octal
 set hidden
 set history=2000
-set undolevels=2000
 set modelines=2
+set nojoinspaces
+set nrformats-=octal
+set undolevels=2000
 set wildmenu
 set wildmode=longest:full
 
 " Search options
 " Keep hlsearch status on reload
-if exists('v:hlsearch')
-  let hlsearch=v:hlsearch
-endif
+let hlsearch = v:hlsearch
 set hlsearch
-if exists('v:hlsearch')
-  let v:hlsearch=hlsearch
-endif
+let v:hlsearch = hlsearch
 set incsearch
 
 " Text wrap options
