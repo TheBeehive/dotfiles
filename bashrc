@@ -29,25 +29,56 @@ fi
 PS2='> '
 
 if command -v fzf > /dev/null; then
-  # None of this works in the legacy version of `fzf`
-  if [ "$OSTYPE" != cygwin ]; then
-    # Set options for `fzf` and reset on resize
-    fzf_resize() {
-      local -i height
-      [ -n "$LINES" ] && height=$LINES || height=$(tput lines)
-      export FZF_DEFAULT_OPTS="--inline-info \
-        --reverse --height=$(($height - 1)) \
-        --preview='head -n $(($height - 3)) {}'"
-    }
-    fzf_resize; trap fzf_resize WINCH
+  # Set some global options for `fzf`
+  export FZF_DEFAULT_OPTS="
+    --cycle --height=100% --layout=reverse --info=inline --pointer=▶
+    --marker=▶ --color=gutter:-1"
+  # Use `fd` if available for `fzf`
+  command -v fd > /dev/null && export FZF_DEFAULT_COMMAND='fd -Ltf'
+fi
+
+# Load bash key bindings for `fzf`
+if source /usr/local/opt/fzf/shell/key-bindings.bash 2> /dev/null ||
+    source /usr/share/doc/fzf/examples/key-bindings.bash 2> /dev/null; then
+  # Set the line as the prompt in `fzf` if it's used in bash completion
+  fzf() {
+    if [[ ${FUNCNAME[1]} = __fzf_select__ ]]; then
+      # Get the text before the cursor and trim it
+      local prompt="${READLINE_LINE:0:${READLINE_POINT-${#READLINE_LINE}}}"
+      prompt="${prompt%"${prompt##*[![:space:]]}"}"
+      [ -n "$prompt" ] && set -- "$@" --prompt "$prompt > "
+    fi
+    command fzf "$@"
+  }
+
+  # Use `fd` if available for CTRL-T and ALT-C
+  if command -v fd > /dev/null; then
+    FZF_CTRL_T_COMMAND='fd -Ltf' FZF_ALT_C_COMMAND='fd -Ltd'
   fi
 
-  # Load key bindings for `fzf`
-  if [ -d /usr/local/opt/fzf ]; then
-    source /usr/local/opt/fzf/shell/key-bindings.bash
-  elif [ -e /usr/share/doc/fzf/examples/key-bindings.bash ]; then
-    source /usr/share/doc/fzf/examples/key-bindings.bash
+  # Preview CTRL-T with `bat` or `head`
+  if command -v bat > /dev/null; then
+    FZF_CTRL_T_OPTS="
+      --preview='bat -pp --color=always -r :\$FZF_PREVIEW_LINES {}'"
+  else
+    FZF_CTRL_T_OPTS="--preview='head -n \$FZF_PREVIEW_LINES {}'"
   fi
+
+  # Preview ALT-C with `exa` or `ls`. Colorize it if we have `exa`, GNU `ls`,
+  # or BSD `ls`.
+  if command -v exa > /dev/null; then
+    FZF_ALT_C_OPTS="--preview='exa -lh --color=always {}'"
+  elif ls --color -d . &> /dev/null; then
+    # This is GNU `ls`
+    FZF_ALT_C_OPTS="--preview='ls -lho --color=always {} | tail -n+2'"
+  elif ls -G -d . &> /dev/null; then
+    # This is BSD `ls`
+    FZF_ALT_C_OPTS="
+      --preview='CLICOLOR_FORCE=1 ls -lhoG {} | tail -n+2'"
+  else
+    FZF_ALT_C_OPTS="--preview='ls -lho {} | tail -n+2'"
+  fi
+  FZF_ALT_C_OPTS="$FZF_ALT_C_OPTS --prompt='cd > '"
 fi
 
 # Don't save duplicate commands to the history
