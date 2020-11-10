@@ -82,7 +82,8 @@ if source /usr/local/opt/fzf/shell/key-bindings.bash 2> /dev/null ||
 fi
 
 # Don't save duplicate commands to the history
-export HISTCONTROL=ignoredups
+HISTCONTROL=ignoredups
+HISTTIMEFORMAT=$'\b|\e[34m%m/%d/%Y %H:%M:%S\e[m| '
 
 # Alias `ls` to `exa` or enable color in `ls`
 if command -v exa > /dev/null; then
