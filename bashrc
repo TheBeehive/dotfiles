@@ -1,29 +1,38 @@
 ### ~/.bashrc: Runtime configuration for interactive `bash`
 
-# Color username red if root or green otherwise
-if [ `id -u` -eq 0 ]; then
-  PS1='\[\e[31;01m\]\u\[\e[m\]'
+prompt() {
+  PROMPT_COMMAND="${PROMPT_COMMAND:+"$PROMPT_COMMAND; "}$*"
+}
+
+# Render username in bold green (or bold red if we're root)
+if [ "$EUID" -eq 0 ]; then
+  PS1='\[\e[31;1m\]\u\[\e[0m\]'
 else
-  PS1='\[\e[32;01m\]\u\[\e[m\]'
+  PS1='\[\e[32;1m\]\u\[\e[0m\]'
 fi
 
-# Color current working directory cyan
-PS1="$PS1"' \[\e[36m\]\w\[\e[m\]'
+# Render current working directory in bold blue
+PS1="$PS1"' \[\e[34;1m\]\w\[\e[0m\]'
 
-# Color git branch (if available) purple
+# Render current git branch (if available) in bold red
 git_branch() {
   git branch 2> /dev/null | sed -ne '/^\*/s/^\* \(.*\)$/\1/p'
 }
-PROMPT_COMMAND='GIT_BRANCH=$(git_branch)'
-PS1="$PS1"'${GIT_BRANCH:+ [\[\e[38;5;9m\]${GIT_BRANCH}\[\e[m\]]}: '
+prompt 'GIT_BRANCH=$(git_branch)'
+PS1="$PS1"'${GIT_BRANCH:+ [\[\e[31;1m\]$GIT_BRANCH\[\e[0m\]]}'
 
-# Set the window title in xterm and screen
-if [[ $TERM == xterm* ]]; then
-  PS1='\[\e]0;\u \w\a\]'"$PS1"
-elif [[ $TERM == screen* ]]; then
-  PS1='\[\e]0;\u \w\a\]'"$PS1"
-  PS1='\[\ek\u \w\e\\\]'"$PS1"
+# Terminate prompt with a colon
+PS1="$PS1"': '
+
+# Set window title to the current working directory
+PS1='\[\e]0;\w\a\]'"$PS1"
+
+# Advertise current working directory in WSL
+if command -v wslpath > /dev/null; then
+  prompt 'printf "\e]9;9;%s\e\\" "$(wslpath -w "$PWD")"'
 fi
+
+unset -f prompt
 
 # Set continuation prompt to >
 PS2='> '
