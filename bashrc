@@ -8,7 +8,7 @@ else
 fi
 
 # Color current working directory cyan
-PS1="$PS1"' \[\e[36m\]\w\[\e[m\]'
+PS1="$PS1"' \[\e[94m\]\w\[\e[m\]'
 
 # Color git branch (if available) purple
 git_branch() {
