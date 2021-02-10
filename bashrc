@@ -42,10 +42,10 @@ if command -v fzf > /dev/null; then
     fzf_resize; trap fzf_resize WINCH
   fi
 
+  # Load key bindings for `fzf`
   if [ -d /usr/local/opt/fzf ]; then
-    # Load key bindings for `fzf`
     source /usr/local/opt/fzf/shell/key-bindings.bash
-  else
+  elif [ -e /usr/share/doc/fzf/examples/key-bindings.bash ]; then
     source /usr/share/doc/fzf/examples/key-bindings.bash
   fi
 fi

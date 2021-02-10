@@ -288,7 +288,7 @@ endif
 
 if isdirectory('/usr/local/opt/fzf')
   set runtimepath^=/usr/local/opt/fzf
-else
+elseif isdirectory('/usr/share/doc/fzf/examples')
   set runtimepath^=/usr/share/doc/fzf/examples/
 endif
 autocmd FileType fzf silent! tunmap <Esc>
