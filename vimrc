@@ -288,6 +288,8 @@ endif
 
 if isdirectory('/usr/local/opt/fzf')
   set runtimepath^=/usr/local/opt/fzf
+elseif isdirectory('/usr/share/doc/fzf/examples')
+  set runtimepath^=/usr/share/doc/fzf/examples/
 endif
 autocmd FileType fzf silent! tunmap <Esc>
 let $FZF_DEFAULT_OPTS = '--inline-info'
