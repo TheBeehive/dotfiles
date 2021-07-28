@@ -261,21 +261,6 @@ nnoremap <silent> [L :<C-u>exec '' . (v:count ? v:count : '') . 'lfirst'<CR>zv
 nnoremap <silent> ]l :<C-u>exec '' . (v:count ? v:count : '') . 'lnext'<CR>zv
 nnoremap <silent> ]L :<C-u>exec '' . (v:count ? v:count : '') . 'llast'<CR>zv
 
-" Map gs to switch between source and header file
-function! FileHeaderSource()
-  let extension = expand('%:e')
-  let name = expand('%:r')
-  if extension == 'h' && filereadable(name . '.c')
-    exec ':e ' . name . '.c'
-    return
-  endif
-  if extension == 'c' && filereadable(name . '.h')
-    exec ':e ' . name . '.h'
-    return
-  endif
-endfunction
-nnoremap <silent> gs :call FileHeaderSource()<CR>
-
 "" Filetype Configuration
 
 if executable('jq')
