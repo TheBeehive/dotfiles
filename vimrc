@@ -22,6 +22,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
+" Personal Plugins
+Plug 'ludovicchabant/vim-gutentags'
+
+" Trial Plugins
+
 if executable('editorconfig')
   Plug 'editorconfig/editorconfig-vim'
 endif
@@ -44,6 +49,7 @@ set smarttab
 set softtabstop=2
 
 " Display options
+set cursorline
 set display=lastline
 set listchars=eol:¶,tab:→·,nbsp:·,trail:·,extends:›,precedes:‹
 set number
@@ -63,6 +69,7 @@ set history=2000
 set modelines=2
 set nojoinspaces
 set nrformats-=octal
+set undofile
 set undolevels=2000
 set wildmenu
 set wildmode=longest:full
