@@ -8,6 +8,7 @@ insert_path /usr/sbin
 insert_path /Applications/Postgres.app/Contents/Versions/latest/bin
 insert_path /usr/local/bin
 insert_path /usr/local/sbin
+insert_path /usr/local/opt/ruby/bin
 insert_path ~/.local/bin
 
 unset -f insert_path
