@@ -21,6 +21,8 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'vimwiki/vimwiki'
+Plug 'ktchen14/vim-star'
 
 if executable('editorconfig')
   Plug 'editorconfig/editorconfig-vim'
@@ -332,10 +334,11 @@ let g:tagbar_sort = 0
 nmap <Leader>tt :TagbarToggle<CR>
 
 " EditorConfig
-"
+
 let g:EditorConfig_exec_path = '~/.vim/plug/editorconfig-vim/plugin/editorconfig.py'
 
 " Vimwiki
+
 let g:vimwiki_list=[{ 'path': $HOME . '/Dropbox/vimwiki' }]
 
 "" Folding Expression and Text
