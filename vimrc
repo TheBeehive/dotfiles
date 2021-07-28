@@ -22,6 +22,12 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'sakhnik/nvim-gdb'
+
+" Personal Plugins
+Plug 'ludovicchabant/vim-gutentags'
+
+" Trial Plugins
 
 if !has('nvim-0.9.0') && executable('editorconfig')
   Plug 'editorconfig/editorconfig-vim'
@@ -45,6 +51,7 @@ set smarttab
 set softtabstop=2
 
 " Display options
+set cursorline
 set display=lastline
 set listchars=eol:¶,tab:→·,nbsp:·,trail:·,extends:›,precedes:‹
 set number
@@ -64,6 +71,7 @@ set history=2000
 set modelines=2
 set nojoinspaces
 set nrformats-=octal
+set undofile
 set undolevels=2000
 set wildmenu
 set wildmode=longest:full
@@ -372,7 +380,8 @@ set laststatus=2
 
 let g:tagbar_indent = 0
 let g:tagbar_sort = 0
-nmap <Leader>tt :TagbarToggle<CR>
+nnoremap <Leader>tt :TagbarToggle<CR>
+nnoremap <Leader>oo :Tags<CR>
 
 "" Test Area
 
