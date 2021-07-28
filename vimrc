@@ -21,6 +21,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'sakhnik/nvim-gdb'
+
+" Personal Plugins
+Plug 'ludovicchabant/vim-gutentags'
+
+" Trial Plugins
 
 if mapcheck('gcc', 'n') == ''
   Plug 'tpope/vim-commentary'
@@ -49,6 +55,7 @@ set hidden
 set history=2000
 set nojoinspaces
 set nrformats-=octal
+set undofile
 set undolevels=2000
 set wildmenu
 set wildmode=longest:full
@@ -72,6 +79,7 @@ endif
 set incsearch
 
 " Visual
+set cursorline
 set display=lastline
 set laststatus=2
 set listchars=eol:¶,tab:→·,trail:·,extends:›,precedes:‹,nbsp:·
@@ -205,7 +213,8 @@ let markdown_fenced_languages = ['bash=sh', 'python']
 
 let tagbar_indent = 0
 let tagbar_sort = 0
-nmap <Leader>tt :TagbarToggle<CR>
+nnoremap <Leader>tt :TagbarToggle<CR>
+nnoremap <Leader>oo :Tags<CR>
 
 " }}}1
 
