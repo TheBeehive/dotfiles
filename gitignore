@@ -5,6 +5,10 @@
 .cscope.in
 .cscope.po
 
+### Direnv {{{1
+
+.direnv
+
 ### JetBrains {{{1
 
 # User-specific stuff
