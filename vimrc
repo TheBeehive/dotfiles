@@ -17,7 +17,6 @@ Plug 'ktchen14/status-symbol'
 Plug 'ktchen14/vim-star'
 Plug 'majutsushi/tagbar'
 Plug 'sheerun/vim-polyglot'
-Plug 'tommcdo/vim-lion'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
@@ -304,12 +303,6 @@ let g:lightline = { 'colorscheme': 'Tomorrow_Night', 'enable': { 'tabline': 0 } 
 
 set noshowmode
 set laststatus=2
-
-" vim-lion
-
-let g:lion_squeeze_spaces = 1
-let g:lion_map_left = 'c<'
-let g:lion_map_right = 'c>'
 
 " tagbar
 
