@@ -98,6 +98,9 @@ silent! colorscheme base16-ocean
 
 "" Helper Functions
 
+command! -complete=mapping -nargs=*
+      \ Nxonoremap nnoremap <args>|xnoremap <args>|onoremap <args>
+
 function! CnoreabbrevHead(from, to) abort
   exec 'cnoreabbrev <expr> ' . a:from . ' '
         \ 'getcmdtype() . getcmdline() ==# ":' . a:from . '" ? '
@@ -110,7 +113,9 @@ let mapleader = "\<Space>"
 nnoremap <silent> <BS> :nohlsearch<CR>
 nnoremap Y y$
 nnoremap U <C-r>
-noremap Q @
+
+nnoremap Q @
+xnoremap Q @
 
 if exists(':tnoremap')
   tnoremap <Esc> <C-\><C-n>
@@ -120,25 +125,25 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
 " Map window motions to g prefixed lowercased ones
-noremap gh H
-noremap gl L
-noremap gm M
+Nxonoremap gh H
+Nxonoremap gl L
+Nxonoremap gm M
 
 " H and L are easier than ^ and $
 function! Handle_h0()
-  let i = getcurpos()[2]
+  let [_, _, i, _] = getpos('.')
   if i < 2
     return "0"
   end
-  return getline(".")[:i - 2] =~ "^\\s*$" ? "0" : "^"
+  return getline('.')[:i - 2] =~ '^\s*$' ? '0' : '^'
 endfunction
-noremap <expr> H (v:count == 0 ? Handle_h0() : '|')
-noremap gH g^
-noremap L $
-noremap gL g$
+Nxonoremap <expr> H (v:count == 0 ? Handle_h0() : '|')
+Nxonoremap gH g^
+Nxonoremap L $
+Nxonoremap gL g$
 
 " Map M to ' (' is the opposite of m)
-noremap M '
+Nxonoremap M '
 
 nnoremap <C-h> :bp<CR>
 nnoremap <C-l> :bn<CR>
@@ -148,8 +153,8 @@ nnoremap <C-j> <C-d>
 nnoremap <C-k> <C-u>
 
 " Map s to window navigation prefix
-noremap s <C-w>
-noremap S <NOP>
+nnoremap s <C-w>
+nnoremap S <NOP>
 
 nnoremap <Tab> za
 
