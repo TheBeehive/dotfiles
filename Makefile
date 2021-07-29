@@ -6,9 +6,9 @@ define \n
 
 endef
 
-.PHONY: bash gem git mintty rake script sqlite tex vim
+.PHONY: bash gem git mintty mutt rake script sqlite tex vim
 
-install: bash gem git mintty rake script sqlite tex vim
+install: bash gem git mintty mutt rake script sqlite tex vim
 
 bash:
 	ln -sf "${MAKEROOT}"/bash_logout ~/.bash_logout
@@ -28,6 +28,10 @@ mintty:
 ifeq ($(OSTYPE),cygwin)
 	ln -sf "${MAKEROOT}"/minttyrc ~/.minttyrc
 endif
+
+mutt:
+	ln -sf "${MAKEROOT}"/muttrc ~/.muttrc
+	ln -sfn "${MAKEROOT}"/mutt ~/.mutt
 
 rake:
 	ln -sfn "${MAKEROOT}"/rake ~/.rake
