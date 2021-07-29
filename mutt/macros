@@ -1,0 +1,6 @@
+macro index "\Cx\Cb" "<change-folder>?"
+macro index \Ch <change-folder>=pgsql-hackers<enter> "go to pgsql-hackers"
+macro index \Cl\Ch <change-folder>=hyperv<enter> "go to hyperv"
+macro index <home> "<change-folder>=INBOX"<enter> "back to Inbox"
+macro index,pager hS <save-message>=pgsql-hackers-archive<enter> "archiving to pgsql-hackers-archive"
+macro index,pager gr <group-reply> "Group reply"

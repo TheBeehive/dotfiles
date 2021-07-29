@@ -1,3 +1,6 @@
+# Mutt secret file
+mutt/secret
+
 # Vim swap file
 *.swp
 
