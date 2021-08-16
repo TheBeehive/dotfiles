@@ -58,6 +58,11 @@ bind pager G bottom
 bind attach,index g first-entry
 bind attach,index G last-entry
 
+bind index h noop
+bind index g noop
+bind pager g noop
+bind pager h noop
+
 # ================  Mailing Lists ====================
 subscribe pgsql-hackers
 subscribe linux-hyperv
