@@ -15,3 +15,9 @@ vim/bundle
 
 # Persistent undo
 vim/undodir
+
+# For postgres because it doesn't have editor-specific JetBrains stuff
+.idea/*
+.idea
+clion.xml
+compile_commands.json
