@@ -242,7 +242,7 @@ function! ToggleQuickfixList()
   let winnr = winnr()
   botright copen
   if winnr() != winnr
-    wincmd p
+    wincmd k
   endif
 endfunction
 nnoremap <silent> <Leader>q :call ToggleQuickfixList()<CR>
@@ -256,6 +256,8 @@ augroup Quickfix
 
   " Automatically open the quickfix window bottom right after a cscope command
   autocmd QuickFixCmdPost cscope botright copen
+
+  autocmd QuickFixCmdPost grep botright copen
 augroup end
 
 nnoremap <silent> [q :<C-u>exec '' . (v:count ? v:count : '') . 'cprev'<CR>zv
