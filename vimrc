@@ -205,6 +205,17 @@ let fzf_layout = #{window: #{width: 0.8, height: 0.8}}
 let fzf_vim = #{preview_window: []}
 let fzf_vim.buffers_options = ['--prompt', 'Buffer› ']
 
+" gutentags
+
+let g:gutentags_ctags_exclude = [
+      \ '*.sql',
+      \ '*.git', '*.json', '*.css', '*.xsl', '*.md',
+      \ '*.mk', '*[Mm]akefile*',
+      \ 'configure.in', 'configure', 'config.status',
+      \ '*.patch',
+      \ '*.s',
+      \]
+
 " vim-markdown
 
 let markdown_fenced_languages = ['bash=sh', 'python']
