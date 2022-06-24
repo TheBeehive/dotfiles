@@ -15,7 +15,9 @@ if command -v brew > /dev/null || [ -x /opt/homebrew/bin/brew ]; then
   insert_path "$(brew --prefix ruby)/bin"
 fi
 
-insert_path /usr/local/sbin /usr/local/bin ~/.local/bin
+insert_path /usr/local/sbin /usr/local/bin
+insert_path ~/.cargo/bin
+insert_path ~/.local/bin
 
 unset -f insert_path
 
