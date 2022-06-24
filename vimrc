@@ -321,6 +321,16 @@ let g:tagbar_sort = 0
 nnoremap <Leader>tt :TagbarToggle<CR>
 nnoremap <Leader>oo :Tags<CR>
 
+" gutentags
+let g:gutentags_ctags_exclude = [
+      \ '*.sql',
+      \ '*.git', '*.json', '*.css', '*.xsl', '*.md',
+      \ '*.mk', '*[Mm]akefile*',
+      \ 'configure.in', 'configure', 'config.status',
+      \ '*.patch',
+      \ '*.s',
+      \]
+
 "" Test Area
 
 " Use this area to test changes to this file
