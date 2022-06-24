@@ -15,7 +15,7 @@ insert_path ~/.local/bin
 unset -f insert_path
 
 export EDITOR="$(type -p nvim vim vi nano 2> /dev/null | head -1)"
-export MAKEFLAGS='-j8'
+export MAKEFLAGS='-j16'
 
 # Configure ~/.tex as the highest priority search path for TEXMF. Note that the
 # extraneous colon is important! From the `kpathsea` documentation: If the
