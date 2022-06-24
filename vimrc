@@ -196,6 +196,17 @@ if has('cscope')
   let cscope_auto_database_name = '.cscope'
 endif
 
+" gutentags
+"
+let g:gutentags_ctags_exclude = [
+      \ '*.sql',
+      \ '*.git', '*.json', '*.css', '*.xsl', '*.md',
+      \ '*.mk', '*[Mm]akefile*',
+      \ 'configure.in', 'configure', 'config.status',
+      \ '*.patch',
+      \ '*.s',
+      \]
+
 " fzf
 
 autocmd FileType fzf silent! tunmap <Esc>
