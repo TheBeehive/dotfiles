@@ -6,10 +6,12 @@ insert_path() {
 
 insert_path /usr/sbin
 insert_path /Applications/Postgres.app/Contents/Versions/latest/bin
-insert_path /usr/local/bin
-insert_path /usr/local/sbin
+insert_path /usr/local/opt/bison/bin
+insert_path /usr/local/opt/flex/bin
 insert_path /usr/local/opt/llvm/bin
 insert_path /usr/local/opt/ruby/bin
+insert_path /usr/local/bin
+insert_path /usr/local/sbin
 insert_path ~/.local/bin
 
 unset -f insert_path
@@ -33,6 +35,12 @@ if [ "$OSTYPE" = cygwin ]; then
 fi
 
 [ -f ~/.bashrc ] && source ~/.bashrc
+
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_GITHUB_API=1
+export HOMEBREW_NO_INSTALL_CLEANUP=1
+export HOMEBREW_NO_INSTALL_UPGRADE=1
 
 # vim: set ft=sh:
 ### ~/.bash_profile: Runtime configuration for login `bash`
