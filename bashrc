@@ -105,6 +105,11 @@ elif ls -G -d . &> /dev/null; then
   alias ls='ls -G'
 fi
 
+# Enable color in `diff`
+if diff --color /dev/null /dev/null &> /dev/null; then
+  alias diff='diff --color'
+fi
+
 alias ll='ls -la'
 
 # Enable color in `grep`
