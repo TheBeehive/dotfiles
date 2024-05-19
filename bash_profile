@@ -14,6 +14,8 @@ insert_path ~/.local/bin
 unset -f insert_path
 
 export EDITOR="$(type -p nvim vim vi nano 2> /dev/null | head -1)"
+export PAGER="$(type -p less more 2> /dev/null | head -1)"
+
 if command -v nproc > /dev/null; then
   export MAKEFLAGS="-j$(nproc)"
 else
