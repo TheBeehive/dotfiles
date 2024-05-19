@@ -5,6 +5,7 @@ if has('win32')
 endif
 
 call plug#begin('~/.vim/bundle')
+Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
 Plug 'deris/vim-shot-f'
 Plug 'farmergreg/vim-lastplace'
@@ -21,10 +22,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'sakhnik/nvim-gdb'
+" Plug 'sakhnik/nvim-gdb'
+Plug 'ntpeters/vim-better-whitespace'
 
 " Personal Plugins
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 
 " Trial Plugins
 
@@ -163,6 +165,8 @@ nnoremap <Leader>re <Cmd>edit $MYVIMRC<CR>
 nnoremap ]] ][
 nnoremap ][ ]]
 
+nnoremap <Leader>pd :GdbStart gdb -q -p $(pgrep -f )<Left>
+
 " Abbreviations and Digraphs {{{1
 
 function! AbbreviatePrefix(prefix, to) abort
@@ -214,6 +218,7 @@ let g:gutentags_ctags_exclude = [
       \ 'configure.in', 'configure', 'config.status',
       \ '*.patch',
       \ '*.s',
+      \ '*pycache*',
       \]
 
 " vim-markdown

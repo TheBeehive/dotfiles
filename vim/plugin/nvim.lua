@@ -78,6 +78,8 @@ end, { desc = 'Show diagnostics under the cursor' })
 
 -- Language Server Protocol
 
+vim.lsp.set_log_level("ERROR")
+
 -- Set window defaults for hover() and signature_help()
 for _, name in ipairs { 'hover', 'signature_help' } do
   local defaults = { border = 'rounded', focusable = false }

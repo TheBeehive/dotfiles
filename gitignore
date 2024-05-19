@@ -1,6 +1,7 @@
 ### Clangd {{{1
 
 .cache/
+.clangd
 
 ### Cscope {{{1
 
