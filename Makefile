@@ -26,7 +26,7 @@ git:
 
 mutt:
 	ln -sf "${MAKEROOT}"/muttrc ~/.muttrc
-	ln -sfn "${MAKEROOT}"/mutt ~/.mutt
+	ln -sfn "${MAKEROOT}"/mutt ~/.config/mutt
 
 rake:
 	ln -sfn "${MAKEROOT}"/rake ~/.rake

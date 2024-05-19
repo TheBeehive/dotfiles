@@ -75,6 +75,8 @@ alias R='R -q --no-save'
 # Use the cscope database at .cscope
 alias cscope='cscope -df .cscope'
 
+alias sqlswith="ag --depth=0 -G '\\.sql$'"
+
 if [ "$OSTYPE" = cygwin ]; then
   # Strip .exe from bash completion
   shopt -s completion_strip_exe
