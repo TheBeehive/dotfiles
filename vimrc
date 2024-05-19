@@ -8,6 +8,7 @@ if has('win32')
 endif
 
 call plug#begin('~/.vim/plug')
+Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
 Plug 'deris/vim-shot-f'
 Plug 'itchyny/lightline.vim'
@@ -22,15 +23,17 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'sakhnik/nvim-gdb'
+" Plug 'sakhnik/nvim-gdb'
+Plug 'ntpeters/vim-better-whitespace'
 
 " Personal Plugins
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 
 " Trial Plugins
 
 if !has('nvim-0.9.0') && executable('editorconfig')
   Plug 'editorconfig/editorconfig-vim'
+  Plug 'gpanders/editorconfig.nvim'
 endif
 call plug#end()
 
@@ -218,6 +221,8 @@ nnoremap <Leader>cI :cs find i <C-r>=expand("<cword>")<CR><CR>
 nnoremap <Leader>ca :cs find a 
 nnoremap <Leader>cA :cs find a <C-r>=expand("<cword>")<CR><CR>
 
+nnoremap <Leader>pd :GdbStart gdb -q -p $(pgrep -f )<Left>
+
 "" Quickfix List
 
 if executable('ag')
@@ -393,6 +398,7 @@ let g:gutentags_ctags_exclude = [
       \ 'configure.in', 'configure', 'config.status',
       \ '*.patch',
       \ '*.s',
+      \ '*pycache*',
       \]
 
 "" Test Area

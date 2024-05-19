@@ -11,6 +11,8 @@ vim.diagnostic.config {
 
 -- Language Server Protocol
 
+vim.lsp.set_log_level("ERROR")
+
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
   vim.lsp.handlers.hover, { border = 'rounded' }
 )
