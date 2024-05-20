@@ -152,5 +152,3 @@ command -v direnv > /dev/null 2>&1 && eval "$(direnv hook bash)"
 for i in /usr/local/opt/chruby/share/chruby/{chruby,auto}.sh; do
   [ -f $i ] && source $i
 done
-
-### ~/.bashrc: Runtime configuration for interactive `bash`

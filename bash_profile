@@ -38,6 +38,3 @@ if [ "$OSTYPE" = cygwin ]; then
 fi
 
 [ -f ~/.bashrc ] && source ~/.bashrc
-
-# vim: set ft=sh:
-### ~/.bash_profile: Runtime configuration for login `bash`

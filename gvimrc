@@ -22,5 +22,3 @@ elseif has('win32')
   set lines=42
   set columns=120
 endif
-
-""" ~/.gvimrc: Runtime configuration for `gvim`

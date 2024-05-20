@@ -24,5 +24,3 @@ set skip-completed-text on
 $if Bash
   SPACE: magic-space
 $endif
-
-### ~/.inputrc: Runtime configuration for 'readline'
