@@ -30,12 +30,7 @@ fi
 export TEXMFCNF="~/.tex:"
 
 # Create true NTFS symlinks in Cygwin
-if [ "$OSTYPE" = cygwin ]; then
-  export CYGWIN='winsymlinks:native'
-  export BROWSER="$(command -v cygstart)"
-  export PGDATA='/var/lib/postgresql'
-  export VAGRANT_HOME="$(cygpath -w ~/.vagrant.d)"
-fi
+[ "$OSTYPE" = cygwin ] && export CYGWIN='winsymlinks:native'
 
 # Make Homebrew a little faster
 if command -v brew > /dev/null; then
