@@ -16,6 +16,7 @@ Plug 'ktchen14/cscope-auto'
 Plug 'ktchen14/status-symbol'
 Plug 'ktchen14/vim-star'
 Plug 'majutsushi/tagbar'
+Plug 'neovim/nvim-lspconfig'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -92,6 +93,10 @@ if has('termguicolors')
 endif
 set background=dark
 silent! colorscheme base16-ocean
+silent! hi link FloatBorder NormalFloat
+
+" Neovim
+if has('nvim') | source ~/.vim/nvim.lua | end
 
 "" Helper Functions
 
@@ -254,6 +259,66 @@ nnoremap <silent> [l :<C-u>exec '' . (v:count ? v:count : '') . 'lprev'<CR>zv
 nnoremap <silent> [L :<C-u>exec '' . (v:count ? v:count : '') . 'lfirst'<CR>zv
 nnoremap <silent> ]l :<C-u>exec '' . (v:count ? v:count : '') . 'lnext'<CR>zv
 nnoremap <silent> ]L :<C-u>exec '' . (v:count ? v:count : '') . 'llast'<CR>zv
+
+"" Diagnostics
+
+nnoremap <Leader>e <Cmd>lua vim.diagnostic.open_float()<CR>
+
+nnoremap [d <Cmd>lua vim.diagnostic.goto_prev{
+      \ wrap = vim.api.nvim_get_option_value('wrapscan', { scope = 'local' }),
+      \ }<CR>
+xnoremap [d <Cmd>lua vim.diagnostic.goto_prev{
+      \ wrap = vim.api.nvim_get_option_value('wrapscan', { scope = 'local' }),
+      \ float = false }<CR>
+onoremap [d <Cmd>lua vim.diagnostic.goto_prev{
+      \ wrap = vim.api.nvim_get_option_value('wrapscan', { scope = 'local' }),
+      \ float = false }<CR>
+
+nnoremap ]d <Cmd>lua vim.diagnostic.goto_next{
+      \ wrap = vim.api.nvim_get_option_value('wrapscan', { scope = 'local' }),
+      \ }<CR>
+xnoremap ]d <Cmd>lua vim.diagnostic.goto_next{
+      \ wrap = vim.api.nvim_get_option_value('wrapscan', { scope = 'local' }),
+      \ float = false }<CR>
+onoremap ]d <Cmd>lua vim.diagnostic.goto_next{
+      \ wrap = vim.api.nvim_get_option_value('wrapscan', { scope = 'local' }),
+      \ float = false }<CR>
+
+"" Language Server Protocol
+
+if exists('##LspAttach') && exists('##LspDetach')
+  function! OnLspAttach()
+    nnoremap <buffer> gd         <Cmd>lua vim.lsp.buf.definition()<CR>
+    nnoremap <buffer> gD         <Cmd>lua vim.lsp.buf.declaration()<CR>
+    nnoremap <buffer> gr         <Cmd>lua vim.lsp.buf.references()<CR>
+    nnoremap <buffer> <Leader>D  <Cmd>lua vim.lsp.buf.type_definition()<CR>
+
+    nnoremap <buffer> K          <Cmd>lua vim.lsp.buf.hover()<CR>
+    nnoremap <buffer> <C-k>      <Cmd>lua vim.lsp.buf.signature_help()<CR>
+
+    nnoremap <buffer> <Leader>rn <Cmd>lua vim.lsp.buf.rename()<CR>
+    nnoremap <buffer> <Leader>ca <Cmd>lua vim.lsp.buf.code_action()<CR>
+  endfunction
+
+  function! OnLspDetach()
+    nunmap <buffer> gd
+    nunmap <buffer> gD
+    nunmap <buffer> gr
+    nunmap <buffer> <Leader>D
+
+    nunmap <buffer> K
+    nunmap <buffer> <C-k>
+
+    nunmap <buffer> <Leader>rn
+    nunmap <buffer> <Leader>ca
+  endfunction
+
+  augroup LSP
+    autocmd!
+    autocmd LspAttach * call OnLspAttach()
+    autocmd LspDetach * call OnLspDetach()
+  augroup end
+end
 
 "" Filetype Configuration
 
