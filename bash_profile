@@ -37,4 +37,13 @@ if [ "$OSTYPE" = cygwin ]; then
   export VAGRANT_HOME="$(cygpath -w ~/.vagrant.d)"
 fi
 
+# Make Homebrew a little faster
+if command -v brew > /dev/null; then
+  export HOMEBREW_NO_ANALYTICS=1
+  export HOMEBREW_NO_AUTO_UPDATE=1
+  export HOMEBREW_NO_GITHUB_API=1
+  export HOMEBREW_NO_INSTALL_CLEANUP=1
+  export HOMEBREW_NO_INSTALL_UPGRADE=1
+fi
+
 [ -f ~/.bashrc ] && source ~/.bashrc
