@@ -37,6 +37,66 @@ unset -f prompt
 # Set continuation prompt to >
 PS2='> '
 
+# Don't save duplicate commands to the history
+HISTCONTROL=ignoredups
+HISTTIMEFORMAT=$'\b|\e[34m%m/%d/%Y %H:%M:%S\e[m| '
+
+# Alias `ls` to `exa` or enable color in `ls`
+if command -v exa > /dev/null; then
+  alias ls=exa tree='exa -T'
+elif ls --color -d . &> /dev/null; then
+  # This is GNU `ls`
+  alias ls='ls --color'
+elif ls -G -d . &> /dev/null; then
+  # This is BSD `ls`
+  alias ls='ls -G'
+fi
+
+# Enable color in `diff`
+if diff --color /dev/null /dev/null &> /dev/null; then
+  alias diff='diff --color'
+fi
+
+# Enable color in `grep`
+if echo x | grep --color x &> /dev/null; then
+  alias grep='grep --color'
+fi
+
+# Enable alias expansion for `sudo`
+alias sudo='sudo '
+
+# Silence some loud tools on startup
+alias maxima='maxima -q'
+alias octave='octave -q'
+alias R='R -q --no-save'
+
+# Use the cscope database at .cscope
+alias cscope='cscope -df .cscope'
+
+if [ "$OSTYPE" = cygwin ]; then
+  # Strip .exe from bash completion
+  shopt -s completion_strip_exe
+
+  # Use the same command as in OS X
+  alias open='cygstart'
+
+  if hash rlwrap 2> /dev/null; then
+    alias ghci='rlwrap ghcii.sh'
+  else alias ghci='ghcii.sh'; fi
+fi
+
+hr() {
+  local column="$(tput cols)"
+  if ((column <= 0)); then
+    column="${COLUMNS:-80}"
+  fi
+  printf "%.0s${1:-#}" $(seq 1 $column)
+}
+
+# Direnv
+command -v direnv > /dev/null && eval "$(direnv hook bash)"
+
+# FZF
 if command -v fzf > /dev/null; then
   # Set some global options for `fzf`
   declare -a fzf_default_opts=( \
@@ -98,61 +158,3 @@ if source /usr/local/opt/fzf/shell/key-bindings.bash 2> /dev/null ||
   fi
   FZF_ALT_C_OPTS="$FZF_ALT_C_OPTS --prompt='cd > '"
 fi
-
-# Don't save duplicate commands to the history
-HISTCONTROL=ignoredups
-HISTTIMEFORMAT=$'\b|\e[34m%m/%d/%Y %H:%M:%S\e[m| '
-
-# Alias `ls` to `exa` or enable color in `ls`
-if command -v exa > /dev/null; then
-  alias ls=exa tree='exa -T'
-elif ls --color -d . &> /dev/null; then
-  # This is GNU `ls`
-  alias ls='ls --color'
-elif ls -G -d . &> /dev/null; then
-  # This is BSD `ls`
-  alias ls='ls -G'
-fi
-
-# Enable color in `diff`
-if diff --color /dev/null /dev/null &> /dev/null; then
-  alias diff='diff --color'
-fi
-
-# Enable color in `grep`
-if echo x | grep --color x &> /dev/null; then
-  alias grep='grep --color'
-fi
-
-# Enable alias expansion for `sudo`
-alias sudo='sudo '
-
-# Silence some loud tools on startup
-alias maxima='maxima -q'
-alias octave='octave -q'
-alias R='R -q --no-save'
-
-# Use the cscope database at .cscope
-alias cscope='cscope -df .cscope'
-
-hr() {
-  local column="$(tput cols)"
-  if ((column <= 0)); then
-    column="${COLUMNS:-80}"
-  fi
-  printf "%.0s${1:-#}" $(seq 1 $column)
-}
-
-if [ "$OSTYPE" = cygwin ]; then
-  # Strip .exe from bash completion
-  shopt -s completion_strip_exe
-
-  # Use the same command as in OS X
-  alias open='cygstart'
-
-  if hash rlwrap 2> /dev/null; then
-    alias ghci='rlwrap ghcii.sh'
-  else alias ghci='ghcii.sh'; fi
-fi
-
-command -v direnv > /dev/null 2>&1 && eval "$(direnv hook bash)"
