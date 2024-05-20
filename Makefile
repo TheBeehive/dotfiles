@@ -6,9 +6,9 @@ define \n
 
 endef
 
-.PHONY: bash gem git mintty rake script tex vim
+.PHONY: bash gem git rake script tex vim
 
-install: bash gem git mintty rake script tex vim
+install: bash gem git rake script tex vim
 
 bash:
 	ln -sf "${MAKEROOT}"/bash_logout ~/.bash_logout
@@ -23,11 +23,6 @@ git:
 	ln -sf "${MAKEROOT}"/gitconfig ~/.gitconfig
 	cp -f "${MAKEROOT}"/gitconfig_user ~/.gitconfig_user
 	ln -sf "${MAKEROOT}"/gitignore ~/.gitignore
-
-mintty:
-ifeq ($(OSTYPE),cygwin)
-	ln -sf "${MAKEROOT}"/minttyrc ~/.minttyrc
-endif
 
 rake:
 	ln -sfn "${MAKEROOT}"/rake ~/.rake
