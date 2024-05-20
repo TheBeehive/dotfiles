@@ -6,9 +6,9 @@ define \n
 
 endef
 
-.PHONY: bash gem git mintty rake script sqlite tex vim
+.PHONY: bash gem git mintty rake script tex vim
 
-install: bash gem git mintty rake script sqlite tex vim
+install: bash gem git mintty rake script tex vim
 
 bash:
 	ln -sf "${MAKEROOT}"/bash_logout ~/.bash_logout
@@ -35,9 +35,6 @@ rake:
 script: $(wildcard script/*)
 	mkdir -p ~/.local/bin
 	$(foreach s,$^,ln -sf $(MAKEROOT)/$(s) ~/.local/bin/$(notdir $(s))${\n})
-
-sqlite:
-	ln -sf "${MAKEROOT}"/sqliterc ~/.sqliterc
 
 tex:
 	ln -sfn "${MAKEROOT}"/tex ~/.tex
