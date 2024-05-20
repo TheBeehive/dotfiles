@@ -22,6 +22,9 @@ else
   export MAKEFLAGS=-j8
 fi
 
+# Configure CMake to generate compile_commands.json
+export CMAKE_EXPORT_COMPILE_COMMANDS=true
+
 # Configure ~/.tex as the highest priority search path for TEXMF. Note that the
 # extraneous colon is important! From the `kpathsea` documentation: If the
 # highest-priority search path contains an extra colon (i.e., leading, trailing,
