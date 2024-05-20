@@ -119,8 +119,6 @@ if diff --color /dev/null /dev/null &> /dev/null; then
   alias diff='diff --color'
 fi
 
-alias ll='ls -la'
-
 # Enable color in `grep`
 if echo x | grep --color x &> /dev/null; then
   alias grep='grep --color'
@@ -136,9 +134,6 @@ alias R='R -q --no-save'
 
 # Use the cscope database at .cscope
 alias cscope='cscope -df .cscope'
-
-# Keep our github access token out of github
-[ -r ~/.github_api ] && source ~/.github_api
 
 hr() {
   local column="$(tput cols)"
@@ -161,8 +156,3 @@ if [ "$OSTYPE" = cygwin ]; then
 fi
 
 command -v direnv > /dev/null 2>&1 && eval "$(direnv hook bash)"
-
-# Use chruby and chruby-auto if available
-for i in /usr/local/opt/chruby/share/chruby/{chruby,auto}.sh; do
-  [ -f $i ] && source $i
-done
