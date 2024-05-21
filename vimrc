@@ -75,11 +75,9 @@ let v:hlsearch = hlsearch
 set incsearch
 
 " Text wrap options
-" Prefix broken lines with ↪
-if exists('&breakindent')
-  set breakindent
-  set breakindentopt=shift:-2
-endif
+set breakindent
+set breakindentopt=shift:-2
+set formatoptions=crqnj
 set showbreak=↪\ 
 
 " Folding options
@@ -88,9 +86,9 @@ set foldopen-=block
 " See :help last-position-jump
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
-" Allow bright without bold
-if &t_Co == 8 && $TERM !~# '^linux'
-  set t_Co=16
+" Color scheme options
+if has('termguicolors')
+  set termguicolors
 endif
 set background=dark
 silent! colorscheme base16-ocean
