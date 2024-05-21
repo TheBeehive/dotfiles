@@ -30,9 +30,18 @@ PS2='> '
 
 if command -v fzf > /dev/null; then
   # Set some global options for `fzf`
-  export FZF_DEFAULT_OPTS="
-    --cycle --height=100% --layout=reverse --info=inline --pointer=▶
-    --marker=▶ --color=gutter:-1"
+  declare -a fzf_default_opts=( \
+    --cycle
+    --height=100%
+    --layout=reverse
+    --info=inline
+    --pointer=▶
+    --marker=▶
+    --color=gutter:-1
+  )
+  export FZF_DEFAULT_OPTS="${fzf_default_opts[*]}"
+  unset -v fzf_default_opts
+
   # Use `fd` if available for `fzf`
   command -v fd > /dev/null && export FZF_DEFAULT_COMMAND='fd -Ltf'
 fi
