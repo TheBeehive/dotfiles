@@ -41,8 +41,10 @@ PS2='> '
 HISTCONTROL=ignoredups
 HISTTIMEFORMAT=$'\b|\e[34m%m/%d/%Y %H:%M:%S\e[m| '
 
-# Alias `ls` to `exa` or enable color in `ls`
-if command -v exa > /dev/null; then
+# Alias `ls` (and `tree`) to `eza`, `exa`, or enable color in `ls`
+if command -v eza > /dev/null; then
+  alias ls=eza tree='eza -T'
+elif command -v exa > /dev/null; then
   alias ls=exa tree='exa -T'
 elif ls --color -d . &> /dev/null; then
   # This is GNU `ls`
