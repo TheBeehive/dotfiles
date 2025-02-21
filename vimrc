@@ -184,34 +184,6 @@ call CnoreabbrevHead('lgrepa', 'silent lgrepadd')
 call CnoreabbrevHead('grepadd', 'silent grepadd')
 call CnoreabbrevHead('grepa', 'silent grepadd')
 
-" Find this C symbol
-nnoremap <Leader>cs :cs find s
-nnoremap <Leader>cS <Cmd>cs find s <C-r>=expand("<cword>")<CR><CR>
-" Find this global definition
-nnoremap <Leader>cg :cs find g
-nnoremap <Leader>cG <Cmd>cs find g <C-r>=expand("<cword>")<CR><CR>
-" Find functions called by this function
-nnoremap <Leader>cd :cs find d
-nnoremap <Leader>cD <Cmd>cs find d <C-r>=expand("<cword>")<CR><CR>
-" Find functions calling this function
-nnoremap <Leader>cc :cs find c
-nnoremap <Leader>cC <Cmd>cs find c <C-r>=expand("<cword>")<CR><CR>
-" Find this text string
-nnoremap <Leader>ct :cs find t
-nnoremap <Leader>cT <Cmd>cs find t <C-r>=expand("<cword>")<CR><CR>
-" Find this egrep pattern
-nnoremap <Leader>ce :cs find e
-nnoremap <Leader>cE <Cmd>cs find e <C-r>=expand("<cword>")<CR><CR>
-" Find this file
-nnoremap <Leader>cf :cs find f
-nnoremap <Leader>cF <Cmd>cs find f <C-r>=expand("<cword>")<CR><CR>
-" Find files #including this file
-nnoremap <Leader>ci :cs find i
-nnoremap <Leader>cI <Cmd>cs find i <C-r>=expand("<cword>")<CR><CR>
-" Find assignments to this symbol
-nnoremap <Leader>ca :cs find a
-nnoremap <Leader>cA <Cmd>cs find a <C-r>=expand("<cword>")<CR><CR>
-
 "" Quickfix List
 
 if executable('ag')
@@ -241,15 +213,12 @@ function! ToggleQuickfixList()
 endfunction
 nnoremap <Leader>q <Cmd>call ToggleQuickfixList()<CR>
 
-augroup Quickfix
+augroup vimrc
   autocmd!
   autocmd BufReadPost quickfix setlocal modifiable
         \ | silent exec '%s/|\(\d\+\) col \(\d\+\)|/|\1:\2|/Ige'
         \ | setlocal nomodifiable
   autocmd FileType quickfix setlocal nobuflisted
-
-  " Automatically open the quickfix window bottom right after a cscope command
-  autocmd QuickFixCmdPost cscope botright copen
 augroup end
 
 nnoremap [q <Cmd>exec '' . (v:count ? v:count : '') . 'cprev'<CR>zv
@@ -342,9 +311,9 @@ let g:plug_window = 'botright ' . (len(g:plugs) + 4) . 'new'
 
 " cscope-auto
 
-set cscopequickfix=s-,c-,d-,i-,t-,e-
-silent! set cscopequickfix+=a-
-let g:cscope_auto_database_name = '.cscope'
+if has('cscope')
+  let g:cscope_auto_database_name = '.cscope'
+endif
 
 " editorconfig
 
