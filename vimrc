@@ -308,6 +308,16 @@ end
 
 "" Filetype Configuration
 
+" Use C syntax instead of C++ in *.h files
+let c_no_curly_error = 1
+
+" Don't highlight {} inside [] and () as errors, even in the first column
+let c_syntax_for_h = 1
+augroup C
+  autocmd!
+  autocmd FileType c syntax clear cErrInParen
+augroup end
+
 if executable('jq')
   autocmd FileType json setlocal formatprg=jq\ .
 endif
