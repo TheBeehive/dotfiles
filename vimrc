@@ -310,29 +310,31 @@ onoremap ]d <Cmd>lua vim.diagnostic.goto_next{
 
 if exists('##LspAttach') && exists('##LspDetach')
   function! OnLspAttach()
-    nnoremap <buffer> gd         <Cmd>lua vim.lsp.buf.definition()<CR>
-    nnoremap <buffer> gD         <Cmd>lua vim.lsp.buf.declaration()<CR>
-    nnoremap <buffer> gr         <Cmd>lua vim.lsp.buf.references()<CR>
-    nnoremap <buffer> <Leader>D  <Cmd>lua vim.lsp.buf.type_definition()<CR>
+    nnoremap <buffer> grn   <Cmd>lua vim.lsp.buf.rename()<CR>
+    nnoremap <buffer> gra   <Cmd>lua vim.lsp.buf.code_action()<CR>
+    nnoremap <buffer> grr   <Cmd>lua vim.lsp.buf.references()<CR>
+    nnoremap <buffer> gri   <Cmd>lua vim.lsp.buf.implementation()<CR>
+    nnoremap <buffer> K     <Cmd>lua vim.lsp.buf.hover()<CR>
 
-    nnoremap <buffer> K          <Cmd>lua vim.lsp.buf.hover()<CR>
-    nnoremap <buffer> <C-k>      <Cmd>lua vim.lsp.buf.signature_help()<CR>
+    inoremap <buffer> <C-s> <Cmd>lua vim.lsp.buf.signature_help()<CR>
 
-    nnoremap <buffer> <Leader>rn <Cmd>lua vim.lsp.buf.rename()<CR>
-    nnoremap <buffer> <Leader>ca <Cmd>lua vim.lsp.buf.code_action()<CR>
+    nnoremap <buffer> grD   <Cmd>lua vim.lsp.buf.declaration()<CR>
+    nnoremap <buffer> grd   <Cmd>lua vim.lsp.buf.definition()<CR>
+    nnoremap <buffer> grt   <Cmd>lua vim.lsp.buf.type_definition()<CR>
   endfunction
 
   function! OnLspDetach()
-    nunmap <buffer> gd
-    nunmap <buffer> gD
-    nunmap <buffer> gr
-    nunmap <buffer> <Leader>D
+    silent! nunmap <buffer> grn
+    silent! nunmap <buffer> gra
+    silent! nunmap <buffer> grr
+    silent! nunmap <buffer> gri
+    silent! nunmap <buffer> K
 
-    nunmap <buffer> K
-    nunmap <buffer> <C-k>
+    silent! iunmap <buffer> <C-s>
 
-    nunmap <buffer> <Leader>rn
-    nunmap <buffer> <Leader>ca
+    silent! nunmap <buffer> grD
+    silent! nunmap <buffer> grd
+    silent! nunmap <buffer> grt
   endfunction
 
   augroup LSP
