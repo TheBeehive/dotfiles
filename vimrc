@@ -51,6 +51,7 @@ syntax enable
 " Indentation options
 set autoindent
 set backspace=indent,eol,start
+set cinoptions=Ls,l1
 set expandtab
 set shiftround
 set shiftwidth=2
