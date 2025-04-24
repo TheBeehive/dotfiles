@@ -11,7 +11,6 @@ endif
 let g:polyglot_disabled = ['autoindent', 'markdown', 'sensible']
 
 call plug#begin('~/.vim/plug')
-Plug 'chriskempson/base16-vim'
 Plug 'farmergreg/vim-lastplace'
 Plug 'junegunn/fzf.vim'
 Plug 'ktchen14/colonize'
@@ -27,6 +26,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+
+if has('nvim')
+  Plug 'catppuccin/nvim', { 'as': 'catppuccin-nvim' }
+else
+  Plug 'catppuccin/vim', { 'as': 'catppuccin-vim' }
+endif
 
 if !has('nvim-0.9.0') && executable('editorconfig')
   Plug 'editorconfig/editorconfig-vim'
@@ -99,9 +104,14 @@ set foldopen-=block
 if has('termguicolors')
   set termguicolors
 endif
+
 set background=dark
-silent! colorscheme base16-ocean
-silent! hi link FloatBorder NormalFloat
+
+if has('nvim')
+  silent! colorscheme catppuccin-mocha
+else
+  silent! colorscheme catppuccin_mocha
+endif
 
 " Neovim
 if has('nvim') | source ~/.vim/nvim.lua | end
