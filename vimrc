@@ -182,7 +182,7 @@ function! CnoreabbrevHead(from, to) abort
         \ '"' . a:to . '" : "' . a:from . '"'
 endfunction
 
-"" Mappings and Abbreviations
+"" Mappings, Abbreviations, and Digraphs
 let mapleader = "\<Space>"
 
 nnoremap <BS> <Cmd>nohlsearch<CR>
@@ -264,6 +264,12 @@ call CnoreabbrevHead('lgrepadd', 'silent lgrepadd')
 call CnoreabbrevHead('lgrepa', 'silent lgrepadd')
 call CnoreabbrevHead('grepadd', 'silent grepadd')
 call CnoreabbrevHead('grepa', 'silent grepadd')
+
+" Digraphs for ⇜ and ⇝
+digraph <~ 8668 ~> 8669
+
+" Digraphs for ⟨ and ⟩
+digraph <m 10216 >m 10217
 
 "" Quickfix List
 
