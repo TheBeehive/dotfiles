@@ -114,7 +114,7 @@ endfunction
 "" Mappings and Abbreviations
 let mapleader = "\<Space>"
 
-nnoremap <silent> <BS> :nohlsearch<CR>
+nnoremap <BS> <Cmd>nohlsearch<CR>
 nnoremap Y y$
 nnoremap U <C-r>
 
@@ -149,8 +149,8 @@ Nxonoremap gL g$
 " Map M to ' (' is the opposite of m)
 Nxonoremap M '
 
-nnoremap <C-h> :bp<CR>
-nnoremap <C-l> :bn<CR>
+nnoremap <C-h> <Cmd>bp<CR>
+nnoremap <C-l> <Cmd>bn<CR>
 
 " Page Up and Page Down
 nnoremap <C-j> <C-d>
@@ -162,18 +162,18 @@ nnoremap S <NOP>
 
 nnoremap <Tab> za
 
-nnoremap <silent> <Leader>rr :source $MYVIMRC<CR>
-nnoremap <silent> <Leader>re :edit $MYVIMRC<CR>
+nnoremap <Leader>rr <Cmd>source $MYVIMRC<CR>
+nnoremap <Leader>re <Cmd>edit $MYVIMRC<CR>
 
 nnoremap ]] ][
 nnoremap ][ ]]
 
-nnoremap <silent> [b :<C-u>exec '' . (v:count ? v:count : '') . 'bprev'<CR>
-nnoremap <silent> [B :<C-u>exec '' . (v:count ? v:count : '') . 'bfirst'<CR>
-nnoremap <silent> ]b :<C-u>exec '' . (v:count ? v:count : '') . 'bnext'<CR>
-nnoremap <silent> ]B :<C-u>exec '' . (v:count ? v:count : '') . 'blast'<CR>
+nnoremap [b <Cmd>exec '' . (v:count ? v:count : '') . 'bprev'<CR>
+nnoremap [B <Cmd>exec '' . (v:count ? v:count : '') . 'bfirst'<CR>
+nnoremap ]b <Cmd>exec '' . (v:count ? v:count : '') . 'bnext'<CR>
+nnoremap ]B <Cmd>exec '' . (v:count ? v:count : '') . 'blast'<CR>
 
-nnoremap <silent> <C-P> :FZF!<CR>
+nnoremap <C-P> <Cmd>FZF!<CR>
 
 call CnoreabbrevHead('lgrep', 'silent lgrep')
 call CnoreabbrevHead('lgr', 'silent lgrep')
@@ -185,32 +185,32 @@ call CnoreabbrevHead('grepadd', 'silent grepadd')
 call CnoreabbrevHead('grepa', 'silent grepadd')
 
 " Find this C symbol
-nnoremap <Leader>cs :cs find s 
-nnoremap <Leader>cS :cs find s <C-r>=expand("<cword>")<CR><CR>
+nnoremap <Leader>cs :cs find s
+nnoremap <Leader>cS <Cmd>cs find s <C-r>=expand("<cword>")<CR><CR>
 " Find this global definition
-nnoremap <Leader>cg :cs find g 
-nnoremap <Leader>cG :cs find g <C-r>=expand("<cword>")<CR><CR>
+nnoremap <Leader>cg :cs find g
+nnoremap <Leader>cG <Cmd>cs find g <C-r>=expand("<cword>")<CR><CR>
 " Find functions called by this function
-nnoremap <Leader>cd :cs find d 
-nnoremap <Leader>cD :cs find d <C-r>=expand("<cword>")<CR><CR>
+nnoremap <Leader>cd :cs find d
+nnoremap <Leader>cD <Cmd>cs find d <C-r>=expand("<cword>")<CR><CR>
 " Find functions calling this function
-nnoremap <Leader>cc :cs find c 
-nnoremap <Leader>cC :cs find c <C-r>=expand("<cword>")<CR><CR>
+nnoremap <Leader>cc :cs find c
+nnoremap <Leader>cC <Cmd>cs find c <C-r>=expand("<cword>")<CR><CR>
 " Find this text string
-nnoremap <Leader>ct :cs find t 
-nnoremap <Leader>cT :cs find t <C-r>=expand("<cword>")<CR><CR>
+nnoremap <Leader>ct :cs find t
+nnoremap <Leader>cT <Cmd>cs find t <C-r>=expand("<cword>")<CR><CR>
 " Find this egrep pattern
-nnoremap <Leader>ce :cs find e 
-nnoremap <Leader>cE :cs find e <C-r>=expand("<cword>")<CR><CR>
+nnoremap <Leader>ce :cs find e
+nnoremap <Leader>cE <Cmd>cs find e <C-r>=expand("<cword>")<CR><CR>
 " Find this file
-nnoremap <Leader>cf :cs find f 
-nnoremap <Leader>cF :cs find f <C-r>=expand("<cword>")<CR><CR>
+nnoremap <Leader>cf :cs find f
+nnoremap <Leader>cF <Cmd>cs find f <C-r>=expand("<cword>")<CR><CR>
 " Find files #including this file
-nnoremap <Leader>ci :cs find i 
-nnoremap <Leader>cI :cs find i <C-r>=expand("<cword>")<CR><CR>
+nnoremap <Leader>ci :cs find i
+nnoremap <Leader>cI <Cmd>cs find i <C-r>=expand("<cword>")<CR><CR>
 " Find assignments to this symbol
-nnoremap <Leader>ca :cs find a 
-nnoremap <Leader>cA :cs find a <C-r>=expand("<cword>")<CR><CR>
+nnoremap <Leader>ca :cs find a
+nnoremap <Leader>cA <Cmd>cs find a <C-r>=expand("<cword>")<CR><CR>
 
 "" Quickfix List
 
@@ -239,7 +239,7 @@ function! ToggleQuickfixList()
     wincmd p
   endif
 endfunction
-nnoremap <silent> <Leader>q :call ToggleQuickfixList()<CR>
+nnoremap <Leader>q <Cmd>call ToggleQuickfixList()<CR>
 
 augroup Quickfix
   autocmd!
@@ -252,15 +252,15 @@ augroup Quickfix
   autocmd QuickFixCmdPost cscope botright copen
 augroup end
 
-nnoremap <silent> [q :<C-u>exec '' . (v:count ? v:count : '') . 'cprev'<CR>zv
-nnoremap <silent> [Q :<C-u>exec '' . (v:count ? v:count : '') . 'cfirst'<CR>zv
-nnoremap <silent> ]q :<C-u>exec '' . (v:count ? v:count : '') . 'cnext'<CR>zv
-nnoremap <silent> ]Q :<C-u>exec '' . (v:count ? v:count : '') . 'clast'<CR>zv
+nnoremap [q <Cmd>exec '' . (v:count ? v:count : '') . 'cprev'<CR>zv
+nnoremap [Q <Cmd>exec '' . (v:count ? v:count : '') . 'cfirst'<CR>zv
+nnoremap ]q <Cmd>exec '' . (v:count ? v:count : '') . 'cnext'<CR>zv
+nnoremap ]Q <Cmd>exec '' . (v:count ? v:count : '') . 'clast'<CR>zv
 
-nnoremap <silent> [l :<C-u>exec '' . (v:count ? v:count : '') . 'lprev'<CR>zv
-nnoremap <silent> [L :<C-u>exec '' . (v:count ? v:count : '') . 'lfirst'<CR>zv
-nnoremap <silent> ]l :<C-u>exec '' . (v:count ? v:count : '') . 'lnext'<CR>zv
-nnoremap <silent> ]L :<C-u>exec '' . (v:count ? v:count : '') . 'llast'<CR>zv
+nnoremap [l <Cmd>exec '' . (v:count ? v:count : '') . 'lprev'<CR>zv
+nnoremap [L <Cmd>exec '' . (v:count ? v:count : '') . 'lfirst'<CR>zv
+nnoremap ]l <Cmd>exec '' . (v:count ? v:count : '') . 'lnext'<CR>zv
+nnoremap ]L <Cmd>exec '' . (v:count ? v:count : '') . 'llast'<CR>zv
 
 "" Diagnostics
 
