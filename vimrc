@@ -285,7 +285,7 @@ endif
 function! ToggleQuickfixList()
   redir => output
   " Find all active [Quickfix List] buffers
-  silent! filter /^\[Quickfix List\]$/ ls a
+  silent! filter /^\[Quickfix List\]$/ ls! a
   redir END
   let bufnr = matchstr(output, '\d\+')
 
@@ -304,11 +304,60 @@ nnoremap <Leader>q <Cmd>call ToggleQuickfixList()<CR>
 
 augroup vimrc
   autocmd!
-  autocmd BufReadPost quickfix setlocal modifiable
-        \ | silent exec '%s/|\(\d\+\) col \(\d\+\)|/|\1:\2|/Ige'
-        \ | setlocal nomodifiable
-  autocmd FileType quickfix setlocal nobuflisted
 augroup end
+
+if exists('&quickfixtextfunc')
+  function! QuickFixTextFunc(info)
+    if a:info.quickfix
+      let source = getqflist({'id' : a:info.id, 'items' : 1}).items
+    else
+      let source = getloclist(a:info.winid, {'items' : 1}).items
+    endif
+
+    let result = []
+    for i in range(a:info.start_idx - 1, a:info.end_idx - 1)
+      if !a:info.quickfix && has('nvim-0.11.0')
+        " Render each item's location as a relative path
+        let winid = getloclist(a:info.winid, {'filewinid' : 1}).filewinid
+        let origin = fnamemodify(bufname(winbufnr(winid)), ':p:~:.')
+        let target = fnamemodify(bufname(source[i].bufnr), ':p:~:.')
+        let simple = v:lua.vim.fs.relpath(origin, target)
+
+        if simple is v:null
+          let item = target
+        elseif simple == '.'
+          let item = fnamemodify(target, ':t')
+        else
+          let item = simple
+        endif
+      else
+        let item = fnamemodify(bufname(source[i].bufnr), ':p:~:.')
+      endif
+
+      let item .= '|'
+
+      if !source[i].end_lnum || source[i].lnum == source[i].end_lnum
+        let item .= source[i].lnum
+      else
+        let item .= source[i].lnum . '-' . source[i].end_lnum
+      endif
+
+      if source[i].col
+        if source[i].end_col && source[i].col != source[i].end_col
+          let item .= ':' . source[i].col . '-' . source[i].end_col
+        else
+          let item .= ':' . source[i].col
+        endif
+      endif
+
+      let item .= '|'
+
+      call add(result, item . ' ' . trim(source[i].text, ''))
+    endfor
+    return result
+  endfunction
+  set quickfixtextfunc=QuickFixTextFunc
+endif
 
 nnoremap [q <Cmd>exec '' . (v:count ? v:count : '') . 'cprev'<CR>zv
 nnoremap [Q <Cmd>exec '' . (v:count ? v:count : '') . 'cfirst'<CR>zv
