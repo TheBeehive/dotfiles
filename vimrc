@@ -304,6 +304,7 @@ nnoremap <Leader>q <Cmd>call ToggleQuickfixList()<CR>
 
 augroup vimrc
   autocmd!
+  autocmd WinClosed * silent! lclose
 augroup end
 
 if exists('&quickfixtextfunc')
