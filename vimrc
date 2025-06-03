@@ -43,12 +43,14 @@ call plug#end()
 
 "" General Configuration
 
-" Global options
-set nocompatible
+" Important / Global
+if &compatible
+  set nocompatible
+endif
 filetype plugin indent on
 syntax enable
 
-" Indentation options
+" Indentation
 set autoindent
 set backspace=indent,eol,start
 set cinoptions=Ls,l1
@@ -58,50 +60,54 @@ set shiftwidth=2
 set smarttab
 set softtabstop=2
 
-" Display options
+" Visual
 set display=lastline
 set laststatus=2
-set listchars=eol:¶,tab:→·,nbsp:·,trail:·,extends:›,precedes:‹
+set listchars=eol:¶,tab:→·,trail:·,extends:›,precedes:‹,nbsp:·
 set noshowmode
 set number
-set numberwidth=4
 set scrolloff=1
 set sidescrolloff=4
 set splitbelow
 set splitright
 set visualbell t_vb=
 
-" Behavior options
+" Behavior
 set autoread
-let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
-set complete-=i
+if has('unnamedplus')
+  set clipboard+=unnamedplus
+endif
+set complete-=u complete-=i
+set foldopen-=block
 set hidden
 set history=2000
-set modelines=2
 set nojoinspaces
 set nrformats-=octal
 set undolevels=2000
 set wildmenu
 set wildmode=longest:full
 
-" Search options
+" Search
 " Keep hlsearch status on reload
 let hlsearch = v:hlsearch
 set hlsearch
 let v:hlsearch = hlsearch
 set incsearch
 
-" Text wrap options
+" Text wrap
 set breakindent
 set breakindentopt=shift:-2
 set formatoptions=crqnj
 set showbreak=↪\ 
 set textwidth=80
 
-" Folding options
-set foldopen-=block
+" Neovim
+if has('nvim')
+  source ~/.vim/nvim.lua
+end
 
-" Color scheme options
+"" Color Scheme
+
 if has('termguicolors')
   set termguicolors
 endif
@@ -132,9 +138,6 @@ if has('termguicolors')
   hi StatusSymbolNormalBufferModifiedMark guifg=#a6e3a1 guibg=#181825
   hi StatusSymbolNormalBufferReadonlyMark guifg=#f38ba8 guibg=#181825
 endif
-
-" Neovim
-if has('nvim') | source ~/.vim/nvim.lua | end
 
 "" Status Line
 
@@ -171,7 +174,7 @@ function! StatusLine()
 endfunction
 set statusline=%{%StatusLine()%}
 
-"" Helper Functions
+"" Mappings, Abbreviations, and Digraphs
 
 command! -complete=mapping -nargs=*
       \ Nxonoremap nnoremap <args>|xnoremap <args>|onoremap <args>
@@ -182,7 +185,6 @@ function! CnoreabbrevHead(from, to) abort
         \ '"' . a:to . '" : "' . a:from . '"'
 endfunction
 
-"" Mappings, Abbreviations, and Digraphs
 let mapleader = "\<Space>"
 
 nnoremap <BS> <Cmd>nohlsearch<CR>
