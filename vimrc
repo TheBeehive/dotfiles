@@ -11,7 +11,6 @@ endif
 let g:polyglot_disabled = ['autoindent', 'markdown', 'sensible']
 
 call plug#begin('~/.vim/plug')
-Plug 'itchyny/lightline.vim'
 Plug 'farmergreg/vim-lastplace'
 Plug 'junegunn/fzf.vim'
 Plug 'ktchen14/colonize'
@@ -60,7 +59,9 @@ set softtabstop=2
 
 " Display options
 set display=lastline
+set laststatus=2
 set listchars=eol:¶,tab:→·,nbsp:·,trail:·,extends:›,precedes:‹
+set noshowmode
 set number
 set numberwidth=4
 set scrolloff=1
@@ -133,6 +134,41 @@ endif
 
 " Neovim
 if has('nvim') | source ~/.vim/nvim.lua | end
+
+"" Status Line
+
+function! StatusLine()
+  let result = '[%{winnr()}] %f%='
+
+  " [filetype? | fileformat? | fileencoding?]
+  let inside = []
+  if !empty(&ft)
+    call add(inside, &ft)
+  endif
+  if &ff !=# 'unix'
+    call add(inside, &ff)
+  endif
+  if &fenc !=# &enc
+    call add(inside, &fenc)
+  endif
+  if !empty(inside)
+    let result .= '[' . join(inside, '/') . ']  '
+  endif
+
+  let column = &tw && col('.') > &tw ? '%#Error#%c%*' : '%c'
+  let result .= '%l:' . column . '  '
+
+  let [l, L] = [line('.'), line('$')]
+  if l == 1
+    let result .= '↑'
+  elseif l == L
+    let result .= '↓'
+  else
+    let result .= string(l * 100 / L) . '%%'
+  endif
+  return result . ' of %L'
+endfunction
+set statusline=%{%StatusLine()%}
 
 "" Helper Functions
 
@@ -428,13 +464,6 @@ elseif isdirectory('/usr/share/doc/fzf/examples')
   set runtimepath^=/usr/share/doc/fzf/examples
 endif
 autocmd FileType fzf silent! tunmap <Esc>
-
-" lightline
-
-let g:lightline = { 'colorscheme': 'catppuccin_mocha', 'enable': { 'tabline': 0 } }
-
-set noshowmode
-set laststatus=2
 
 " vim-markdown
 
