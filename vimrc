@@ -23,7 +23,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
-if executable('editorconfig')
+if !has('nvim-0.9.0') && executable('editorconfig')
   Plug 'editorconfig/editorconfig-vim'
 endif
 call plug#end()
@@ -346,7 +346,7 @@ let g:cscope_auto_database_name = '.cscope'
 
 " editorconfig
 
-if executable('editorconfig')
+if !has('nvim-0.9.0') && executable('editorconfig')
   let g:EditorConfig_core_mode = 'external_command'
 endif
 
