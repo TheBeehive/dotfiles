@@ -486,9 +486,6 @@ endif
 " The automatic indentation for YAML is terrible
 autocmd FileType yaml,yaml.ansible setlocal indentexpr=""
 
-" Open help window splitright with width 78
-autocmd FileType help set bufhidden=unload | wincmd L | vertical resize 78
-
 "" Plugin Configuration
 
 " aerial.nvim
