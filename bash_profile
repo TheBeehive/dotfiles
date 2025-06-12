@@ -35,6 +35,10 @@ export TEXMFCNF="~/.tex:"
 # Create true NTFS symlinks in Cygwin
 [ "$OSTYPE" = cygwin ] && export CYGWIN='winsymlinks:native'
 
+if [ -x /opt/homebrew/bin/brew ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 # Make Homebrew a little faster
 if command -v brew > /dev/null; then
   export HOMEBREW_NO_ANALYTICS=1
