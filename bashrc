@@ -113,13 +113,9 @@ if command -v fzf > /dev/null; then
   export FZF_DEFAULT_OPTS="${fzf_default_opts[*]}"
   unset -v fzf_default_opts
 
-  # Use `fd` if available for `fzf`
-  command -v fd > /dev/null && export FZF_DEFAULT_COMMAND='fd -Ltf'
-fi
+  # Load bash key bindings for `fzf`
+  eval "$(fzf --bash)"
 
-# Load bash key bindings for `fzf`
-if source /usr/local/opt/fzf/shell/key-bindings.bash 2> /dev/null ||
-    source /usr/share/doc/fzf/examples/key-bindings.bash 2> /dev/null; then
   # Set the line as the prompt in `fzf` if it's used in bash completion
   fzf() {
     if [[ ${FUNCNAME[1]} = __fzf_select__ ]]; then
@@ -131,8 +127,9 @@ if source /usr/local/opt/fzf/shell/key-bindings.bash 2> /dev/null ||
     command fzf "$@"
   }
 
-  # Use `fd` if available for CTRL-T and ALT-C
+  # Use `fd` if available for `fzf`, CTRL-T, and ALT-C
   if command -v fd > /dev/null; then
+    export FZF_DEFAULT_COMMAND='fd -Ltf'
     FZF_CTRL_T_COMMAND='fd -Ltf' FZF_ALT_C_COMMAND='fd -Ltd'
   fi
 
@@ -144,17 +141,18 @@ if source /usr/local/opt/fzf/shell/key-bindings.bash 2> /dev/null ||
     FZF_CTRL_T_OPTS="--preview='head -n \$FZF_PREVIEW_LINES {}'"
   fi
 
-  # Preview ALT-C with `exa` or `ls`. Colorize it if we have `exa`, GNU `ls`,
-  # or BSD `ls`.
-  if command -v exa > /dev/null; then
+  # Preview ALT-C with `exa` or `ls`. Colorize it if we have `exa`, GNU `ls`, or
+  # BSD `ls`.
+  if command -v eza > /dev/null; then
+    FZF_ALT_C_OPTS="--preview='eza -lh --color=always {}'"
+  elif command -v exa > /dev/null; then
     FZF_ALT_C_OPTS="--preview='exa -lh --color=always {}'"
   elif ls --color -d . &> /dev/null; then
     # This is GNU `ls`
     FZF_ALT_C_OPTS="--preview='ls -lho --color=always {} | tail -n+2'"
   elif ls -G -d . &> /dev/null; then
     # This is BSD `ls`
-    FZF_ALT_C_OPTS="
-      --preview='CLICOLOR_FORCE=1 ls -lhoG {} | tail -n+2'"
+    FZF_ALT_C_OPTS="--preview='CLICOLOR_FORCE=1 ls -lhoG {} | tail -n+2'"
   else
     FZF_ALT_C_OPTS="--preview='ls -lho {} | tail -n+2'"
   fi
