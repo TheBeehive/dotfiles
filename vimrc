@@ -1,10 +1,9 @@
 """ ~/.vimrc: Runtime configuration for `vim`
 
 "" Encoding and runtimepath
-set encoding=utf-8 " Always use UTF-8 encoding
 
 if has('win32')
-  set runtimepath^=~/.vim
+  set encoding=utf-8 runtimepath^=~/.vim
 endif
 
 call plug#begin('~/.vim/plug')
