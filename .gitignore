@@ -8,7 +8,7 @@ vim/.netrwhist
 vim/autoload/plug.vim.old
 
 # Managed separately by vim-plug
-vim/plug
+vim/bundle
 
 # Persistent undo
 vim/undodir
