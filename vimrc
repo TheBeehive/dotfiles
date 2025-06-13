@@ -12,7 +12,6 @@ let g:polyglot_disabled = ['autoindent', 'markdown', 'sensible']
 
 call plug#begin('~/.vim/plug')
 Plug 'chriskempson/base16-vim'
-Plug 'deris/vim-shot-f'
 Plug 'farmergreg/vim-lastplace'
 Plug 'junegunn/fzf.vim'
 Plug 'ktchen14/colonize'
