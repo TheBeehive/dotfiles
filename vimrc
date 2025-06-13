@@ -18,10 +18,10 @@ Plug 'ktchen14/colonize'
 Plug 'ktchen14/cscope-auto'
 Plug 'ktchen14/status-symbol'
 Plug 'ktchen14/vim-star'
-Plug 'majutsushi/tagbar'
 Plug 'neovim/nvim-lspconfig'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-characterize'
+Plug 'stevearc/aerial.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-markdown'
@@ -344,6 +344,10 @@ autocmd FileType help set bufhidden=unload | wincmd L | vertical resize 78
 
 "" Plugin Configuration
 
+" aerial.nvim
+
+nnoremap <Leader>a <Cmd>AerialToggle!<CR>
+
 " vim-plug
 
 " Set the plug window height based on the number of plugs
@@ -375,12 +379,6 @@ autocmd FileType fzf silent! tunmap <Esc>
 " vim-markdown
 
 let g:markdown_fenced_languages = ['bash=sh', 'python']
-
-" tagbar
-
-let g:tagbar_indent = 0
-let g:tagbar_sort = 0
-nmap <Leader>tt :TagbarToggle<CR>
 
 "" Test Area
 

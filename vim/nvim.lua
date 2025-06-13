@@ -24,3 +24,15 @@ local ok, lspconfig = pcall(require, 'lspconfig')
 if ok then
   lspconfig.clangd.setup{}
 end
+
+-- aerial
+
+local ok, aerial = pcall(require, 'aerial')
+if ok then
+  aerial.setup({
+    keymaps = {
+      ["<CR>"] = false,
+      ["g<CR>"] = "actions.jump",
+    },
+  })
+end
