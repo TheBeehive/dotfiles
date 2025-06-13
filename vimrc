@@ -352,7 +352,9 @@ endif
 
 " fzf
 
-if isdirectory('/usr/local/opt/fzf')
+if isdirectory('/opt/homebrew/opt/fzf')
+  set runtimepath^=/opt/homebrew/opt/fzf
+elseif isdirectory('/usr/local/opt/fzf')
   set runtimepath^=/usr/local/opt/fzf
 elseif isdirectory('/usr/share/doc/fzf/examples')
   set runtimepath^=/usr/share/doc/fzf/examples
