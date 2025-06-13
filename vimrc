@@ -10,7 +10,7 @@ endif
 
 let g:polyglot_disabled = ['autoindent', 'markdown', 'sensible']
 
-call plug#begin('~/.vim/plug')
+call plug#begin('~/.vim/bundle')
 Plug 'farmergreg/vim-lastplace'
 Plug 'junegunn/fzf.vim'
 Plug 'ktchen14/colonize'
