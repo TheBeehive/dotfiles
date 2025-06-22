@@ -12,22 +12,24 @@ Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
 Plug 'deris/vim-shot-f'
 Plug 'itchyny/lightline.vim'
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim', { 'commit': '04bfa8115716f9222fe307303f9803e7264ac303' }
 Plug 'ktchen14/cscope-auto'
 Plug 'ktchen14/status-symbol'
 Plug 'ktchen14/vim-star'
 Plug 'majutsushi/tagbar'
-Plug 'neovim/nvim-lspconfig'
+Plug 'neovim/nvim-lspconfig', { 'commit': '76e7c8b' }
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+"Plug 'Exafunction/windsurf.vim'
+
 " Plug 'sakhnik/nvim-gdb'
 Plug 'ntpeters/vim-better-whitespace'
 
 " Personal Plugins
-" Plug 'ludovicchabant/vim-gutentags'
+Plug 'ludovicchabant/vim-gutentags'
 
 " Trial Plugins
 
@@ -54,7 +56,7 @@ set smarttab
 set softtabstop=2
 
 " Display options
-set cursorline
+set nocursorline
 set display=lastline
 set listchars=eol:¶,tab:→·,nbsp:·,trail:·,extends:›,precedes:‹
 set number
@@ -341,6 +343,9 @@ if executable('jq')
   autocmd FileType json setlocal formatprg=jq\ .
 endif
 
+autocmd FileType mail setlocal textwidth=0
+autocmd FileType c setlocal textwidth=78
+
 autocmd FileType python setlocal sw=4 sts=4 tw=79
 
 " Open help window splitright with width 78
@@ -355,8 +360,10 @@ let g:plug_window = 'botright ' . (len(g:plugs) + 4) . 'new'
 
 " cscope-auto
 
-set cscopequickfix=s-,c-,d-,i-,t-,e-
-silent! set cscopequickfix+=a-
+if exists('&cscopequickfix')
+  set cscopequickfix=s-,c-,d-,i-,t-,e-
+  silent! set cscopequickfix+=a-
+endif
 let g:cscope_auto_database_name = '.cscope'
 
 " editorconfig
@@ -390,7 +397,12 @@ let g:tagbar_sort = 0
 nnoremap <Leader>tt :TagbarToggle<CR>
 nnoremap <Leader>oo :Tags<CR>
 
+" mail
+autocmd FileType mail setlocal textwidth=0
+autocmd FileType c setlocal textwidth=78
+
 " gutentags
+" TODO: how to do this per repo
 let g:gutentags_ctags_exclude = [
       \ '*.sql',
       \ '*.git', '*.json', '*.css', '*.xsl', '*.md',
@@ -399,7 +411,20 @@ let g:gutentags_ctags_exclude = [
       \ '*.patch',
       \ '*.s',
       \ '*pycache*',
+      \ 'build/tmp_install/*',
+      \ 'install/*',
       \]
+
+let g:gutentags_exclude_project_root = [
+      \ '/usr/local',
+      \ '/opt/homebrew',
+      \ '/home/linuxbrew/.linuxbrew',
+      \ '/tmp'
+      \]
+
+let g:gutentags_exclude_filetypes = ["git", "gitcommit"]
+
+let g:gutentags_file_list_command = 'ag -l'
 
 "" Test Area
 
