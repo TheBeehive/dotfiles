@@ -521,6 +521,12 @@ elseif isdirectory('/usr/share/doc/fzf/examples')
 endif
 autocmd FileType fzf silent! tunmap <Esc>
 
+let g:fzf_layout = #{window: #{width: 0.8, height: 0.8}}
+let g:fzf_vim = #{preview_window: []}
+let g:fzf_vim.buffers_options = ['--prompt', 'Buffer› ']
+nnoremap Sb <Cmd>Buffers<CR>
+nnoremap SS <Cmd>GFiles<CR>
+
 " vim-markdown
 
 let g:markdown_fenced_languages = ['bash=sh', 'python']
