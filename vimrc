@@ -22,11 +22,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+"Plug 'Exafunction/windsurf.vim'
+
 " Plug 'sakhnik/nvim-gdb'
 Plug 'ntpeters/vim-better-whitespace'
 
 " Personal Plugins
-" Plug 'ludovicchabant/vim-gutentags'
+Plug 'ludovicchabant/vim-gutentags'
 
 " Trial Plugins
 
@@ -81,7 +83,7 @@ endif
 set incsearch
 
 " Visual
-set cursorline
+set nocursorline
 set display=lastline
 set laststatus=2
 set listchars=eol:¶,tab:→·,trail:·,extends:›,precedes:‹,nbsp:·
@@ -209,8 +211,13 @@ let fzf_layout = #{window: #{width: 0.8, height: 0.8}}
 let fzf_vim = #{preview_window: []}
 let fzf_vim.buffers_options = ['--prompt', 'Buffer› ']
 
+" mail
+autocmd FileType mail setlocal textwidth=0
+autocmd FileType c setlocal textwidth=78
+
 " gutentags
 
+" TODO: how to do this per repo
 let g:gutentags_ctags_exclude = [
       \ '*.sql',
       \ '*.git', '*.json', '*.css', '*.xsl', '*.md',
@@ -219,7 +226,20 @@ let g:gutentags_ctags_exclude = [
       \ '*.patch',
       \ '*.s',
       \ '*pycache*',
+      \ 'build/tmp_install/*',
+      \ 'install/*',
       \]
+
+let g:gutentags_exclude_project_root = [
+      \ '/usr/local',
+      \ '/opt/homebrew',
+      \ '/home/linuxbrew/.linuxbrew',
+      \ '/tmp'
+      \]
+
+let g:gutentags_exclude_filetypes = ["git", "gitcommit"]
+
+let g:gutentags_file_list_command = 'ag -l'
 
 " vim-markdown
 

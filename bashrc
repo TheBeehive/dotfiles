@@ -164,3 +164,5 @@ if command -v fzf > /dev/null; then
   fi
   FZF_ALT_C_OPTS="$FZF_ALT_C_OPTS --prompt='cd › '"
 fi
+
+alias vim=nvim
