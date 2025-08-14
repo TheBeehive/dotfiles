@@ -161,10 +161,6 @@ nnoremap <Leader>re <Cmd>edit $MYVIMRC<CR>
 nnoremap ]] ][
 nnoremap ][ ]]
 
-nnoremap [b <Cmd>exec '' . (v:count ? v:count : '') . 'bprev'<CR>
-nnoremap [B <Cmd>exec '' . (v:count ? v:count : '') . 'bfirst'<CR>
-nnoremap ]b <Cmd>exec '' . (v:count ? v:count : '') . 'bnext'<CR>
-nnoremap ]B <Cmd>exec '' . (v:count ? v:count : '') . 'blast'<CR>
 
 
 function! AbbreviatePrefix(prefix, to) abort
@@ -216,15 +212,6 @@ augroup vimrc
   autocmd FileType quickfix setlocal nobuflisted
 augroup end
 
-nnoremap [q <Cmd>exec '' . (v:count ? v:count : '') . 'cprev'<CR>zv
-nnoremap [Q <Cmd>exec '' . (v:count ? v:count : '') . 'cfirst'<CR>zv
-nnoremap ]q <Cmd>exec '' . (v:count ? v:count : '') . 'cnext'<CR>zv
-nnoremap ]Q <Cmd>exec '' . (v:count ? v:count : '') . 'clast'<CR>zv
-
-nnoremap [l <Cmd>exec '' . (v:count ? v:count : '') . 'lprev'<CR>zv
-nnoremap [L <Cmd>exec '' . (v:count ? v:count : '') . 'lfirst'<CR>zv
-nnoremap ]l <Cmd>exec '' . (v:count ? v:count : '') . 'lnext'<CR>zv
-nnoremap ]L <Cmd>exec '' . (v:count ? v:count : '') . 'llast'<CR>zv
 
 "" Diagnostics
 
