@@ -27,8 +27,6 @@ Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
-if !has('nvim-0.9.0') && executable('editorconfig')
-  Plug 'editorconfig/editorconfig-vim'
 endif
 call plug#end()
 
@@ -349,12 +347,6 @@ let g:plug_window = 'botright ' . (len(g:plugs) + 4) . 'new'
 
 if has('cscope')
   let g:cscope_auto_database_name = '.cscope'
-endif
-
-" editorconfig
-
-if !has('nvim-0.9.0') && executable('editorconfig')
-  let g:EditorConfig_core_mode = 'external_command'
 endif
 
 " fzf
