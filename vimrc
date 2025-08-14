@@ -100,41 +100,6 @@ silent! hi link FloatBorder NormalFloat
 " Neovim
 if has('nvim') | source ~/.vim/nvim.lua | end
 
-"" Status Line
-
-function! StatusLine()
-  let result = '[%{winnr()}] %f%='
-
-  " [filetype? | fileformat? | fileencoding?]
-  let inside = []
-  if !empty(&ft)
-    call add(inside, &ft)
-  endif
-  if &ff !=# 'unix'
-    call add(inside, &ff)
-  endif
-  if &fenc !=# &enc
-    call add(inside, &fenc)
-  endif
-  if !empty(inside)
-    let result .= '[' . join(inside, '/') . ']  '
-  endif
-
-  let column = &tw && col('.') > &tw ? '%#Error#%c%*' : '%c'
-  let result .= '%l:' . column . '  '
-
-  let [l, L] = [line('.'), line('$')]
-  if l == 1
-    let result .= '↑'
-  elseif l == L
-    let result .= '↓'
-  else
-    let result .= string(l * 100 / L) . '%%'
-  endif
-  return result . ' of %L'
-endfunction
-set statusline=%{%StatusLine()%}
-
 "" Helper Functions
 
 command! -complete=mapping -nargs=*
