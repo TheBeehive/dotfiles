@@ -35,7 +35,7 @@ fi
 unset -f prompt
 
 # Set continuation prompt to >
-PS2='> '
+PS2='› '
 
 # Don't save duplicate commands to the history
 HISTCONTROL=ignoredups
@@ -107,7 +107,8 @@ if command -v fzf > /dev/null; then
     --hscroll-off=4
     --height=100%
     --layout=reverse
-    --info=inline
+    --prompt='›\ '
+    --info=inline:'\ ‹\ '
     --no-scrollbar
     --pointer=▶
     --marker=▶
@@ -125,7 +126,7 @@ if command -v fzf > /dev/null; then
       # Get the text before the cursor and trim it
       local prompt="${READLINE_LINE:0:${READLINE_POINT-${#READLINE_LINE}}}"
       prompt="${prompt%"${prompt##*[![:space:]]}"}"
-      [ -n "$prompt" ] && set -- "$@" --prompt "$prompt > "
+      [ -n "$prompt" ] && set -- "$@" --prompt "$prompt › "
     fi
     command fzf "$@"
   }
@@ -159,5 +160,5 @@ if command -v fzf > /dev/null; then
   else
     FZF_ALT_C_OPTS="--preview='ls -lho {} | tail -n+2'"
   fi
-  FZF_ALT_C_OPTS="$FZF_ALT_C_OPTS --prompt='cd > '"
+  FZF_ALT_C_OPTS="$FZF_ALT_C_OPTS --prompt='cd › '"
 fi
