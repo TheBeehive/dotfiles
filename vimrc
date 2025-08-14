@@ -137,7 +137,7 @@ Nxonoremap gm M
 function! Handle_h0()
   let [_, _, i, _] = getpos('.')
   if i < 2
-    return "0"
+    return '0'
   end
   return getline('.')[:i - 2] =~ '^\s*$' ? '0' : '^'
 endfunction
@@ -306,12 +306,12 @@ autocmd FileType help set bufhidden=unload | wincmd L | vertical resize 78
 " vim-plug
 
 " Set the plug window height based on the number of plugs
-let g:plug_window = 'botright ' . (len(g:plugs) + 4) . 'new'
+let plug_window = 'botright ' . (len(plugs) + 4) . 'new'
 
 " cscope-auto
 
 if has('cscope')
-  let g:cscope_auto_database_name = '.cscope'
+  let cscope_auto_database_name = '.cscope'
 endif
 
 " fzf
@@ -321,12 +321,12 @@ nnoremap <C-P> <Cmd>FZF!<CR>
 
 " vim-markdown
 
-let g:markdown_fenced_languages = ['bash=sh', 'python']
+let markdown_fenced_languages = ['bash=sh', 'python']
 
 " tagbar
 
-let g:tagbar_indent = 0
-let g:tagbar_sort = 0
+let tagbar_indent = 0
+let tagbar_sort = 0
 nmap <Leader>tt :TagbarToggle<CR>
 
 "" Test Area
