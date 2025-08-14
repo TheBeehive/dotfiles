@@ -120,7 +120,6 @@ if exists(':tnoremap')
 endif
 
 cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
 
 " Map window motions to g prefixed lowercased ones
 Nxonoremap gh H
