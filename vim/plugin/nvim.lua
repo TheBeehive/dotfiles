@@ -128,6 +128,8 @@ end, { desc = 'vim.lsp.buf.declaration()' })
 local ok, lspconfig = pcall(require, 'lspconfig')
 if ok then
   lspconfig.clangd.setup {}
+  lspconfig.ts_ls.setup {}
+  lspconfig.svelte.setup {}
 end
 
 -- nvim-treesitter
@@ -135,6 +137,7 @@ end
 local ok, treesitter = pcall(require, 'nvim-treesitter.configs')
 if ok then
   treesitter.setup {
+    ensure_installed = { 'css', 'html', 'javascript', 'svelte' },
     highlight = { enable = true },
   }
 end
