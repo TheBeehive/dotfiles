@@ -1,12 +1,8 @@
 """ ~/.vimrc: Runtime configuration for `vim`
 
-"" Encoding and runtimepath
-
 if has('win32')
   set encoding=utf-8 runtimepath^=~/.vim
 endif
-
-"" Plugin Configuration
 
 call plug#begin('~/.vim/bundle')
 Plug 'chriskempson/base16-vim'
@@ -27,19 +23,34 @@ Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
-endif
-
 let polyglot_disabled = ['autoindent', 'markdown', 'sensible']
 call plug#end()
 
 "" General Configuration
 
-" Global options
-set nocompatible
+" Important / Global
+if &compatible
+  set nocompatible
+endif
 filetype plugin indent on
 syntax enable
 
-" Indentation options
+" Behavior
+set autoread
+if has('unnamedplus')
+  set clipboard+=unnamedplus
+endif
+set complete-=u complete-=i
+set foldopen-=block
+set hidden
+set history=2000
+set nojoinspaces
+set nrformats-=octal
+set undolevels=2000
+set wildmenu
+set wildmode=longest:full
+
+" Indentation
 set autoindent
 set backspace=indent,eol,start
 set expandtab
@@ -48,62 +59,44 @@ set shiftwidth=2
 set smarttab
 set softtabstop=2
 
-" Display options
+" Search
+if executable('ag')
+  set grepprg=ag\ --vimgrep\ --silent\ $* grepformat=%f:%l:%c:%m
+endif
+if !&hlsearch
+  set hlsearch
+endif
+set incsearch
+
+" Visual
 set display=lastline
 set laststatus=2
-set listchars=eol:¶,tab:→·,nbsp:·,trail:·,extends:›,precedes:‹
+set listchars=eol:¶,tab:→·,trail:·,extends:›,precedes:‹,nbsp:·
 set noshowmode
 set number
-set numberwidth=4
 set scrolloff=1
 set sidescrolloff=4
 set splitbelow
 set splitright
-set visualbell t_vb=
-
-" Behavior options
-set autoread
-let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
-set complete-=i
-set hidden
-set history=2000
-set modelines=2
-set nojoinspaces
-set nrformats-=octal
-set undolevels=2000
-set wildmenu
-set wildmode=longest:full
-
-" Search options
-" Keep hlsearch status on reload
-let hlsearch = v:hlsearch
-set hlsearch
-let v:hlsearch = hlsearch
-set incsearch
-
-" Text wrap options
-set breakindent
-set breakindentopt=shift:-2
-set formatoptions=crqnj
-set showbreak=↪\ 
-
-" Folding options
-set foldopen-=block
-
-" Color scheme options
 if has('termguicolors')
   set termguicolors
 endif
-set background=dark
+set visualbell t_vb=
+
+" Text wrap
+set breakindent
+set breakindentopt=shift:-2
+set fo-=t fo+=r fo+=n fo+=j
+set showbreak=↪\ 
+set textwidth=80
+
 silent! colorscheme base16-ocean
 silent! hi link FloatBorder NormalFloat
 
-"" Helper Functions
-
+" Mappings {{{1
 
 command! -nargs=* Nxonoremap nnoremap <args>|xnoremap <args>|onoremap <args>
 
-"" Mappings and Abbreviations
 let mapleader = "\<Space>"
 
 nnoremap <BS> <Cmd>nohlsearch<CR>
@@ -159,7 +152,7 @@ nnoremap <Leader>re <Cmd>edit $MYVIMRC<CR>
 nnoremap ]] ][
 nnoremap ][ ]]
 
-
+" Abbreviations and Digraphs {{{1
 
 function! AbbreviatePrefix(prefix, to) abort
   return getcmdtype() . getcmdline() ==# ':' . a:prefix ? a:to : a:prefix
@@ -173,18 +166,10 @@ cnoreabbrev <expr> lgrepadd AbbreviatePrefix('lgrepadd', 'silent lgrepadd')
 cnoreabbrev <expr> lgrepa AbbreviatePrefix('lgrepa', 'silent lgrepadd')
 cnoreabbrev <expr> grepadd AbbreviatePrefix('grepadd', 'silent grepadd')
 cnoreabbrev <expr> grepa AbbreviatePrefix('grepa', 'silent grepadd')
-"" Quickfix List
 
-if executable('ag')
-  " When ag --vimgrep is used as the grepprg and :grep is issued without
-  " arguments, ag outputs 'ERR: What do you want to search for?', breaking the
-  " display until a :redraw! is issued. The --silent helps avoid this.
-  set grepprg=ag\ --vimgrep\ --silent\ $* grepformat=%f:%l:%c:%m
-endif
-
+" Global Filetype {{{1
 
 augroup vimrc
-  autocmd!
   autocmd BufReadPost quickfix setlocal modifiable
         \ | silent exec '%s/|\(\d\+\) col \(\d\+\)|/|\1:\2|/Ige'
         \ | setlocal nomodifiable
@@ -192,14 +177,12 @@ augroup vimrc
 augroup end
 
 
-"" Filetype Configuration
-
 autocmd FileType python setlocal sw=4 sts=4 tw=79
 
 " Open help window splitright with width 78
 autocmd FileType help set bufhidden=unload | wincmd L | vertical resize 78
 
-"" Plugin Configuration
+" Plugin Configuration {{{1
 
 " vim-plug
 
@@ -227,32 +210,6 @@ let tagbar_indent = 0
 let tagbar_sort = 0
 nmap <Leader>tt :TagbarToggle<CR>
 
-"" Test Area
+" }}}1
 
-" Use this area to test changes to this file
-
-"" Folding Expression and Text
-
-" Ensure that VimrcFoldExpr is callable from this modeline
-if exists('&modelineexpr') | set modelineexpr | endif
-
-function! VimrcFoldExpr()
-  " Don't fold the header even though it starts with """
-  if v:lnum == 1 | return 0 | end
-
-  " Get the line without leading and trailing whitespace
-  let line = matchstr(getline(v:lnum), '^\s*\zs.\{-}\ze\s*$')
-
-  if empty(line) | return -1 | endif
-
-  " Get the number of leading " characters
-  let length = len(matchstr(line, '^"\{2,}'))
-  return length > 1 ? '>1' : '='
-endfunction
-
-function! VimrcFoldText()
-  let name = matchstr(getline(v:foldstart), '^\s*"*\s*\zs.\{-}\ze\s*$')
-  return '+' . v:folddashes . ' ' . name . ' '
-endfunction
-
-" vim: set fdm=expr fde=VimrcFoldExpr() fdt=VimrcFoldText():
+" vim: set foldmethod=marker:
