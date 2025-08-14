@@ -14,6 +14,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'chriskempson/base16-vim'
 Plug 'deris/vim-shot-f'
 Plug 'farmergreg/vim-lastplace'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ktchen14/cscope-auto'
 Plug 'ktchen14/status-symbol'
@@ -207,7 +208,6 @@ nnoremap [B <Cmd>exec '' . (v:count ? v:count : '') . 'bfirst'<CR>
 nnoremap ]b <Cmd>exec '' . (v:count ? v:count : '') . 'bnext'<CR>
 nnoremap ]B <Cmd>exec '' . (v:count ? v:count : '') . 'blast'<CR>
 
-nnoremap <C-P> <Cmd>FZF!<CR>
 
 call CnoreabbrevHead('lgrep', 'silent lgrep')
 call CnoreabbrevHead('lgr', 'silent lgrep')
@@ -351,14 +351,8 @@ endif
 
 " fzf
 
-if isdirectory('/opt/homebrew/opt/fzf')
-  set runtimepath^=/opt/homebrew/opt/fzf
-elseif isdirectory('/usr/local/opt/fzf')
-  set runtimepath^=/usr/local/opt/fzf
-elseif isdirectory('/usr/share/doc/fzf/examples')
-  set runtimepath^=/usr/share/doc/fzf/examples
-endif
 autocmd FileType fzf silent! tunmap <Esc>
+nnoremap <C-P> <Cmd>FZF!<CR>
 
 " vim-markdown
 
