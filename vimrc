@@ -8,8 +8,6 @@ endif
 
 "" Plugin Configuration
 
-let g:polyglot_disabled = ['autoindent', 'markdown', 'sensible']
-
 call plug#begin('~/.vim/bundle')
 Plug 'chriskempson/base16-vim'
 Plug 'deris/vim-shot-f'
@@ -29,6 +27,8 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
 endif
+
+let polyglot_disabled = ['autoindent', 'markdown', 'sensible']
 call plug#end()
 
 "" General Configuration
