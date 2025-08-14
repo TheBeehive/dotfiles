@@ -194,10 +194,6 @@ augroup end
 
 "" Filetype Configuration
 
-if executable('jq')
-  autocmd FileType json setlocal formatprg=jq\ .
-endif
-
 autocmd FileType python setlocal sw=4 sts=4 tw=79
 
 " Open help window splitright with width 78
