@@ -12,6 +12,9 @@ insert_path /Applications/Postgres.app/Contents/Versions/latest/bin
 if command -v brew > /dev/null || [ -x /opt/homebrew/bin/brew ]; then
   eval "$(brew shellenv 2> /dev/null)"
   eval "$(/opt/homebrew/bin/brew shellenv 2> /dev/null)"
+  insert_path "$(brew --prefix bison)/bin"
+  insert_path "$(brew --prefix flex)/bin"
+  insert_path "$(brew --prefix llvm)/bin"
   insert_path "$(brew --prefix ruby)/bin"
 fi
 
