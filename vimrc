@@ -155,6 +155,8 @@ nnoremap <Leader>re <Cmd>edit $MYVIMRC<CR>
 nnoremap ]] ][
 nnoremap ][ ]]
 
+nnoremap <Leader>ss <Cmd>call ktchen14#show_syntax()<CR>
+
 " Abbreviations and Digraphs {{{1
 
 function! AbbreviatePrefix(prefix, to) abort
