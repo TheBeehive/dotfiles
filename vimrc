@@ -184,25 +184,6 @@ if executable('ag')
   set grepprg=ag\ --vimgrep\ --silent\ $* grepformat=%f:%l:%c:%m
 endif
 
-function! ToggleQuickfixList()
-  redir => output
-  " Find all active [Quickfix List] buffers
-  silent! filter /^\[Quickfix List\]$/ ls a
-  redir END
-  let bufnr = matchstr(output, '\d\+')
-
-  if !empty(bufnr) && bufwinnr(str2nr(bufnr)) != -1
-    cclose
-    return
-  endif
-
-  let winnr = winnr()
-  botright copen
-  if winnr() != winnr
-    wincmd p
-  endif
-endfunction
-nnoremap <Leader>q <Cmd>call ToggleQuickfixList()<CR>
 
 augroup vimrc
   autocmd!
