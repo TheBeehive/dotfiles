@@ -1,15 +1,21 @@
 ### ~/.bash_profile: Runtime configuration for login `bash`
 
 insert_path() {
-  [[ -d "$1" && :"$PATH": != *:"$1":* ]] && export PATH="$1:$PATH"
+  for i in "$@"; do
+    [[ -d "$i" && :"$PATH": != *:"$i":* ]] && export PATH="$i:$PATH"
+  done
 }
 
-insert_path /usr/sbin
+insert_path /usr/sbin /usr/bin
 insert_path /Applications/Postgres.app/Contents/Versions/latest/bin
-insert_path /usr/local/bin
-insert_path /usr/local/sbin
-insert_path /usr/local/opt/ruby/bin
-insert_path ~/.local/bin
+
+if command -v brew > /dev/null || [ -x /opt/homebrew/bin/brew ]; then
+  eval "$(brew shellenv 2> /dev/null)"
+  eval "$(/opt/homebrew/bin/brew shellenv 2> /dev/null)"
+  insert_path "$(brew --prefix ruby)/bin"
+fi
+
+insert_path /usr/local/sbin /usr/local/bin ~/.local/bin
 
 unset -f insert_path
 
@@ -34,10 +40,6 @@ export TEXMFCNF="~/.tex:"
 
 # Create true NTFS symlinks in Cygwin
 [ "$OSTYPE" = cygwin ] && export CYGWIN='winsymlinks:native'
-
-if [ -x /opt/homebrew/bin/brew ]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
 
 # Make Homebrew a little faster
 if command -v brew > /dev/null; then
