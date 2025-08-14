@@ -103,9 +103,12 @@ if command -v fzf > /dev/null; then
   # Set some global options for `fzf`
   declare -a fzf_default_opts=( \
     --cycle
+    --scroll-off=1
+    --hscroll-off=4
     --height=100%
     --layout=reverse
     --info=inline
+    --no-scrollbar
     --pointer=▶
     --marker=▶
     --color=gutter:-1
