@@ -102,14 +102,8 @@ if has('nvim') | source ~/.vim/nvim.lua | end
 
 "" Helper Functions
 
-command! -complete=mapping -nargs=*
-      \ Nxonoremap nnoremap <args>|xnoremap <args>|onoremap <args>
 
-function! CnoreabbrevHead(from, to) abort
-  exec 'cnoreabbrev <expr> ' . a:from . ' '
-        \ 'getcmdtype() . getcmdline() ==# ":' . a:from . '" ? '
-        \ '"' . a:to . '" : "' . a:from . '"'
-endfunction
+command! -nargs=* Nxonoremap nnoremap <args>|xnoremap <args>|onoremap <args>
 
 "" Mappings and Abbreviations
 let mapleader = "\<Space>"
@@ -174,15 +168,18 @@ nnoremap ]b <Cmd>exec '' . (v:count ? v:count : '') . 'bnext'<CR>
 nnoremap ]B <Cmd>exec '' . (v:count ? v:count : '') . 'blast'<CR>
 
 
-call CnoreabbrevHead('lgrep', 'silent lgrep')
-call CnoreabbrevHead('lgr', 'silent lgrep')
-call CnoreabbrevHead('grep', 'silent grep')
-call CnoreabbrevHead('gr', 'silent grep')
-call CnoreabbrevHead('lgrepadd', 'silent lgrepadd')
-call CnoreabbrevHead('lgrepa', 'silent lgrepadd')
-call CnoreabbrevHead('grepadd', 'silent grepadd')
-call CnoreabbrevHead('grepa', 'silent grepadd')
+function! AbbreviatePrefix(prefix, to) abort
+  return getcmdtype() . getcmdline() ==# ':' . a:prefix ? a:to : a:prefix
+endfunction
 
+cnoreabbrev <expr> lgrep AbbreviatePrefix('lgrep', 'silent lgrep')
+cnoreabbrev <expr> lgr AbbreviatePrefix('lgr', 'silent lgrep')
+cnoreabbrev <expr> grep AbbreviatePrefix('grep', 'silent grep')
+cnoreabbrev <expr> gr AbbreviatePrefix('gr', 'silent grep')
+cnoreabbrev <expr> lgrepadd AbbreviatePrefix('lgrepadd', 'silent lgrepadd')
+cnoreabbrev <expr> lgrepa AbbreviatePrefix('lgrepa', 'silent lgrepadd')
+cnoreabbrev <expr> grepadd AbbreviatePrefix('grepadd', 'silent grepadd')
+cnoreabbrev <expr> grepa AbbreviatePrefix('grepa', 'silent grepadd')
 "" Quickfix List
 
 if executable('ag')
