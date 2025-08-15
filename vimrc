@@ -229,6 +229,8 @@ nnoremap <C-P> <Cmd>FZF!<CR>
 let fzf_layout = #{window: #{width: 0.8, height: 0.8}}
 let fzf_vim = #{preview_window: []}
 let fzf_vim.buffers_options = ['--prompt', 'Buffer› ']
+nnoremap Sb <Cmd>Buffers<CR>
+nnoremap SS <Cmd>GFiles<CR>
 
 " vim-markdown
 
