@@ -5,8 +5,9 @@ if has('win32')
 endif
 
 call plug#begin('~/.vim/bundle')
-Plug 'chriskempson/base16-vim'
 Plug 'deris/vim-shot-f'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin-nvim' }
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'farmergreg/vim-lastplace'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -37,6 +38,13 @@ if &compatible
 endif
 filetype plugin indent on
 syntax enable
+
+" Color scheme
+if has('nvim')
+  silent! colorscheme catppuccin-mocha
+else
+  silent! colorscheme catppuccin_mocha
+endif
 
 " Behavior
 set autoread
@@ -94,8 +102,6 @@ set fo-=t fo+=r fo+=n fo+=j
 set showbreak=↪\ 
 set textwidth=80
 
-silent! colorscheme base16-ocean
-silent! hi link FloatBorder NormalFloat
 
 " Mappings {{{1
 
