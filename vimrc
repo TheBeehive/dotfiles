@@ -158,7 +158,8 @@ nnoremap <C-k> <C-u>
 nnoremap s <C-w>
 nnoremap S <NOP>
 
-nnoremap <Tab> za
+nnoremap \ za
+nnoremap <Bar> zA
 
 nnoremap <Leader>rr <Cmd>source $MYVIMRC<CR>
 nnoremap <Leader>re <Cmd>edit $MYVIMRC<CR>
