@@ -172,12 +172,6 @@ cnoreabbrev <expr> grepa AbbreviatePrefix('grepa', 'silent grepadd')
 
 " Global Filetype {{{1
 
-augroup vimrc
-  autocmd BufReadPost quickfix setlocal modifiable
-        \ | silent exec '%s/|\(\d\+\) col \(\d\+\)|/|\1:\2|/Ige'
-        \ | setlocal nomodifiable
-augroup end
-
 let is_bash = 1
 let sh_no_error= 1
 

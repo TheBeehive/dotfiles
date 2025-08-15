@@ -3,7 +3,7 @@ if exists('b:did_ftplugin') && b:did_ftplugin == 2
 endif
 let b:did_ftplugin = 2
 
-setl nobuflisted nonumber winfixbuf winfixheight
+setl nobuflisted nonumber winfixbuf winfixheight nowrap
 
 function! QuickFixStatusLine() abort
   let result = '[%{winnr()}] %t'
@@ -24,4 +24,4 @@ function! QuickFixStatusLine() abort
 endfunction
 setl statusline=%{%QuickFixStatusLine()%}
 
-let b:undo_ftplugin .= '| setl bl< nu< stl< wfb< wfh<'
+let b:undo_ftplugin .= '| setl bl< nu< stl< wfb< wfh< wrap<'
