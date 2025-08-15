@@ -5,23 +5,26 @@ if has('win32')
 endif
 
 call plug#begin('~/.vim/bundle')
-Plug 'deris/vim-shot-f'
 Plug 'catppuccin/nvim', { 'as': 'catppuccin-nvim' }
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'farmergreg/vim-lastplace'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'ktchen14/colonize'
 Plug 'ktchen14/cscope-auto'
 Plug 'ktchen14/status-symbol'
 Plug 'ktchen14/vim-star'
+Plug 'llvm/llvm.vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'sheerun/vim-polyglot'
 Plug 'stevearc/aerial.nvim'
+Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'vim-scripts/syntaxm4.vim'
 
 if mapcheck('gcc', 'n') == ''
   Plug 'tpope/vim-commentary'
