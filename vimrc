@@ -17,11 +17,14 @@ Plug 'majutsushi/tagbar'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+
+if mapcheck('gcc', 'n') == ''
+  Plug 'tpope/vim-commentary'
+endif
 
 let polyglot_disabled = ['autoindent', 'markdown', 'sensible']
 call plug#end()
