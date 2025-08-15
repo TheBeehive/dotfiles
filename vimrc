@@ -102,6 +102,10 @@ set fo-=t fo+=r fo+=n fo+=j
 set showbreak=↪\ 
 set textwidth=80
 
+augroup vimrc
+  autocmd!
+  autocmd WinClosed * silent! lclose
+augroup end
 
 " Mappings {{{1
 
