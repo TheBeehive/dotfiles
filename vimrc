@@ -13,10 +13,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'ktchen14/cscope-auto'
 Plug 'ktchen14/status-symbol'
 Plug 'ktchen14/vim-star'
-Plug 'majutsushi/tagbar'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'sheerun/vim-polyglot'
+Plug 'stevearc/aerial.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-repeat'
@@ -184,6 +184,10 @@ let c_syntax_for_h = 1
 
 " Plugin Configuration {{{1
 
+" aerial.nvim
+
+nnoremap <Leader>tt <Cmd>AerialToggle!<CR>
+
 " vim-plug
 
 " Set the plug window height based on the number of plugs
@@ -207,12 +211,6 @@ let fzf_vim.buffers_options = ['--prompt', 'Buffer› ']
 " vim-markdown
 
 let markdown_fenced_languages = ['bash=sh', 'python']
-
-" tagbar
-
-let tagbar_indent = 0
-let tagbar_sort = 0
-nmap <Leader>tt :TagbarToggle<CR>
 
 " }}}1
 
