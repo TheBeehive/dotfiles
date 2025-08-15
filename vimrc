@@ -151,8 +151,8 @@ Nxonoremap gL g$
 " Map M to ' (' is the opposite of m)
 Nxonoremap M '
 
-nnoremap <C-h> <Cmd>bp<CR>
-nnoremap <C-l> <Cmd>bn<CR>
+nnoremap <S-Tab> <Cmd>exec v:count1 . 'bprev!'<CR>zv
+nnoremap <Tab>   <Cmd>exec v:count1 . 'bnext!'<CR>zv
 
 " Page Up and Page Down
 nnoremap <C-j> <C-d>
@@ -230,6 +230,8 @@ nnoremap <C-P> <Cmd>FZF!<CR>
 let fzf_layout = #{window: #{width: 0.8, height: 0.8}}
 let fzf_vim = #{preview_window: []}
 let fzf_vim.buffers_options = ['--prompt', 'Buffer› ']
+nnoremap Sb <Cmd>Buffers<CR>
+nnoremap SS <Cmd>GFiles<CR>
 
 " vim-easy-align
 
