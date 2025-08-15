@@ -192,6 +192,11 @@ digraph <~ 8668 ~> 8669 <m 10216 >m 10217
 
 " Global Filetype {{{1
 
+" Override ftplugin specific 'formatoptions'
+augroup vimrc
+  autocmd FileType * setlocal formatoptions<
+augroup end
+
 let is_bash = 1
 let sh_no_error= 1
 
