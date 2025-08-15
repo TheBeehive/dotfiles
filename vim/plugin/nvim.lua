@@ -123,6 +123,15 @@ vim.keymap.set('n', 'grD', function()
   vim.lsp.buf.declaration()
 end, { desc = 'vim.lsp.buf.declaration()' })
 
+-- aerial
+
+local ok, aerial = pcall(require, 'aerial')
+if ok then
+  aerial.setup {
+    keymaps = { ['<CR>'] = false, ['g<CR>'] = 'actions.jump' },
+  }
+end
+
 -- nvim-lspconfig
 
 local ok, lspconfig = pcall(require, 'lspconfig')
