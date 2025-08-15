@@ -176,8 +176,8 @@ augroup vimrc
   autocmd FileType quickfix setlocal nobuflisted
 augroup end
 
-
-autocmd FileType python setlocal sw=4 sts=4 tw=79
+let is_bash = 1
+let sh_no_error= 1
 
 " Open help window splitright with width 78
 autocmd FileType help set bufhidden=unload | wincmd L | vertical resize 78
