@@ -184,6 +184,9 @@ cnoreabbrev <expr> lgrepa AbbreviatePrefix('lgrepa', 'silent lgrepadd')
 cnoreabbrev <expr> grepadd AbbreviatePrefix('grepadd', 'silent grepadd')
 cnoreabbrev <expr> grepa AbbreviatePrefix('grepa', 'silent grepadd')
 
+" Digraphs for ⇜, ⇝, ⟨, and ⟩
+digraph <~ 8668 ~> 8669 <m 10216 >m 10217
+
 " Global Filetype {{{1
 
 let is_bash = 1
