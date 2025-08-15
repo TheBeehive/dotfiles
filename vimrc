@@ -176,7 +176,6 @@ augroup vimrc
   autocmd BufReadPost quickfix setlocal modifiable
         \ | silent exec '%s/|\(\d\+\) col \(\d\+\)|/|\1:\2|/Ige'
         \ | setlocal nomodifiable
-  autocmd FileType quickfix setlocal nobuflisted
 augroup end
 
 let is_bash = 1
