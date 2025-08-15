@@ -200,6 +200,10 @@ endif
 autocmd FileType fzf silent! tunmap <Esc>
 nnoremap <C-P> <Cmd>FZF!<CR>
 
+let fzf_layout = #{window: #{width: 0.8, height: 0.8}}
+let fzf_vim = #{preview_window: []}
+let fzf_vim.buffers_options = ['--prompt', 'Buffer› ']
+
 " vim-markdown
 
 let markdown_fenced_languages = ['bash=sh', 'python']
