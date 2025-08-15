@@ -56,6 +56,7 @@ set wildmode=longest:full
 " Indentation
 set autoindent
 set backspace=indent,eol,start
+set cinoptions=Ls,l1
 set expandtab
 set shiftround
 set shiftwidth=2
@@ -176,6 +177,10 @@ cnoreabbrev <expr> grepa AbbreviatePrefix('grepa', 'silent grepadd')
 
 let is_bash = 1
 let sh_no_error= 1
+
+let c_gnu = 1
+let c_no_curly_error = 1
+let c_syntax_for_h = 1
 
 " Plugin Configuration {{{1
 
