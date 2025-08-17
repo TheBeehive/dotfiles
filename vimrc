@@ -29,6 +29,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'ludovicchabant/vim-gutentags'
 
 " Trial Plugins
+Plug 'EdenEast/nightfox.nvim'
 
 if mapcheck('gcc', 'n') == ''
   Plug 'tpope/vim-commentary'
@@ -103,8 +104,7 @@ set fo-=t fo+=r fo+=n fo+=j
 set showbreak=↪\ 
 set textwidth=80
 
-silent! colorscheme base16-ocean
-silent! hi link FloatBorder NormalFloat
+silent! colorscheme nordfox
 
 " Mappings {{{1
 
