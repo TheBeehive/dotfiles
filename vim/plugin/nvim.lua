@@ -26,33 +26,45 @@ vim.diagnostic.config {
   virtual_text = false,
 }
 
--- Synchronize vim.diagnostic.jump(wrap = ...) with &wrapscan
-vim.api.nvim_create_autocmd('OptionSet', {
-  pattern = { 'wrapscan' },
-  group = vim.api.nvim_create_augroup('diagnostic', { clear = true }),
-  callback = function()
-    vim.diagnostic.config { jump = { wrap = vim.v.option_new } }
-  end,
-})
+-- -- Synchronize vim.diagnostic.jump(wrap = ...) with &wrapscan
+-- vim.api.nvim_create_autocmd('OptionSet', {
+--   pattern = { 'wrapscan' },
+--   group = vim.api.nvim_create_augroup('diagnostic', { clear = true }),
+--   callback = function()
+--     vim.diagnostic.config { jump = { wrap = vim.v.option_new } }
+--   end,
+-- })
 
 -- Map ]d, [d, ]D, and [D to vim.diagnostic.jump() in n, x, and o modes
 for mode, float in pairs { n = true, x = false, o = false } do
   vim.keymap.set(mode, ']d', function()
-    vim.diagnostic.jump { count = vim.v.count1, float = float }
+    -- vim.diagnostic.jump { count = vim.v.count1, float = float }
+    vim.diagnostic.goto_next {
+      count = vim.v.count1, float = float, wrap = vim.o.wrapscan
+    }
   end, { desc = 'Jump to the next diagnostic in the current buffer' })
 
   vim.keymap.set(mode, '[d', function()
-    vim.diagnostic.jump { count = -vim.v.count1, float = float }
+    -- vim.diagnostic.jump { count = -vim.v.count1, float = float }
+    vim.diagnostic.goto_prev {
+      count = vim.v.count1, float = float, wrap = vim.o.wrapscan
+    }
   end, { desc = 'Jump to the previous diagnostic in the current buffer' })
 
   vim.keymap.set(mode, ']D', function()
+    -- local count = 2 ^ 32 - 1
+    -- vim.diagnostic.jump { count = count, float = float, wrap = false }
+
     local count = 2 ^ 32 - 1
-    vim.diagnostic.jump { count = count, wrap = false, float = float }
+    vim.diagnostic.goto_next { count = count, float = float, wrap = false }
   end, { desc = 'Jump to the last diagnostic in the current buffer' })
 
   vim.keymap.set(mode, '[D', function()
-    local count = -(2 ^ 32)
-    vim.diagnostic.jump { count = count, wrap = false, float = float }
+    -- local count = -(2 ^ 32)
+    -- vim.diagnostic.jump { count = count, float = float, wrap = false }
+
+    local count = 2 ^ 32 - 1
+    vim.diagnostic.goto_prev { count = count, float = float, wrap = false }
   end, { desc = 'Jump to the first diagnostic in the current buffer' })
 end
 
