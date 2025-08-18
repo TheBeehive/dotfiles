@@ -107,6 +107,7 @@ set showbreak=↪\
 set textwidth=80
 
 silent! colorscheme nordfox
+hi clear NormalFloat
 
 " Mappings {{{1
 
