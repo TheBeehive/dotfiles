@@ -116,7 +116,7 @@ vim.keymap.set({ 'i', 's' }, '<C-S>', function()
 end, { desc = 'vim.lsp.buf.signature_help()' })
 
 vim.keymap.set('n', 'grd', function()
-  vim.lsp.buf.declaration()
+  vim.lsp.buf.definition()
 end, { desc = 'vim.lsp.buf.definition()' })
 
 vim.keymap.set('n', 'grD', function()
