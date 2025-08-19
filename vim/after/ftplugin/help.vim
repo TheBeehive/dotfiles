@@ -1,10 +1,7 @@
-if exists('w:did_help_ftplugin')
+if exists('b:did_ftplugin') && b:did_ftplugin == 2
   finish
 endif
-let w:did_help_ftplugin = 1
+let b:did_ftplugin = 2
 
-wincmd L
-execute 'vertical resize ' . &textwidth
-
-setlocal bufhidden=unload winfixwidth
-let b:undo_ftplugin .= '| setl bh< wfw<'
+setlocal bufhidden=unload
+let b:undo_ftplugin .= '| setl bh<'
