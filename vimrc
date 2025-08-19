@@ -10,6 +10,7 @@ Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'farmergreg/vim-lastplace'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-easy-align'
 Plug 'ktchen14/colonize'
 Plug 'ktchen14/cscope-auto'
 Plug 'ktchen14/status-symbol'
@@ -231,6 +232,13 @@ let fzf_vim = #{preview_window: []}
 let fzf_vim.buffers_options = ['--prompt', 'Buffer› ']
 nnoremap Sb <Cmd>Buffers<CR>
 nnoremap SS <Cmd>GFiles<CR>
+
+" vim-easy-align
+
+nmap <Leader>a <Plug>(EasyAlign)
+nmap <Leader>A <Plug>(LiveEasyAlign)
+xmap <Leader>a <Plug>(EasyAlign)
+xmap <Leader>A <Plug>(LiveEasyAlign)
 
 " vim-markdown
 
