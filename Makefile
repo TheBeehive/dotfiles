@@ -6,7 +6,7 @@ define \n
 
 endef
 
-.PHONY: bash gem git rake script tex vim
+.PHONY: bash gem ghostty git rake script tex vim
 
 install: bash gem git rake script tex vim
 
@@ -18,6 +18,10 @@ bash:
 
 gem:
 	ln -sf "${MAKEROOT}"/gemrc ~/.gemrc
+
+ghostty:
+	mkdir -p ~/.config/ghostty
+	ln -sf "${MAKEROOT}"/ghostty ~/.config/ghostty/config
 
 git:
 	ln -sf "${MAKEROOT}"/gitconfig ~/.gitconfig
