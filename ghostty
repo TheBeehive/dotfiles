@@ -1,0 +1,5 @@
+theme = catppuccin-mocha
+window-height = 48
+window-width = 160
+
+# vim: set ft=ghostty:
