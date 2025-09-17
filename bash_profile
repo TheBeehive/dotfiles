@@ -22,6 +22,7 @@ insert_path /usr/local/sbin /usr/local/bin ~/.local/bin
 
 unset -f insert_path
 
+[ "$TERM" = xterm-ghostty ] && export EZA_ICONS_AUTO=
 export EDITOR="$(type -p nvim vim vi nano 2> /dev/null | head -1)"
 export PAGER="$(type -p less more 2> /dev/null | head -1)"
 
