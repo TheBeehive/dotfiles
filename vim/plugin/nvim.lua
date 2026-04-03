@@ -125,10 +125,7 @@ end, { desc = 'vim.lsp.buf.declaration()' })
 
 -- nvim-lspconfig
 
-local ok, lspconfig = pcall(require, 'lspconfig')
-if ok then
-  lspconfig.clangd.setup {}
-end
+vim.lsp.enable('clangd')
 
 -- nvim-treesitter
 
