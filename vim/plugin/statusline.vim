@@ -21,7 +21,7 @@ function! StatusLine() abort
     let result .= '[' . join(inside, '/') . ']  '
   endif
 
-  let column = &tw && col('.') > &tw ? '%#Error#%c%*' : '%c'
+  let column = &tw && virtcol('.') > &tw ? '%#Error#%v%*' : '%v'
   let result .= '%l:' . column . '  '
 
   let [l, L] = [line('.'), line('$')]
