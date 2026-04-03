@@ -1,5 +1,7 @@
-theme = catppuccin-mocha
 window-height = 48
 window-width = 160
+
+theme = Catppuccin Mocha
+cursor-text = #1e1e2e
 
 # vim: set ft=ghostty:
