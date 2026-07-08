@@ -51,6 +51,8 @@ syntax enable
 set autoread
 if has('unnamedplus')
   set clipboard+=unnamedplus
+elseif has('unnamed')
+  set clipboard+=unnamed
 endif
 set complete-=u complete-=i
 set foldopen-=block
