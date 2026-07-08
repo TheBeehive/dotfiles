@@ -123,18 +123,17 @@ vim.keymap.set('n', 'grD', function()
   vim.lsp.buf.declaration()
 end, { desc = 'vim.lsp.buf.declaration()' })
 
--- nvim-lspconfig
+-- LSP servers (Neovim 0.11+ API). nvim-lspconfig ships the server
+-- definitions as `lsp/<name>.lua` runtime files; vim.lsp.enable() loads them.
+-- To customize a server, add: vim.lsp.config('clangd', { ... }) before enabling.
+vim.lsp.enable('clangd')
 
-local ok, lspconfig = pcall(require, 'lspconfig')
-if ok then
-  lspconfig.clangd.setup {}
-end
-
--- nvim-treesitter
-
-local ok, treesitter = pcall(require, 'nvim-treesitter.configs')
-if ok then
-  treesitter.setup {
-    highlight = { enable = true },
-  }
-end
+-- Treesitter (native, Neovim 0.11+). Start highlighting for any buffer whose
+-- filetype has an available parser. Neovim bundles c, lua, markdown,
+-- markdown_inline, query, vim, and vimdoc; pcall ignores filetypes without one.
+vim.api.nvim_create_autocmd('FileType', {
+  group = vim.api.nvim_create_augroup('treesitter_highlight', { clear = true }),
+  callback = function(args)
+    pcall(vim.treesitter.start, args.buf)
+  end,
+})
