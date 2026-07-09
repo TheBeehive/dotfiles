@@ -239,7 +239,7 @@ let g:gutentags_exclude_project_root = [
 
 let g:gutentags_exclude_filetypes = ["git", "gitcommit"]
 
-let g:gutentags_file_list_command = 'ag -l'
+let g:gutentags_file_list_command = 'ag -g ""'
 
 " vim-markdown
 
