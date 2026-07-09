@@ -38,33 +38,25 @@ vim.diagnostic.config {
 -- Map ]d, [d, ]D, and [D to vim.diagnostic.jump() in n, x, and o modes
 for mode, float in pairs { n = true, x = false, o = false } do
   vim.keymap.set(mode, ']d', function()
-    -- vim.diagnostic.jump { count = vim.v.count1, float = float }
-    vim.diagnostic.goto_next {
+    vim.diagnostic.jump {
       count = vim.v.count1, float = float, wrap = vim.o.wrapscan
     }
   end, { desc = 'Jump to the next diagnostic in the current buffer' })
 
   vim.keymap.set(mode, '[d', function()
-    -- vim.diagnostic.jump { count = -vim.v.count1, float = float }
-    vim.diagnostic.goto_prev {
-      count = vim.v.count1, float = float, wrap = vim.o.wrapscan
+    vim.diagnostic.jump {
+      count = -vim.v.count1, float = float, wrap = vim.o.wrapscan
     }
   end, { desc = 'Jump to the previous diagnostic in the current buffer' })
 
   vim.keymap.set(mode, ']D', function()
-    -- local count = 2 ^ 32 - 1
-    -- vim.diagnostic.jump { count = count, float = float, wrap = false }
-
     local count = 2 ^ 32 - 1
-    vim.diagnostic.goto_next { count = count, float = float, wrap = false }
+    vim.diagnostic.jump { count = count, float = float, wrap = false }
   end, { desc = 'Jump to the last diagnostic in the current buffer' })
 
   vim.keymap.set(mode, '[D', function()
-    -- local count = -(2 ^ 32)
-    -- vim.diagnostic.jump { count = count, float = float, wrap = false }
-
-    local count = 2 ^ 32 - 1
-    vim.diagnostic.goto_prev { count = count, float = float, wrap = false }
+    local count = -(2 ^ 32)
+    vim.diagnostic.jump { count = count, float = float, wrap = false }
   end, { desc = 'Jump to the first diagnostic in the current buffer' })
 end
 
