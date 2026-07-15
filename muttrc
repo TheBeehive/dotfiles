@@ -68,6 +68,45 @@ bind pager h noop
 
 # ================  Mailing Lists ====================
 subscribe pgsql-hackers
-subscribe linux-hyperv
 
-source ~/.mutt/macros
+source ~/.config/mutt/macros
+
+# ================  Patch Review ====================
+auto_view text/x-patch
+auto_view text/x-diff
+auto_view application/x-patch
+
+# ================ Other ====================
+unset help
+
+set status_on_top
+
+set status_format = '%D [Total: %m%<n? Unread: %n>%<F? Starred: %F>]%> (Sorted by %s then %S, %P)'
+
+color status default brightblack
+
+set index_format = '%@date@ %-16.16n │%<M? *> %s%@unread@'
+
+# Color the date of messages yellow
+color index_date yellow default
+
+# Format the date of a message as [hour on a 12 hour clock]:[minute] [AM/PM] if
+# it's less than a day old
+index-format-hook date '~d<1d' '%[%H:%M %p]'
+
+# Format the date of a message as [abbreviated name of month] [day of month] if
+# it's less than a year old
+index-format-hook date '~d<1y' '  %[%b %d]'
+
+# Otherwise, format the date of a message as [numeric month]/[numeric year with
+# century]
+index-format-hook date '~A'    ' %[%m/%Y]'
+
+# Color the author of messages from me blue
+color index_author blue default "~P"
+
+# Color the author of messages address to me red
+color index_author red default "~N ~p"
+
+# Append * to the right of unread messages
+index-format-hook unread '~N' '%* *'
