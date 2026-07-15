@@ -20,6 +20,7 @@ fi
 insert_path /usr/local/sbin
 insert_path /usr/local/bin
 insert_path ~/.local/bin
+insert_path ~/perl5/bin
 
 unset -f insert_path
 
@@ -53,5 +54,16 @@ if command -v brew > /dev/null; then
   export HOMEBREW_NO_INSTALL_CLEANUP=1
   export HOMEBREW_NO_INSTALL_UPGRADE=1
 fi
+
+# Annoying thing to make building postgres docs work
+# https://www.postgresql.org/docs/devel/docguide-toolsets.html
+if command -v brew > /dev/null; then
+  export XML_CATALOG_FILES=/opt/homebrew/etc/xml/catalog
+fi
+
+export PERL5LIB=~/perl5/lib/perl5
+export PERL_LOCAL_LIB_ROOT=~/perl5
+export PERL_MB_OPT="--install_base \"$HOME/perl5\""
+export PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"
 
 [ -f ~/.bashrc ] && source ~/.bashrc
