@@ -209,6 +209,10 @@ let fzf_layout = #{window: #{width: 0.8, height: 0.8}}
 let fzf_vim = #{preview_window: []}
 let fzf_vim.buffers_options = ['--prompt', 'Buffer› ']
 
+" mail
+autocmd FileType mail setlocal textwidth=0
+autocmd FileType c setlocal textwidth=78
+
 " gutentags
 
 let g:gutentags_ctags_exclude = [
