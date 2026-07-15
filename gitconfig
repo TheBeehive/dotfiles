@@ -5,6 +5,7 @@
 
 [core]
 	excludesfile = ~/.gitignore
+	pager = less -FXRS -x4
 
 [alias]
 	append = commit --amend --no-edit
