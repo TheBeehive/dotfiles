@@ -81,7 +81,7 @@ endif
 set incsearch
 
 " Visual
-set cursorline
+set nocursorline
 set display=lastline
 set laststatus=2
 set listchars=eol:¶,tab:→·,trail:·,extends:›,precedes:‹,nbsp:·
