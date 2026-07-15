@@ -165,6 +165,8 @@ nnoremap <Leader>re <Cmd>edit $MYVIMRC<CR>
 nnoremap ]] ][
 nnoremap ][ ]]
 
+nnoremap <Leader>pd :GdbStart gdb -q -p $(pgrep -f )<Left>
+
 " Abbreviations and Digraphs {{{1
 
 function! AbbreviatePrefix(prefix, to) abort
