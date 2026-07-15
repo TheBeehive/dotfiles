@@ -49,6 +49,7 @@ unset use_domain        # because joe@localhost is just embarrassing
 set realname = "Melanie Plageman"
 set from = "melanieplageman@gmail.com"
 set use_from = yes
+set followup_to = no
 
 # ================  Key Bindings ====================
 bind pager j next-line
