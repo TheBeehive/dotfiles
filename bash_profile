@@ -1,6 +1,6 @@
 ### ~/.bash_profile: Runtime configuration for login `bash`
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+[ -x /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 insert_path() {
   for i in "$@"; do
