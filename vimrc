@@ -5,6 +5,7 @@ if has('win32')
 endif
 
 call plug#begin('~/.vim/bundle')
+Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
 Plug 'deris/vim-shot-f'
 Plug 'farmergreg/vim-lastplace'
