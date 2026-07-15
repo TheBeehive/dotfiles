@@ -218,6 +218,7 @@ let g:gutentags_ctags_exclude = [
       \ 'configure.in', 'configure', 'config.status',
       \ '*.patch',
       \ '*.s',
+      \ '*pycache*',
       \]
 
 " vim-markdown
