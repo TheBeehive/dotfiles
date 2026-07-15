@@ -14,6 +14,8 @@ set postponed = +[Gmail]/Drafts
 # How often to check for new mail (time in seconds).
 set mail_check = 120
 
+set mailcap_path = "~/.config/mutt/mailcap"
+
 # ================  IMAP ====================
 set imap_user = 'melanieplageman@gmail.com'
 set imap_pass = `cat ~/.mutt/secret`
