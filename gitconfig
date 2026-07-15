@@ -12,3 +12,4 @@
 	br = branch
 	co = checkout
 	st = status
+	lo = log --oneline
