@@ -23,6 +23,7 @@ Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'sakhnik/nvim-gdb'
+Plug 'ntpeters/vim-better-whitespace'
 
 " Personal Plugins
 Plug 'ludovicchabant/vim-gutentags'
