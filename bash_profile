@@ -21,6 +21,7 @@ insert_path /usr/local/sbin
 insert_path /usr/local/bin
 insert_path ~/.local/bin
 insert_path ~/perl5/bin
+insert_path ~/.opencode/bin
 
 unset -f insert_path
 

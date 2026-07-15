@@ -164,6 +164,3 @@ if command -v fzf > /dev/null; then
 fi
 
 alias vim=nvim
-
-# opencode
-export PATH=/Users/melanieplageman/.opencode/bin:$PATH
