@@ -1,5 +1,7 @@
 ### ~/.bash_profile: Runtime configuration for login `bash`
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 insert_path() {
   for i in "$@"; do
     [[ -d "$i" && :"$PATH": != *:"$i":* ]] && export PATH="$i:$PATH"
