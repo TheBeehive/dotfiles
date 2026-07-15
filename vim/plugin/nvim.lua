@@ -141,10 +141,9 @@ vim.lsp.enable('ts_ls')
 
 -- nvim-treesitter
 
-local ok, treesitter = pcall(require, 'nvim-treesitter.configs')
+local ok, treesitter = pcall(require, 'nvim-treesitter')
 if ok then
-  treesitter.setup {
-    ensure_installed = { 'css', 'html', 'javascript', 'svelte' },
-    highlight = { enable = true },
+  treesitter.install {
+    'css', 'html', 'javascript', 'svelte', 'typescript',
   }
 end
