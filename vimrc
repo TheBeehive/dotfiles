@@ -215,6 +215,7 @@ autocmd FileType c setlocal textwidth=78
 
 " gutentags
 
+" TODO: how to do this per repo
 let g:gutentags_ctags_exclude = [
       \ '*.sql',
       \ '*.git', '*.json', '*.css', '*.xsl', '*.md',
@@ -223,7 +224,20 @@ let g:gutentags_ctags_exclude = [
       \ '*.patch',
       \ '*.s',
       \ '*pycache*',
+      \ 'build/tmp_install/*',
+      \ 'install/*',
       \]
+
+let g:gutentags_exclude_project_root = [
+      \ '/usr/local',
+      \ '/opt/homebrew',
+      \ '/home/linuxbrew/.linuxbrew',
+      \ '/tmp'
+      \]
+
+let g:gutentags_exclude_filetypes = ["git", "gitcommit"]
+
+let g:gutentags_file_list_command = 'ag -l'
 
 " vim-markdown
 
