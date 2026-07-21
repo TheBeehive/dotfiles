@@ -48,10 +48,12 @@ syntax enable
 
 " Behavior
 set autoread
-if has('unnamedplus')
-  set clipboard+=unnamedplus
-elseif has('unnamed')
-  set clipboard+=unnamed
+if has('clipboard')
+  if has('unnamedplus')
+    set clipboard+=unnamedplus
+  else
+    set clipboard+=unnamed
+  endif
 endif
 set complete-=u complete-=i
 set foldopen-=block
