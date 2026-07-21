@@ -12,10 +12,7 @@ set guioptions-=R
 set guioptions-=t
 set guioptions-=T
 
-if has("gui_macvim")
-  set guifont=Monaco:h12
-  set transparency=10
-elseif has('win32')
+if has('win32')
   set guifont=Consolas:h11
   set renderoptions=type:directx
   set winaltkeys=no
